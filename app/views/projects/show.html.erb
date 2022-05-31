@@ -1,0 +1,13 @@
+<div>
+  <%= @project.name %>
+  <% link_to "modifier", project_path(@project) %>
+  <%= link_to "archiver", project_path(@project) %>
+</div>
+
+<%= @project.description %>
+<%= @project.start_date, @project.end_date %>
+
+<div class="metiers">
+
+
+</div>

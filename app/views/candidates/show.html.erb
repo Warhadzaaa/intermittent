@@ -1,0 +1,14 @@
+<% if .avatar.attached? %>
+  <%= cl_image_tag(current_user.candidate.avatar.key,
+  width: 50, height: 50, crop: :fill) %>
+  <% else %>
+  <%= image_tag("https://picsum.photos/400/300",
+  width: 50, height: 50, crop: :fill)%>
+<% end %>
+
+<%= current_user.candidate.first_name %> <%= current_user.candidate.last_name %>
+<%= current_user.candidate.address %>
+<%= current_user.candidate.description %>
+<%= current_user.candidate.experiences %>
+<%= current_user.candidate.skills %>
+<%= current_user.candidate.availability %>

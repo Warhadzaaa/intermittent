@@ -1,0 +1,12 @@
+<h1>comany.name</h1>
+<ul>
+<% company.projects.foreach do |project| %>
+  <li><p><%= "Projet #{project.name}" %></p>
+    <p><%= "Du #{project.start_date} au #{project.end_date}" %></p>
+    <p><%= "Description : #{project.description}" %></p>
+    <p><%= "Satus : #{project.archived == true ? "terminé" : "en cours"}" %></p>
+    <p><%= "Nombre de candidats : #{project.candidates.count}" %></p>
+    <p><%= link_to "Enter", company_project_path(project.id) %></p>
+  </li>
+<% end %>
+</ul>
