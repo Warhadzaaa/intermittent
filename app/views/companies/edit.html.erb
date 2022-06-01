@@ -1,0 +1,15 @@
+<div class="container">
+<h2>Edit profile</h2>
+  <div>
+    <div>
+      <%= simple_form_for @company do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :description %>
+        <%= f.input :siret %>
+        <%= f.input :avatar, as: :file, input_html: { autocomplete: "avatar" } %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
