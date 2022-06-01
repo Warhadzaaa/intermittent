@@ -30,6 +30,10 @@ class ProjectsController < ApplicationController
     redirect_to company_project_path(@project)
   end
 
+  # def archive
+  #   raise
+  # end
+
   private
 
   def set_project
