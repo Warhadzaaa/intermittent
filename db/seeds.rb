@@ -90,7 +90,7 @@ task2.candidate = Candidate.last
 task2.save!
 puts "Task created"
 
-review1= Review.new(content: "Il a été parfait durant ce projet", rating: "4", task_id: task1)
-review2= Review.new(content: "Je le recommande totalement", rating: "5", task_id: task2)
+review1= Review.new(content: "Il a été parfait durant ce projet", rating: 4, task_id: task1)
+review2= Review.new(content: "Je le recommande totalement", rating: 5, task_id: task2)
 
 puts "Review created"
