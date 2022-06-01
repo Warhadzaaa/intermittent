@@ -6,13 +6,14 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @company = Company.find(params[:company_id])
   end
 
   def create
     @project = Project.new(project_params)
-    @project.company = current_user
+    @project.company = Company.find(params[:company_id])
     @project.save
-    redirect_to project_path(@project)
+    redirect_to company_projects_path(@project)
   end
 
   def edit
@@ -26,7 +27,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
-    redirect_to project_path(@project)
+    redirect_to company_project_path(@project)
   end
 
   private
