@@ -1,8 +1,15 @@
 class TasksController < ApplicationController
-   before_action :set_task, only: %i[update]
+   #before_action :set_task, only: %i[edit update]
 
 
   def create
+    @task = Task.new(task_params)
+    @company = Company.find_by(user: current_user)
+    @project = Project.find_by(company: @company)
+
+    raise
+    @task.save
+    redirect_to company_projects_path(current_user)
   end
 
   # def accept
@@ -28,6 +35,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:status, :start_date, :end_date)
+    params.require(:task).permit(:start_date, :end_date)
   end
 end

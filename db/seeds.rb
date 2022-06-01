@@ -32,34 +32,34 @@ user12 = User.create(email: "user12@gmail.com", password: "toto22", corporate: t
 
 puts "Creating candidate..."
 
-candidate1 = Candidate.create(first_name: "Jean", last_name: "Pierre", sector: "Production audiovisuelle", role:"Directeur de production", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description: "Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user1)
+candidate1 = Candidate.create(first_name: "Jean", last_name: "Pierre", sector: "TV production", role:"Directeur de production", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description: "Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user1)
 
 
-candidate2 = Candidate.create(first_name: "Louis", last_name: "Emile", sector: "Production audiovisuelle", role:"Coiffeur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user2)
+candidate2 = Candidate.create(first_name: "Louis", last_name: "Emile", sector: "TV production", role:"Coiffeur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user2)
 
 
-candidate3 = Candidate.create(first_name: "Marie", last_name: "Villard", sector: "Production audiovisuelle", role:"Décorateur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user3)
+candidate3 = Candidate.create(first_name: "Marie", last_name: "Villard", sector: "TV production", role:"Décorateur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user3)
 
 
-candidate4 = Candidate.create(first_name: "Carl", last_name: "Oss", sector: "Production audiovisuelle", role:"Dresseur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user4)
+candidate4 = Candidate.create(first_name: "Carl", last_name: "Oss", sector: "TV production", role:"Dresseur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user4)
 
 
-candidate5 = Candidate.create(first_name: "Wis", last_name: "Sam", sector: "Production audiovisuelle", role:"Chef monteur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user5)
+candidate5 = Candidate.create(first_name: "Wis", last_name: "Sam", sector: "TV production", role:"Chef monteur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user5)
 
 
-candidate6 = Candidate.create(first_name: "Gae", last_name: "Lle", sector: "Production audiovisuelle", role:"Costumier", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user6)
+candidate6 = Candidate.create(first_name: "Gae", last_name: "Lle", sector: "TV production", role:"Costumier", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user6)
 
 
-candidate7 = Candidate.create(first_name: "Paul", last_name: "Pierre", sector: "Production audiovisuelle", role:"Monteur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user7)
+candidate7 = Candidate.create(first_name: "Paul", last_name: "Pierre", sector: "TV production", role:"Monteur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user7)
 
 
-candidate8 = Candidate.create(first_name: "Guillaume", last_name: "Proto", sector: "Production audiovisuelle", role:"Monteur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user8)
+candidate8 = Candidate.create(first_name: "Guillaume", last_name: "Proto", sector: "TV production", role:"Monteur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user8)
 
 
-candidate9 = Candidate.create(first_name: "Julien", last_name: "Sac", sector: "Production audiovisuelle", role:"Monteur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user9)
+candidate9 = Candidate.create(first_name: "Julien", last_name: "Sac", sector: "TV production", role:"Monteur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user9)
 
+candidate10 = Candidate.create(first_name: "Victor", last_name: "Dupont", sector: "TV production", role:"Monteur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user10)
 
-candidate10 = Candidate.create(first_name: "Victor", last_name: "Dupont", sector: "Production audiovisuelle", role:"Monteur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user10)
 candidate12 = Candidate.create(first_name: "Pedro", last_name: "Almodovar", sector: "Production audiovisuelle", role:"Realisateur", skills: "blasdkckdsvhudjsd", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Barcelone", user: user12)
 
 puts "Candidate created"

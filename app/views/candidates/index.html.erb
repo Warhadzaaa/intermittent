@@ -1,0 +1,7 @@
+<% @candidates.each do |candidate| %>
+  <p><%= candidate.first_name %></p>
+  <p><%= candidate.last_name %></p>
+  <p><%= candidate.sector %></p>
+  <p><%= candidate.role %></p>
+  <%= link_to "enter", candidate_path(candidate) %>
+<% end %>
