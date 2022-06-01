@@ -7,11 +7,15 @@ Rails.application.routes.draw do
       resources :tasks, only: %i[create]
     end
   end
+
+  # get "archived/:id", to: "projects#archived", as: "archived"
+
   resources :candidates, except: :destroy
   resources :tasks, only: %i[update]
   resources :projects, only: %i[update edit]
 
   # get 'accept', to: 'tasks#accept'
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
