@@ -9,6 +9,7 @@ class CompaniesController < ApplicationController
 
   def update
     @company.update(company_params)
+    redirect_to company_path(current_user)
   end
 
   private

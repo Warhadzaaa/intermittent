@@ -1,4 +1,20 @@
-<h1> <%= @company.name %> </h1>
+ <% if @company.avatar.attached? %>
+  <%= cl_image_tag(@company.avatar.key,
+  width: 50, height: 50, crop: :fill) %>
+  <% else %>
+    <%= image_tag("https://picsum.photos/400/300",
+    width: 50, height: 50, crop: :fill)%>
+<% end %>
+<h1><%= @company.name %></h1>
+<p>SIRET <%= @company.siret %></p>
+<h4>Address :</h4>
+<p><%= @company.address %></p>
+<h4>Description :</h4>
+<p><%= @company.description %></p>
+<%= link_to 'Edit profile',  edit_company_path(@company.id)%>
+
+
+
 <ul>
 <% @company.projects.each do |project| %>
   <li><p><%= "Projet #{project.name}" %></p>
@@ -6,7 +22,9 @@
     <p><%= "Description : #{project.description}" %></p>
     <p><%= "Status : #{project.archived == true ? "closed" : "live"}" %></p>
     <p><%= link_to "Enter", company_project_path(project.id) %></p>
-    <%# <p><%= link_to "Archive", archived_path(project) %> %>
+    <%# <p><%= link_to "Archive", archived_path(project) %>
   </li>
 <% end %>
 </ul>
+
+<%= link_to "Add a project", new_company_project_path(@company.id) %>
