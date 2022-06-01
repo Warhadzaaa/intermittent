@@ -12,7 +12,11 @@ Rails.application.routes.draw do
 
   resources :candidates, except: :destroy
   resources :tasks, only: %i[update]
-  resources :projects, only: %i[update edit]
+  resources :projects, only: %i[update edit] do
+    member do
+      post "archive", to: "projects#archive"
+    end
+  end
 
   # get 'accept', to: 'tasks#accept'
 
