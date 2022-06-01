@@ -1,5 +1,5 @@
   <%= @project.name %> <br>
-  <%=link_to "edit", company_projects_path(@project) %> <br>
+  <%=link_to "edit", edit_project_path(@project) %> <br>
   <%= link_to "archive", company_projects_path(@project) %> <br>
 
 
@@ -10,12 +10,16 @@
 <p>end date</p><%=  @project.end_date %>
 
 <h2>TASKS</h2>
-
+<ul>
 <% @project.tasks.each do |task|  %>
-  <%= task.candidate.first_name %>
+  <li><%= task.candidate.first_name %>
   <%= task.candidate.last_name %>
   <%= task.status %>
   <%= task.start_date %>
   <%= task.end_date %>
-  <br>
+  <% if task.end_date < Date.today %>
+    <%= link_to "Write a review", new_review_path %>
+    <% end %>
+  <br></li>
 <% end %>
+</ul>
