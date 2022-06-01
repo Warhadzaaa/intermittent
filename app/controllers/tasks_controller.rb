@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-   #before_action :set_task, only: %i[edit update]
+   before_action :set_task, only: %i[update]
 
 
   def create
@@ -13,7 +13,6 @@ class TasksController < ApplicationController
   # end
 
   def update
-    raise
     @task.update(task_params)
     if current_user.corporate
       redirect_to company_path(current_user)
