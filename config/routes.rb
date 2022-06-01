@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :companies, only: %i[show edit update] do
     resources :projects, except: %i[index destroy update edit] do
-      resources :tasks, only: %i[create]
+      resources :tasks, only: :create do
+        resources :reviews, only: :create
+      end
     end
   end
 

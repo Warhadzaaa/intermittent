@@ -27,6 +27,15 @@
 <br>
 <br>
 
+<h1>Reviews</h1>
+  <% @candidate.tasks.each do |task| %>
+    <p><strong><%= task.project.company.name %></strong> - <%= task.reviews.rating %>/5</p>
+    <p><i>"<%= task.reviews.content %>"<i></p>
+  <% end %>
+
+<br>
+<br>
+
 <% if current_user == @candidate.user %>
   <h4>Tasks :</h4>
   <% @candidate.tasks.each do |task| %>
@@ -42,6 +51,5 @@
 
       <%#= link_to "Accept", accept_path('task_id' => task) %>
     <% end %>
-
   <% end %>
 <% end %>
