@@ -1,13 +1,13 @@
-class TaskController < ApplicationController
+class Tasksontroller < ApplicationController
    before_action :set_task, only: %i[edit update]
-  
-  
+
+
   def create
-  
+
   end
-  
- 
-  
+
+
+
   def edit
   end
 
@@ -29,5 +29,5 @@ class TaskController < ApplicationController
   def task_params
     params.require(:task).permit(:status, :start_date, :end_date)
   end
-  
+
 end
