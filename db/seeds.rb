@@ -81,4 +81,9 @@ task1 = Task.new(status: "Awaiting", start_date: Date.today, end_date: Date.toda
 task1.project = Project.first
 task1.candidate = Candidate.first
 task1.save!
-puts "Company created"
+
+task2 = Task.new(status: "Accepted", start_date: Date.today, end_date: Date.today + 6)
+task2.project = Project.first
+task2.candidate = Candidate.last
+task2.save!
+puts "Task created"
