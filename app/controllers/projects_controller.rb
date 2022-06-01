@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update]
-  
+
   def show
   end
 
@@ -18,6 +18,12 @@ class ProjectsController < ApplicationController
   def edit
   end
 
+  # def archived
+  #   @project = Project.find(params[:id])
+  #   @project.update(archived: !@project.archived)
+  #   redirect_to company_path(@project.company)
+  # end
+
   def update
     @project.update(project_params)
     redirect_to project_path(@project)
@@ -27,7 +33,7 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:id])
-end
+  end
 
   def project_params
     params.require(:project).permit(:name, :start_date, :end_date, :description, :archived)

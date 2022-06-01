@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :candidates, except: :delete
+  # get "archived/:id", to: "projects#archived", as: "archived"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
