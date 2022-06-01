@@ -19,7 +19,8 @@
   <%= task.end_date %>
   <% if task.end_date < Date.today %>
     <%= link_to "Write a review", new_review_path %>
-    <% end %>
-  <br></li>
+  <% end %>
+  </li>
+  <br>
 <% end %>
 </ul>
