@@ -3,6 +3,12 @@ class TasksController < ApplicationController
 
 
   def create
+    @task = Task.new(task_params)
+    @company = Company.find_by(user: current_user)
+    @project = Project.find_by(company: @company)
+    raise
+    @task.save
+    redirect_to company_projects_path(current_user)
   end
 
   # def accept
@@ -13,7 +19,6 @@ class TasksController < ApplicationController
   # end
 
   def update
-    raise
     @task.update(task_params)
     if current_user.corporate
       redirect_to company_path(current_user)
@@ -29,6 +34,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:status, :start_date, :end_date)
+    params.require(:task).permit(:start_date, :end_date)
   end
 end

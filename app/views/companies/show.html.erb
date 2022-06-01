@@ -1,6 +1,6 @@
-<h1>comany.name</h1>
+<h1>company.name</h1>
 <ul>
-<% company.projects.foreach do |project| %>
+<% @company.projects.each do |project| %>
   <li><p><%= "Projet #{project.name}" %></p>
     <p><%= "Du #{project.start_date} au #{project.end_date}" %></p>
     <p><%= "Description : #{project.description}" %></p>

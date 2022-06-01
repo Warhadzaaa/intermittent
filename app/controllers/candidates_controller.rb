@@ -6,6 +6,9 @@ class CandidatesController < ApplicationController
   end
 
   def show
+    @task = Task.new
+    @company = Company.find_by(user: current_user)
+    @project = Project.find_by(company: @company)
   end
 
   def edit
