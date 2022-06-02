@@ -1,22 +1,6 @@
-<div>
-  <% if @company.avatar.attached? %>
-    <%= cl_image_tag(@company.avatar.key,
-    width: 50, height: 50, crop: :fill) %>
-    <% else %>
-      <%= image_tag("https://picsum.photos/400/300",
-      width: 50, height: 50, crop: :fill)%>
-  <% end %>
-  <h1><%= @company.name %></h1>
-  <p>SIRET <%= @company.siret %></p>
-  <h4>Address :</h4>
-  <p><%= @company.address %></p>
-  <h4>Description :</h4>
-  <p><%= @company.description %></p>
-  <% if current_user == @company.user %>
-    <%= link_to 'Edit profile',  edit_company_path(@company.id)%>
-  <% end %>
-</div>
+<div class="container">
 
+<<<<<<< HEAD
 <div class= "card_project">
 <ul>
 <% @company.projects.each do |project| %>
@@ -27,10 +11,49 @@
     <div class="btn-details">
     <p><%= link_to "More details", company_project_path(project.id) %></p>
     <%# <p><%= link_to "Archive", archived_path(project) %>
-    </div>
-  </li>
-<% end %>
-</ul>
+=======
+  <div class="row d-flex">
 
-<%= link_to "Add a project", new_company_project_path(@company.id) %>
+    <div class="card_profile_company">
+      <% if @company.avatar.attached? %>
+        <%= cl_image_tag(@company.avatar.key,
+        width: 50, height: 50, crop: :fill) %>
+      <% else %>
+        <%= image_tag("https://picsum.photos/400/300",
+        width: 50, height: 50, crop: :fill)%>
+      <% end %>
+      <h1><%= @company.name %></h1>
+      <p>SIRET <%= @company.siret %></p>
+      <h4>Address :</h4>
+      <p><%= @company.address %></p>
+      <h4>Description :</h4>
+      <p><%= @company.description %></p>
+      <% if current_user == @company.user %>
+        <%= link_to 'Edit profile',  edit_company_path(@company.id)%>
+      <% end %>
+>>>>>>> master
+    </div>
+
+    <div class="">
+      <% @company.projects.each do |project| %>
+
+        <div class="card_project">
+          <%= link_to "Add a project", new_company_project_path(@company.id) %>
+        </div>
+
+        <div class="card_project">
+          <p><%= "Projet #{project.name}" %></p>
+          <p><%= "Du #{project.start_date} au #{project.end_date}" %></p>
+          <p><%= "Description : #{project.description}" %></p>
+          <p><%= "Status : #{project.archived == true ? "closed" : "live"}" %></p>
+          <div class="btn-details">
+          <p><%= link_to "More details", company_project_path(project.id) %></p>
+          <%# <p><%= link_to "Archive", archived_path(project) %>
+          </div>
+        <% end %>
+        </div>
+    </div>
+
+  </div>
+
 </div>
