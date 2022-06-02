@@ -7,7 +7,7 @@
     width: 50, height: 50, crop: :fill)%>
 <% end %>
 <h1><%= @candidate.first_name %> <%= @candidate.last_name %></h1>
-<p><%= "Adress : #{@candidate.address}" %></p>
+<p><%= "Address : #{@candidate.address}" %></p>
 <h4>Role :</h4>
 <p><%= @candidate.role %></p>
 <h4>Sector :</h4>
@@ -20,8 +20,9 @@
 <p><%= @candidate.skills %></p>
 
 <% if current_user == @candidate.user %>
+<div class = "btn-edit">
   <%= link_to 'Edit profile', edit_candidate_path(@candidate.id)%>
-
+</div>
   <p><%= "Availability : #{@candidate.availability}" %></p>
   <%= simple_form_for @candidate do |f| %>
           <%= f.input :availability %>
@@ -36,7 +37,6 @@
     <p><strong><%= task.project.company.name %></strong> - <%= task.reviews.rating %>/5</p>
     <p><i>"<%= task.reviews.content %>"<i></p>
   <% end %>
-
 <br>
 <br>
 

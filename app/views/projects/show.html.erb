@@ -1,9 +1,14 @@
-  <%= @project.name %> <br>
+<%= @project.name %> <br>
+<div class="btn-edit">
   <%=link_to "edit", edit_project_path(@project) %> <br>
+</div>
+<div class="btn-archive">
   <%= link_to "archive", company_projects_path(@project) %> <br>
 
-
-<%= link_to "search for candidates", candidates_path %> <br>
+</div>
+<div class="btn-search">
+  <%= link_to "search for candidates", candidates_path %> <br>
+</div>
 
 <p>description</p> <%= @project.description %> <br>
 <p>start date</p><%= @project.start_date %>
