@@ -13,6 +13,9 @@ class CandidatesController < ApplicationController
       @company = Company.find(params[:company_id]) if params[:company_id]
       @project = Project.find(params[:project_id]) if params[:project_id]
     end
+    @reviews = []
+    @candidate.tasks.each do |task|
+    @reviews << task.review
   end
 
   def edit

@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
 
   def show
     @company = Company.find(params[:company_id])
+    @review = Review.new
   end
 
   def new
