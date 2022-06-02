@@ -1,5 +1,4 @@
 <div class="container">
-  <div class="row d-flex">
 
     <div class="card_profile_project">
       <p><%= @project.name %></p>
@@ -15,29 +14,28 @@
     </div>
 
     <div class="">
+
       <div class="btn-search">
         <%= link_to "search for candidates", company_project_candidates_path(@company, @project) %> <br>
       </div>
 
-
-    <% @project.tasks.each do |task|  %>
-      <div class="card_project">
-        <p><%= task.candidate.first_name %></p>
-        <p><%= task.candidate.last_name %></p>
-        <p><%= task.status %></p>
-        <p><%= task.start_date %></p>
-        <p><%= task.end_date %></p>
-        <%= simple_form_for (task) do |f| %>
-              <%= f.input :status, collection: ["Archived"] %>
-              <%= f.button :submit %>
+      <% @project.tasks.each do |task|  %>
+        <div class="card_project">
+          <p><%= task.candidate.first_name %></p>
+          <p><%= task.candidate.last_name %></p>
+          <p><%= task.status %></p>
+          <p><%= task.start_date %></p>
+          <p><%= task.end_date %></p>
+          <%= simple_form_for (task) do |f| %>
+                <%= f.input :status, collection: ["Archived"] %>
+                <%= f.button :submit %>
+            <% end %>
+          <% if task.end_date < Date.today %>
+            <%= link_to "Write a review", new_review_path %>
           <% end %>
-        <% if task.end_date < Date.today %>
-          <%= link_to "Write a review", new_review_path %>
-        <% end %>
-        <br>
+          <br>
+        </div>
       <% end %>
-    </div>
-
 
   </div>
 
