@@ -20,7 +20,7 @@
 <div class= "card_project">
 <ul>
 <% @company.projects.each do |project| %>
-  <li><p><%= "Projet #{project.name}" %></p>
+    <h4><%= "Projet #{project.name}" %></h4>
     <p><%= "Du #{project.start_date} au #{project.end_date}" %></p>
     <p><%= "Description : #{project.description}" %></p>
     <p><%= "Status : #{project.archived == true ? "closed" : "live"}" %></p>
