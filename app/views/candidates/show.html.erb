@@ -39,11 +39,11 @@
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>
         <%= f.button :submit %>
+        <% end %>
       <% end %>
-     <% end %>
    </div>
 
-  <div class="row">
+  <div class="">
     <% if current_user == @candidate.user %>
       <h4>Tasks :</h4>
       <% @candidate.tasks.each do |task| %>
