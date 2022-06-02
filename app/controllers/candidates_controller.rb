@@ -6,6 +6,9 @@ class CandidatesController < ApplicationController
   end
 
   def show
+    @task = Task.new
+    @company = Company.find_by(user: current_user)
+    @project = Project.find_by(company: @company)
   end
 
   def edit
@@ -23,6 +26,6 @@ class CandidatesController < ApplicationController
   end
 
   def candidate_params
-    params.require(:candidate).permit(:first_name, :last_name, :skills, :description, :experiences, :address, :role, :availability)
+    params.require(:candidate).permit(:first_name, :last_name, :skills, :description, :experiences, :address, :role, :availability, :sector)
   end
 end

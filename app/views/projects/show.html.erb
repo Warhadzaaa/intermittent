@@ -4,10 +4,12 @@
 </div>
 <div class="btn-archive">
   <%= link_to "archive", company_projects_path(@project) %> <br>
+
 </div>
 <div class="btn-search">
   <%= link_to "search for candidates", candidates_path %> <br>
 </div>
+
 <p>description</p> <%= @project.description %> <br>
 <p>start date</p><%= @project.start_date %>
 <p>end date</p><%=  @project.end_date %>
@@ -22,7 +24,8 @@
   <%= task.end_date %>
   <% if task.end_date < Date.today %>
     <%= link_to "Write a review", new_review_path %>
-    <% end %>
-  <br></li>
+  <% end %>
+  </li>
+  <br>
 <% end %>
 </ul>

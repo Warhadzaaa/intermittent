@@ -18,14 +18,25 @@
 <p><%= @candidate.experiences %></p>
 <h4>Skills :</h4>
 <p><%= @candidate.skills %></p>
+
+<% if current_user == @candidate.user %>
 <div class = "btn-edit">
   <%= link_to 'Edit profile', edit_candidate_path(@candidate.id)%>
 </div>
-<p><%= "Availability : #{@candidate.availability}" %></p>
-<%= simple_form_for @candidate do |f| %>
-        <%= f.input :availability %>
-        <%= f.button :submit %>
-      <% end %>
+  <p><%= "Availability : #{@candidate.availability}" %></p>
+  <%= simple_form_for @candidate do |f| %>
+          <%= f.input :availability %>
+          <%= f.button :submit %>
+        <% end %>
+<% end %>
+<br>
+<br>
+
+<h1>Reviews</h1>
+  <% @candidate.tasks.each do |task| %>
+    <p><strong><%= task.project.company.name %></strong> - <%= task.reviews.rating %>/5</p>
+    <p><i>"<%= task.reviews.content %>"<i></p>
+  <% end %>
 <br>
 <br>
 
@@ -44,6 +55,14 @@
 
       <%#= link_to "Accept", accept_path('task_id' => task) %>
     <% end %>
-
   <% end %>
+<% end %>
+
+<% if current_user.corporate %>
+  <h2>Dates:</h2>
+      <%= simple_form_for [@company, @project, @task] do |f| %>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.button :submit %>
+      <% end %>
 <% end %>
