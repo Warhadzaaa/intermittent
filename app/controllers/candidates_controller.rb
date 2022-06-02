@@ -10,13 +10,12 @@ class CandidatesController < ApplicationController
   def show
     if current_user.corporate
       @task = Task.new
-      @company = Company.find(params[:company_id])
-      @project = Project.find(params[:project_id])
+      @company = Company.find(params[:company_id]) if params[:company_id]
+      @project = Project.find(params[:project_id]) if params[:project_id]
     end
     @reviews = []
     @candidate.tasks.each do |task|
-      @reviews << task.review
-    end
+    @reviews << task.review
   end
 
   def edit
