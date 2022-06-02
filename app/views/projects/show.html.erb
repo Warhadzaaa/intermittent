@@ -1,37 +1,44 @@
-<%= @project.name %> <br>
-<div class="btn-edit">
-  <%=link_to "edit", edit_project_path(@project) %> <br>
+<div class="container">
+  <div class="row d-flex">
+
+    <div class="card_profile_project">
+      <p><%= @project.name %></p>
+      <p>description</p> <%= @project.description %> <br>
+      <p>start date</p><%= @project.start_date %>
+      <p>end date</p><%=  @project.end_date %>
+      <div class="btn-edit">
+        <%=link_to "edit", edit_project_path(@project) %> <br>
+      </div>
+      <div class="btn-archive">
+        <%= link_to "archive", company_projects_path(@project) %> <br>
+      </div>
+    </div>
+
+    <div class="">
+      <div class="btn-search">
+        <%= link_to "search for candidates", company_project_candidates_path(@company, @project) %> <br>
+      </div>
+
+
+    <% @project.tasks.each do |task|  %>
+      <div class="card_project">
+        <p><%= task.candidate.first_name %></p>
+        <p><%= task.candidate.last_name %></p>
+        <p><%= task.status %></p>
+        <p><%= task.start_date %></p>
+        <p><%= task.end_date %></p>
+        <%= simple_form_for (task) do |f| %>
+              <%= f.input :status, collection: ["Archived"] %>
+              <%= f.button :submit %>
+          <% end %>
+        <% if task.end_date < Date.today %>
+          <%= link_to "Write a review", new_review_path %>
+        <% end %>
+        <br>
+      <% end %>
+    </div>
+
+
+  </div>
+
 </div>
-<div class="btn-archive">
-  <%= link_to "archive", company_projects_path(@project) %> <br>
-</div>
-
-<div class="btn-search">
-  <%= link_to "search for candidates", company_project_candidates_path(@company, @project) %> <br>
-</div>
-
-
-
-<p>description</p> <%= @project.description %> <br>
-<p>start date</p><%= @project.start_date %>
-<p>end date</p><%=  @project.end_date %>
-
-<h2>TASKS</h2>
-<ul>
-<% @project.tasks.each do |task|  %>
-  <li><%= task.candidate.first_name %>
-  <%= task.candidate.last_name %>
-  <%= task.status %>
-  <%= task.start_date %>
-  <%= task.end_date %>
-  <%= simple_form_for (task) do |f| %>
-        <%= f.input :status, collection: ["Archived"] %>
-        <%= f.button :submit %>
-    <% end %>
-  <% if task.end_date < Date.today %>
-    <%= link_to "Write a review", new_review_path %>
-  <% end %>
-  </li>
-  <br>
-<% end %>
-</ul>

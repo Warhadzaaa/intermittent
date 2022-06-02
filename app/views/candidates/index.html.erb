@@ -1,18 +1,24 @@
-<% @candidates.each do |candidate| %>
-  <% if candidate.avatar.attached? %>
-    <%= cl_image_tag(candidate.avatar.key,
-    width: 50, height: 50, crop: :fill) %>
-  <% else %>
-    <%= image_tag("https://picsum.photos/400/300",
-    width: 50, height: 50, crop: :fill)%>
-  <% end %>
-  <p><%= candidate.first_name %></p>
-  <p><%= candidate.last_name %></p>
-  <p><%= candidate.sector %></p>
-  <p><%= candidate.role %></p>
-  <%= link_to "enter", company_project_candidate_path(@company, @project, candidate) %>
-  <br>
-  <br>
-  <br>
+<div class="container">
 
-<% end %>
+  <div class="row">
+    <% @candidates.each do |candidate| %>
+
+      <div class="">
+        <% if candidate.avatar.attached? %>
+          <%= cl_image_tag(candidate.avatar.key,
+          width: 50, height: 50, crop: :fill) %>
+        <% else %>
+          <%= image_tag("https://picsum.photos/400/300",
+          width: 50, height: 50, crop: :fill)%>
+        <% end %>
+        <p><%= candidate.first_name %></p>
+        <p><%= candidate.last_name %></p>
+        <p><%= candidate.sector %></p>
+        <p><%= candidate.role %></p>
+        <%= link_to "enter", company_project_candidate_path(@company, @project, candidate) %>
+      </div>
+
+    <% end %>
+  </div>
+
+</div>
