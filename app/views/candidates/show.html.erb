@@ -7,7 +7,7 @@
     width: 50, height: 50, crop: :fill)%>
 <% end %>
 <h1><%= @candidate.first_name %> <%= @candidate.last_name %></h1>
-<p><%= "Adress : #{@candidate.address}" %></p>
+<p><%= "Address : #{@candidate.address}" %></p>
 <h4>Role :</h4>
 <p><%= @candidate.role %></p>
 <h4>Sector :</h4>
@@ -31,11 +31,6 @@
 <br>
 <br>
 
-<h1>Reviews</h1>
-  <% @candidate.tasks.each do |task| %>
-    <p><strong><%= task.project.company.name %></strong> - <%= task.reviews.rating %>/5</p>
-    <p><i>"<%= task.reviews.content %>"<i></p>
-  <% end %>
 
 <br>
 <br>
@@ -59,8 +54,8 @@
 <% end %>
 
 <% if current_user.corporate %>
-  <h2>Dates:</h2>
-      <%= simple_form_for [@company, @project, @task] do |f| %>
+  <h2>Add a candidate:</h2>
+      <%= simple_form_for [@company, @project, @candidate, @task] do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>
         <%= f.button :submit %>

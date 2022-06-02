@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update]
 
   def show
+    @company = Company.find(params[:company_id])
   end
 
   def new

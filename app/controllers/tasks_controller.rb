@@ -4,12 +4,14 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @company = Company.find_by(user: current_user)
-    @project = Project.find_by(company: @company)
-
-    raise
-    @task.save
-    redirect_to company_projects_path(current_user)
+    @company = Company.find(params[:company_id])
+    @project = Project.find(params[:project_id])
+    @candidate = Candidate.find(params[:candidate_id])
+    @task.candidate = @candidate
+    @task.project = @project
+    @task.status = "Awaiting"
+    @task.save!
+    redirect_to company_project_path(@company, @project)
   end
 
   # def accept
