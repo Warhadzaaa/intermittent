@@ -20,8 +20,9 @@
 <p><%= @candidate.skills %></p>
 
 <% if current_user == @candidate.user %>
+<div class = "btn-edit">
   <%= link_to 'Edit profile', edit_candidate_path(@candidate.id)%>
-
+</div>
   <p><%= "Availability : #{@candidate.availability}" %></p>
   <%= simple_form_for @candidate do |f| %>
           <%= f.input :availability %>
@@ -31,6 +32,11 @@
 <br>
 <br>
 
+<h1>Reviews</h1>
+  <% @candidate.tasks.each do |task| %>
+    <p><strong><%= task.project.company.name %></strong> - <%= task.reviews.rating %>/5</p>
+    <p><i>"<%= task.reviews.content %>"<i></p>
+  <% end %>
 
 <br>
 <br>

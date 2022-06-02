@@ -24,8 +24,10 @@
     <p><%= "Du #{project.start_date} au #{project.end_date}" %></p>
     <p><%= "Description : #{project.description}" %></p>
     <p><%= "Status : #{project.archived == true ? "closed" : "live"}" %></p>
-    <p><%= link_to "Enter", company_project_path(project.id) %></p>
+    <div class="btn-details">
+    <p><%= link_to "More details", company_project_path(project.id) %></p>
     <%# <p><%= link_to "Archive", archived_path(project) %>
+    </div>
   </li>
 <% end %>
 </ul>
