@@ -1,23 +1,23 @@
+<div>
+  <% if @company.avatar.attached? %>
+    <%= cl_image_tag(@company.avatar.key,
+    width: 50, height: 50, crop: :fill) %>
+    <% else %>
+      <%= image_tag("https://picsum.photos/400/300",
+      width: 50, height: 50, crop: :fill)%>
+  <% end %>
+  <h1><%= @company.name %></h1>
+  <p>SIRET <%= @company.siret %></p>
+  <h4>Address :</h4>
+  <p><%= @company.address %></p>
+  <h4>Description :</h4>
+  <p><%= @company.description %></p>
+  <% if current_user == @company.user %>
+    <%= link_to 'Edit profile',  edit_company_path(@company.id)%>
+  <% end %>
+</div>
 
- <% if @company.avatar.attached? %>
-  <%= cl_image_tag(@company.avatar.key,
-  width: 50, height: 50, crop: :fill) %>
-  <% else %>
-    <%= image_tag("https://picsum.photos/400/300",
-    width: 50, height: 50, crop: :fill)%>
-<% end %>
-<h1><%= @company.name %></h1>
-<p>SIRET <%= @company.siret %></p>
-<h4>Address :</h4>
-<p><%= @company.address %></p>
-<h4>Description :</h4>
-<p><%= @company.description %></p>
-<% if current_user == @company.user %>
-  <%= link_to 'Edit profile',  edit_company_path(@company.id)%>
-<% end %>
-
-
-
+<div class= "card_project">
 <ul>
 <% @company.projects.each do |project| %>
   <li><p><%= "Projet #{project.name}" %></p>
@@ -33,3 +33,4 @@
 </ul>
 
 <%= link_to "Add a project", new_company_project_path(@company.id) %>
+</div>
