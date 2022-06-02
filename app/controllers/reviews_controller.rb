@@ -1,17 +1,15 @@
 class ReviewsController < ApplicationController
-  # def create
-  #   @task = Task.find(params[:task_id])
-  #   if @task.review.nil?
-  #     @review = Review.new(review_params)
-  #     @review.task = @task
-  #     @review.save
-  #     redirect_to task_path(@task)
-  #   end
-  # end
+  def create
+    @review = Review.new(review_params)
+    @task = Task.find(params[:task_id])
+    @review.task = @task
+    @review.save
+    redirect_to project_path(@review.task.project.company, @review.task.project)
+  end
 
-  # private
+  private
 
-  # def plant_params
-  #   params.require(:review).permit(:content, :rating)
-  # end
+  def review_params
+    params.require(:review).permit(:content, :rating)
+  end
 end
