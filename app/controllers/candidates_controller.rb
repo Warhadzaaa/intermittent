@@ -8,10 +8,11 @@ class CandidatesController < ApplicationController
   end
 
   def show
-    @task = Task.new
-    @company = Company.find(params[:company_id])
-    @project = Project.find(params[:project_id])
-
+    if current_user.corporate
+      @task = Task.new
+      @company = Company.find(params[:company_id]) if params[:company_id]
+      @project = Project.find(params[:project_id]) if params[:project_id]
+    end
   end
 
   def edit
