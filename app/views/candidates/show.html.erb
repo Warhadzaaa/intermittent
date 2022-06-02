@@ -37,6 +37,7 @@
     <p><strong><%= task.project.company.name %></strong> - <%= task.reviews.rating %>/5</p>
     <p><i>"<%= task.reviews.content %>"<i></p>
   <% end %>
+
 <br>
 <br>
 
@@ -59,8 +60,8 @@
 <% end %>
 
 <% if current_user.corporate %>
-  <h2>Dates:</h2>
-      <%= simple_form_for [@company, @project, @task] do |f| %>
+  <h2>Add a candidate:</h2>
+      <%= simple_form_for [@company, @project, @candidate, @task] do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>
         <%= f.button :submit %>

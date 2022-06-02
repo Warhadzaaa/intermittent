@@ -3,12 +3,15 @@ class CandidatesController < ApplicationController
 
   def index
     @candidates = Candidate.all
+    @company = Company.find(params[:company_id])
+    @project = Project.find(params[:project_id])
   end
 
   def show
     @task = Task.new
-    @company = Company.find_by(user: current_user)
-    @project = Project.find_by(company: @company)
+    @company = Company.find(params[:company_id])
+    @project = Project.find(params[:project_id])
+
   end
 
   def edit
