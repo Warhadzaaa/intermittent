@@ -19,19 +19,23 @@
 <h2>TASKS</h2>
 <ul>
 <% @project.tasks.each do |task|  %>
-  <li><%= task.candidate.first_name %>
+  <li>
+  <%= task.candidate.first_name %>
   <%= task.candidate.last_name %>
   <%= task.status %>
   <%= task.start_date %>
   <%= task.end_date %>
   <%= simple_form_for (task) do |f| %>
-        <%= f.input :status, collection: ["Archived"] %>
-        <%= f.button :submit %>
+    <%= f.input :status, collection: ["Archived"] %>
+    <%= f.button :submit %>
+  <% end %>
+  <% if task.review.nil? && task.end_date < Date.today %>
+    <%= simple_form_for([@company, @project, task, @review], method: :post) do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
+      <%= f.button :submit, label: "Write a review" %>
     <% end %>
-  <% if task.end_date < Date.today %>
-    <%= link_to "Write a review", new_review_path %>
   <% end %>
   </li>
-  <br>
 <% end %>
 </ul>

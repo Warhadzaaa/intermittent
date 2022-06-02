@@ -12,6 +12,15 @@ Rails.application.routes.draw do
     end
   end
 
+  # ressources pour les reviews
+  resources :companies, only: :show do
+    resources :projects, only: :show do
+      resources :tasks, only: :create do
+        resources :reviews, only: :create
+      end
+    end
+  end
+
   # get "archived/:id", to: "projects#archived", as: "archived"
 
   resources :candidates, except: :destroy
@@ -23,8 +32,6 @@ Rails.application.routes.draw do
   end
 
   # get 'accept', to: 'tasks#accept'
-
-
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
