@@ -1,77 +1,87 @@
 <div class="container">
 
-  <div class="card_profile_candidate">
-    <% if @candidate.avatar.attached? %>
-      <%= cl_image_tag(@candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
-    <% else %>
-      <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
-    <% end %>
-
-    <h1><%= @candidate.first_name %> <%= @candidate.last_name %></h1>
-    <p><%= "Address : #{@candidate.address}" %></p>
-    <h4>Role :</h4>
-    <p><%= @candidate.role %></p>
-    <h4>Sector :</h4>
-    <p><%= @candidate.sector %></p>
-    <h4>Description :</h4>
-    <p><%= @candidate.description %></p>
-    <h4>Experiences :</h4>
-    <p><%= @candidate.experiences %></p>
-    <h4>Skills :</h4>
-    <p><%= @candidate.skills %></p>
-
-    <% if current_user == @candidate.user %>
-      <div class = "btn-edit">
-        <%= link_to 'Edit profile', edit_candidate_path(@candidate.id)%>
-      </div>
-      <p><%= "Availability : #{@candidate.availability}" %></p>
-      <%= simple_form_for @candidate do |f| %>
-        <%= f.input :availability %>
-        <%= f.button :submit %>
+  <div class="d-flex">
+    <div class="card_profile_candidate">
+      <% if @candidate.avatar.attached? %>
+        <%= cl_image_tag(@candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
+      <% else %>
+        <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
       <% end %>
-    <% end %>
-  </div>
 
-  <div class="card_new_task">
-    <% if current_user.corporate && @company && @project && @candidate %>
-      <h2>Add a task:</h2>
-      <%= simple_form_for [@company, @project, @candidate, @task] do |f| %>
-        <%= f.input :start_date, as: :date, html5: true %>
-        <%= f.input :end_date, as: :date, html5: true %>
-        <%= f.button :submit %>
+      <h1><%= @candidate.first_name %> <%= @candidate.last_name %></h1>
+      <p><%= "Address : #{@candidate.address}" %></p>
+      <p><%= @candidate.role %></p>
+      <p><%= @candidate.sector %></p>
+      <p><%= @candidate.description %></p>
+      <p><%= @candidate.experiences %></p>
+      <p><%= @candidate.skills %></p>
+
+      <% if current_user == @candidate.user %>
+        <div class = "btn-edit">
+          <%= link_to 'Edit profile', edit_candidate_path(@candidate.id)%>
+        </div>
+        <p><%= "Availability : #{@candidate.availability}" %></p>
+        <%= simple_form_for @candidate do |f| %>
+          <%= f.input :availability %>
+          <%= f.button :submit %>
         <% end %>
       <% end %>
-   </div>
+    </div>
 
-  <div class="">
-    <% if current_user == @candidate.user %>
-      <h4>Tasks :</h4>
-      <% @candidate.tasks.each do |task| %>
-        <div class="card_task">
-          <% if task.status == "Awaiting" %>
-            <%= simple_form_for (task) do |f| %>
-                <%= f.input :status, collection: ["Accepted", "Declined"] %>
-                <%= f.button :submit %>
-            <% end %>
-            <%#= link_to "Accept", accept_path('task_id' => task) %>
+    <% if current_user.corporate && @company && @project && @candidate %>
+        <div class="card_new_task">
+          <%= simple_form_for [@company, @project, @candidate, @task] do |f| %>
+            <%= f.input :start_date, as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true %>
+            <%= f.button :submit %>
           <% end %>
         </div>
-        <p><%= "Project : #{task.project.name}" %></p>
-        <p><%= "From #{task.start_date} to #{task.end_date}" %></p>
-        <p><%= "Description : #{task.project.description}" %></p>
-        <p><%= "Status : #{task.status}" %></p>
       <% end %>
-    <% end %>
+
   </div>
 
-  <div>
-    <h1>Reviews</h1>
-    <% unless @reviews.include? "nil" || @reviews.empty? %>
-      <% @reviews.each do|review| %>
-        <p><strong><%= review.task.project.company.name %></strong> - <%= review.rating %>/5</p>
-        <p><i>"<%= review.content %>"<i></p>
+  <div class="d-flex">
+    
+    <div class="reviews">
+      <h1>Reviews</h1>
+      <% unless @reviews.include? "nil" || @reviews.empty? %>
+        <% @reviews.each do|review| %>
+          <div class="review">
+            <p><strong><%= review.task.project.company.name %></strong> - <%= review.rating %>/5</p>
+            <p><i>"<%= review.content %>"<i></p>
+          </div>
+        <% end %>
       <% end %>
+    </div>
+
+
+
+    <% if current_user == @candidate.user %>
+      <div class="cards_tasks">
+        <% @candidate.tasks.each do |task| %>
+          <div class="card_task">
+            <p><%= "Project : #{task.project.name}" %></p>
+            <p><%= "From #{task.start_date} to #{task.end_date}" %></p>
+            <p><%= "Description : #{task.project.description}" %></p>
+            <p><%= "Status : #{task.status}" %></p>
+            <% if task.status == "Awaiting" %>
+              <div class="status">
+                <%= simple_form_for (task) do |f| %>
+                  <%= f.input :status, collection: ["Accepted", "Declined"] %>
+                  <%= f.button :submit %>
+                <% end %>
+              </div>
+              <%#= link_to "Accept", accept_path('task_id' => task) %>
+            <% end %>
+          </div>
+
+        <% end %>
+      </div>
     <% end %>
+
+
+
+
   </div>
 
 </div>
