@@ -66,7 +66,7 @@
 
   <div>
     <h1>Reviews</h1>
-    <% unless @reviews.empty?  %>
+    <% unless @reviews == [nil] || @reviews.empty? %>
       <% @reviews.each do|review| %>
         <p><strong><%= review.task.project.company.name %></strong> - <%= review.rating %>/5</p>
         <p><i>"<%= review.content %>"<i></p>
