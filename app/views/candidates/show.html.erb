@@ -44,7 +44,7 @@
 
     <div class="reviews">
       <h1>Reviews</h1>
-      <% if @reviews.any? && @reviews.exclude? nil %>
+      <% if @reviews.any? && @reviews != nil %>
         <% @reviews.each do|review| %>
           <div class="review">
             <p><strong><%= review.task.project.company.name %></strong> - <%= review.rating %>/5</p>
