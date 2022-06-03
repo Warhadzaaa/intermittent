@@ -1,4 +1,5 @@
 <div class="container">
+
   <div class="card_profile_project">
     <p><%= @project.name %></p>
     <p>description</p> <%= @project.description %> <br>
@@ -13,11 +14,11 @@
   </div>
 
   <div class="">
-    
+
     <div class="btn-search">
       <%= link_to "search for candidates", company_project_candidates_path(@company, @project) %> <br>
-    </div>    
-    
+    </div>
+
     <h2>TASKS</h2>
      <% @project.tasks.each do |task|  %>
        <div class="cars_project">
@@ -31,15 +32,25 @@
            <%= f.button :submit %>
          <% end %>
          <% if task.review.nil? && task.end_date < Date.today %>
-           <%= simple_form_for([@company, @project, task, @review], method: :post) do |f| %>
-             <%= f.input :content %>
-             <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
-             <%= f.button :submit, label: "Write a review" %>
-           <% end %>
+           <!-- Pop-up -->
+           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+           Write a review
+           </button>
+           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+                 <%= simple_form_for([@company, @project, task, @review], method: :post) do |f| %>
+                   <%= f.input :content %>
+                   <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
+                   <%= f.button :submit, label: "Write a review" %>
+                 <% end %>
+               </div>
+             </div>
+           </div>
          <% end %>
        </div>
      <% end %>
-    
+
   </div>
-    
+
 </div>

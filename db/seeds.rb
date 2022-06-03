@@ -79,7 +79,7 @@ project1 = Project.create(name: "Batman", start_date: Date.today, end_date: Date
 
 puts "Creating task..."
 
-task1 = Task.new(status: "Awaiting", start_date: Date.today, end_date: Date.today + 5)
+task1 = Task.new(status: "Awaiting", start_date: Date.today, end_date: Date.today - 5)
 task1.project = Project.first
 task1.candidate = Candidate.first
 task1.save!
