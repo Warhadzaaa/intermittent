@@ -1,9 +1,38 @@
 .card_profile_company{
   position: absolute;
   padding: 40px;
-  background: #FFFFFF;
+  background: #ABBFCB;
   box-shadow: 5px 5px 28px rgba(0, 0, 0, 0.07);
-  border-radius: 25px;
-  border: 2px solid $blue;
+  border-radius: 15px;
+  width: 350px;
+  align-items: center;
+  justify-content: center;
 
+  h1{
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 40px;
+  text-align: center;
+  color: $blue
+  }
+  p{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+  }
+
+  h4{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 0px;
+    text-align: center;
+    color: white
+  }
 }

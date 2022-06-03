@@ -1,9 +1,9 @@
 <div class="container">
   <div class="card_profile_project">
-    <p><%= @project.name %></p>
-    <p>description</p> <%= @project.description %> <br>
-    <p>start date</p><%= @project.start_date %>
-    <p>end date</p><%=  @project.end_date %>
+    <h1><%= @project.name %></h1>
+    <h2>description</h2> <p><%= @project.description %></p> <br>
+    <h2>start date</h2> <p><%= @project.start_date %></p>
+    <h2>end date</h2> <p><%=  @project.end_date %></p>
     <div class="btn-edit">
       <%=link_to "edit", edit_project_path(@project) %> <br>
     </div>
@@ -12,23 +12,22 @@
     </div>
   </div>
 
-  <div class="">
-    
+  <div >
+
     <div class="btn-search">
       <%= link_to "search for candidates", company_project_candidates_path(@company, @project) %> <br>
-    </div>    
-    
+    </div>
+
     <h2>TASKS</h2>
      <% @project.tasks.each do |task|  %>
-       <div class="cars_project">
-         <%= task.candidate.first_name %>
-         <%= task.candidate.last_name %>
-         <%= task.status %>
-         <%= task.start_date %>
-         <%= task.end_date %>
+       <div class="card_profile_candidate">
+         <h1><%= task.candidate.first_name %> <%= task.candidate.last_name %></h1>
+         <p><%= task.status %></p>
+        <h2> <%= task.start_date %> </h2>
+        <h2> <%= task.end_date %> </h2>
          <%= simple_form_for (task) do |f| %>
            <%= f.input :status, collection: ["Archived"] %>
-           <%= f.button :submit %>
+           <%= f.button :submit, class: "btn-update" %>
          <% end %>
          <% if task.review.nil? && task.end_date < Date.today %>
            <%= simple_form_for([@company, @project, task, @review], method: :post) do |f| %>
@@ -39,7 +38,7 @@
          <% end %>
        </div>
      <% end %>
-    
+
   </div>
-    
+
 </div>

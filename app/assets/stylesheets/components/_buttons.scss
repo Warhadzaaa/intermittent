@@ -1,24 +1,153 @@
 .btn-details {
   font-family: 'Nunito', sans-serif;
   text-decoration: none;
+  color: white;
+  width: 170px;
+  height: 35px;
+  background: $light-pink;
+  border-radius: 31px;
+  display: inline-block;
+  padding: 7px 32px;
+  text-align: center;
+  font-size: 14px;
+
+ a{
+    color: white;
+  }
 }
+
+.btn-details:hover {
+  background:$light-pink;;
+  opacity: 0.5;
+}
+
+.btn-new {
+  font-family: 'Nunito', sans-serif;
+  text-decoration: none;
+  width: 115px;
+  height: 115px;
+  background: #FF8A85;
+  border-radius: 60px;
+  display: inline-block;
+  padding: 7px 32px;
+  text-align: center;
+  font-size: 14px;
+  padding: 32px;
+
+  a{
+    color: white;
+    font-weight: 600;
+  }
+
+}
+
+.btn-new:hover {
+  background:white;;
+  a{
+    color:$pink;
+  }
+}
+
+
+
 
 .btn-edit{
   font-family: 'Nunito', sans-serif;
   text-decoration: none;
-  color: $light-blue;
+  color: white;
+  width: 170px;
+  height: 35px;
+  background: $blue;
+  border-radius: 31px;
+  display: inline-block;
+  padding: 7px 32px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+
+  a{
+    color: white;
+  }
 }
+
+.btn-edit:hover {
+  background: $blue;
+  opacity: 0.5;
+}
+
+
+
+
 .btn-archive{
-  font-family: 'Nunito', sans-serif;
-  text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+    color: white;
+    width: 170px;
+    height: 35px;
+    background: $light-blue;
+    border-radius: 31px;
+    display: inline-block;
+    padding: 7px 32px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 15px;
+
+    a{
+      color: white;
+    }
+}
+.btn-archive:hover{
+  background:$light-blue;
+  opacity: 0.5;
 }
 .btn-search{
   font-family: 'Nunito', sans-serif;
   text-decoration: none;
+  color: white;
+  width: 500px;
+  height: 35px;
+  background: $light-blue;
+  border-radius: 31px;
+  display: inline-block;
+  padding: 7px 32px;
+  text-align: center;
+
+
+  a{
+    color: #1E2A51;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+}
+
+.btn-search:hover {
+  background: $light-blue;
+  opacity: 0.5;
 }
 .btn-update{
+  font-family: 'Nunito', sans-serif;
+  text-decoration: none;
+  color: $light-blue;
+  width: 170px;
+  height: 35px;
+  background: $light-blue;
+  border-radius: 31px;
+  display: inline-block;
+  padding: 7px 32px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
 
 }
+
+.btn-update:hover {
+  background: $light-blue;
+  opacity: 0.5;
+}
+
 // .btn-details{
 
 // }
