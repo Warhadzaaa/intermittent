@@ -15,7 +15,8 @@ class CandidatesController < ApplicationController
     end
     @reviews = []
     @candidate.tasks.each do |task|
-    @reviews << task.review
+      @reviews << task.review
+    end
   end
 
   def edit
