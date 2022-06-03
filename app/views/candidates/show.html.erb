@@ -1,19 +1,21 @@
 <div class="container">
 
   <div class="d-flex">
-    <div class="card_profile_candidate">
+    <div class="card_profile_candidate-show">
       <% if @candidate.avatar.attached? %>
-        <%= cl_image_tag(@candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
+        <%= cl_image_tag(@candidate.avatar.key, width: 70, height: 70, crop: :fill) %>
       <% else %>
-        <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
+        <%= image_tag("https://picsum.photos/400/300", width: 70, height: 70, crop: :fill)%>
       <% end %>
 
       <h1><%= @candidate.first_name %> <%= @candidate.last_name %></h1>
-      <p><%= "Address : #{@candidate.address}" %></p>
-      <p><%= @candidate.role %></p>
-      <p><%= @candidate.sector %></p>
-      <p><%= @candidate.description %></p>
+      <h2><%= "#{@candidate.address}" %></h2>
+      <h3><%= @candidate.role %></p>
+      <h3><%= @candidate.sector %></h3>
+      <p><%= @candidate.description %></h3>
+      <h4><%= "Experiences" %></h4>
       <p><%= @candidate.experiences %></p>
+      <h4><%= "Skills" %></h4>
       <p><%= @candidate.skills %></p>
 
       <% if current_user == @candidate.user %>
