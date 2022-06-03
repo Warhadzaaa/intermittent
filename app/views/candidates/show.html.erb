@@ -1,12 +1,12 @@
 <div class="container">
-  
+
   <div class="card_profile_candidate">
     <% if @candidate.avatar.attached? %>
       <%= cl_image_tag(@candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
     <% else %>
       <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
     <% end %>
-    
+
     <h1><%= @candidate.first_name %> <%= @candidate.last_name %></h1>
     <p><%= "Address : #{@candidate.address}" %></p>
     <h4>Role :</h4>
@@ -63,7 +63,7 @@
       <% end %>
     <% end %>
   </div>
-  
+
   <div>
     <h1>Reviews</h1>
     <% unless @reviews.empty?  %>
@@ -73,5 +73,5 @@
       <% end %>
     <% end %>
   </div>
-        
+
 </div>
