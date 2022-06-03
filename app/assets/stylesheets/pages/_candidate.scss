@@ -1,7 +1,9 @@
 .cards_tasks {
-  display :flex;
-  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
   width: 70%;
+  margin-top: 20px;;
 
   .status {
     width: 10px;
