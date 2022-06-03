@@ -1,0 +1,22 @@
+.cards_tasks {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  width: 70%;
+  margin-top: 20px;;
+
+  .status {
+    width: 10px;
+  }
+
+}
+
+.reviews {
+  padding: 40px;
+  background: #FFFFFF;
+  box-shadow: 5px 5px 28px rgba(0, 0, 0, 0.07);
+  border-radius: 25px;
+  border: 2px solid $blue;
+  width: 30%;
+  margin-top: 20px;;
+}
