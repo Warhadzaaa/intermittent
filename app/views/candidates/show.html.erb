@@ -41,10 +41,10 @@
   </div>
 
   <div class="d-flex">
-    
+
     <div class="reviews">
       <h1>Reviews</h1>
-      <% unless @reviews.include? "nil" || @reviews.empty? %>
+      <% if @reviews.any? %>
         <% @reviews.each do|review| %>
           <div class="review">
             <p><strong><%= review.task.project.company.name %></strong> - <%= review.rating %>/5</p>
