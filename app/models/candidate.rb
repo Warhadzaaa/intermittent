@@ -5,4 +5,5 @@ class Candidate < ApplicationRecord
   has_many :tasks
   has_one :review, through: :tasks
   has_one_attached :avatar
+
 end
