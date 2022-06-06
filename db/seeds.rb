@@ -16,7 +16,7 @@ Task.destroy_all
 
 puts "creating users..."
 
-user1 = User.create(email: "user1@gmail.com", password: "toto22", corporate: false)
+user1 = User.create(email: "user1@gmail.com", password: "toto22", corporate: false, nickname: "Jean Pierre")
 user2 = User.create(email: "user2@gmail.com", password: "toto22", corporate: false)
 user3 = User.create(email: "user3@gmail.com", password: "toto22", corporate: false)
 user4 = User.create(email: "user4@gmail.com", password: "toto22", corporate: false)
