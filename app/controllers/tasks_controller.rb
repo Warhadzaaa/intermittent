@@ -8,7 +8,6 @@ class TasksController < ApplicationController
     @candidate = Candidate.find(params[:candidate_id])
     @task.candidate = @candidate
     @task.project = @project
-    @task.status = "Awaiting"
     @task.save!
     redirect_to company_project_path(@company, @project)
   end
