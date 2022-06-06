@@ -41,7 +41,9 @@ class CandidatesController < ApplicationController
     @reviews = []
 
     @candidate.tasks.each do |task|
-      @reviews << task.review
+      if task.review
+        @reviews << task.review
+      end
     end
   end
 
