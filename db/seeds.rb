@@ -26,7 +26,7 @@ user7 = User.create(email: "user7@gmail.com", password: "toto22", corporate: fal
 user8 = User.create(email: "user8@gmail.com", password: "toto22", corporate: false)
 user9 = User.create(email: "user9@gmail.com", password: "toto22", corporate: false)
 user10 = User.create(email: "user10@gmail.com", password: "toto22", corporate: false)
-user11 = User.create(email: "user11@gmail.com", password: "toto22", corporate: true)
+user11 = User.create(email: "user11@gmail.com", password: "toto22", corporate: true, nickname: "ugc")
 user12 = User.create(email: "user12@gmail.com", password: "toto22", corporate: true)
 
 

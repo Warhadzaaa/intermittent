@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
   # ressources pour les reviews
   resources :companies, only: :show do
     resources :projects, only: :show do
