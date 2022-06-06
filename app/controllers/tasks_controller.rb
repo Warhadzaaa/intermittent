@@ -31,7 +31,7 @@ class TasksController < ApplicationController
 
   def accept
     @task.status = "accepted"
-    # @task.save
+    @task.save
 
     respond_to do |format|
       format.html { redirect_to candidate_path(current_user) }
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
 
   def decline
     @task.status = "declined"
-    # @task.save
+    @task.save
 
     respond_to do |format|
       format.html { redirect_to candidate_path(current_user) }

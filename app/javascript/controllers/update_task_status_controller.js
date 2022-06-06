@@ -35,7 +35,7 @@ export default class extends Controller {
 
     .then(response => response.json())
     .then((data) => {
-      this.taskTarget.outerHTML = data.inserted_task
+      this.element.remove()
     })
   }
 
