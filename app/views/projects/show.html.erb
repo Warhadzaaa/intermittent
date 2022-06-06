@@ -24,99 +24,101 @@
       <h2>My candidates choices</h2>
 
 
-<div class="container-principal">
-  <nav>
-    <div class ="nav nav-tabs" id="container-onglets" role="tablist">
-      <button class="nav-link active" id="nav-accepted-tab" data-bs-toggle="tab"
-      data-bs-target="#nav-accepted" type="button" role="tab" arial-controls="nav-accepted"
-      aria-selected="true">Accepted </button>
+      <div class="container-principal">
+        <nav>
+          <div class ="nav nav-tabs" id="container-onglets" role="tablist">
+            <button class="nav-link active" id="nav-accepted-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-accepted" type="button" role="tab" arial-controls="nav-accepted"
+            aria-selected="true">Accepted </button>
 
-      <button class="nav-link" id="nav-awaiting-tab" data-bs-toggle="tab"
-      data-bs-target="#nav-awaiting" type="button" role="tab" arial-controls="nav-awaiting"
-      aria-selected="true">Awaiting </button>
+            <button class="nav-link" id="nav-awaiting-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-awaiting" type="button" role="tab" arial-controls="nav-awaiting"
+            aria-selected="true">Awaiting </button>
 
-      <button class="nav-link" id="nav-archived-tab" data-bs-toggle="tab"
-      data-bs-target="#nav-archived" type="button" role="tab" arial-controls="nav-archived"
-      aria-selected="true">Archived</button>
-    </div>
-  </nav>
+            <button class="nav-link" id="nav-archived-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-archived" type="button" role="tab" arial-controls="nav-archived"
+            aria-selected="true">Archived</button>
+          </div>
+        </nav>
 
-    <div class="tag-content" id ="nav-tab-content">
-      
-      <div class="tab-pane fade show active p-3" id="nav-accepted" role="tabpane1" aria-labelledby="nav-accepted-tab">
-        <div class="tasks">
-           <% @project.tasks.each do |task|  %>
-            <% if task.status == "Accepted" %>
-              <div class="card_profile_candidate">
-                <h1><%= task.candidate.first_name %> <%= task.candidate.last_name %></h1>
-                <p><%= task.status %></p>
-                <h2> <%= task.start_date %> </h2>
-                <h2> <%= task.end_date %> </h2>
-                <%= simple_form_for (task) do |f| %>
-                  <%= f.input :status, collection: ["Archived"] %>
-                  <%= f.button :submit, class: "btn-update" %>
-                <% end %>
-                <% if task.review.nil? && task.end_date < Date.today %>
-                  <!-- Pop-up -->
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Write a review
-                  </button>
-                  <!-- Modal -->
-                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content custom_modal">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="staticBackdropLabel">Write a review</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <%= simple_form_for([@company, @project, task, @review]) do |f| %>
-                            <%= f.input :content, as: :text, label: "What did you think of the candidate?" %>
-                            <%= f.input :rating, as: :select, collection: (1..5), input_html: { data: { controller: "insert-in-list" } } %>
-                            <%= f.submit "Send your review", class: "btn btn-primary btn-sm" %>
-                          <% end %>
+        <div class="tag-content" id ="nav-tab-content">
+
+          <div class="tab-pane fade show active p-3" id="nav-accepted" role="tabpane1" aria-labelledby="nav-accepted-tab">
+            <div class="tasks">
+              <% @project.tasks.each do |task|  %>
+                <% if task.status == "Accepted" %>
+                  <div class="card_profile_candidate">
+                    <h1><%= task.candidate.first_name %> <%= task.candidate.last_name %></h1>
+                    <p><%= task.status %></p>
+                    <h2> <%= task.start_date %> </h2>
+                    <h2> <%= task.end_date %> </h2>
+                    <%= simple_form_for (task) do |f| %>
+                      <%= f.input :status, collection: ["Archived"] %>
+                      <%= f.button :submit, class: "btn-update" %>
+                    <% end %>
+                    <% if task.review.nil? && task.end_date < Date.today %>
+                      <!-- Pop-up -->
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Write a review
+                      </button>
+                      <!-- Modal -->
+                      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content custom_modal">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="staticBackdropLabel">Write a review</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <%= simple_form_for([@company, @project, task, @review]) do |f| %>
+                                <%= f.input :content, as: :text, label: "What did you think of the candidate?" %>
+                                <%= f.input :rating, as: :select, collection: (1..5), input_html: { data: { controller: "insert-in-list" } } %>
+                                <%= f.submit "Send your review", class: "btn btn-primary btn-sm" %>
+                              <% end %>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    <% end %>
                   </div>
                 <% end %>
-              </div>
-            <% end %>
-          <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="tab-pane fade p-3" id="nav-awaiting" role="tabpane1" aria-labelledby="nav-awaiting-tab">
+            <div class="tasks">
+              <% @project.tasks.each do |task|  %>
+                <% if task.status == "Awaiting" %>
+                  <div class="card_profile_candidate">
+                    <h1><%= task.candidate.first_name %> <%= task.candidate.last_name %></h1>
+                    <p><%= task.status %></p>
+                    <h2> <%= task.start_date %> </h2>
+                    <h2> <%= task.end_date %> </h2>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="tab-pane fade p-3" id="nav-archived" role="tabpane1" aria-labelledby="nav-archived-tab">
+            <div class="tasks">
+              <% @project.tasks.each do |task|  %>
+                <% if task.status == "Archived" %>
+                  <div class="card_profile_candidate">
+                    <h1><%= task.candidate.first_name %> <%= task.candidate.last_name %></h1>
+                    <p><%= task.status %></p>
+                    <h2> <%= task.start_date %> </h2>
+                    <h2> <%= task.end_date %> </h2>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
         </div>
       </div>
-
-    <div class="tab-pane fade p-3" id="nav-awaiting" role="tabpane1" aria-labelledby="nav-awaiting-tab">
-      <div class="tasks">
-        <% @project.tasks.each do |task|  %>
-          <% if task.status == "Awaiting" %>
-            <div class="card_profile_candidate">
-              <h1><%= task.candidate.first_name %> <%= task.candidate.last_name %></h1>
-              <p><%= task.status %></p>
-              <h2> <%= task.start_date %> </h2>
-              <h2> <%= task.end_date %> </h2>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
     </div>
-
-  <div class="tab-pane fade p-3" id="nav-archived" role="tabpane1" aria-labelledby="nav-archived-tab">
-    <div class="tasks">
-      <% @project.tasks.each do |task|  %>
-        <% if task.status == "Archived" %>
-          <div class="card_profile_candidate">
-            <h1><%= task.candidate.first_name %> <%= task.candidate.last_name %></h1>
-            <p><%= task.status %></p>
-            <h2> <%= task.start_date %> </h2>
-            <h2> <%= task.end_date %> </h2>
-          </div>
-        <% end %>
-      <% end %>
-     </div>
-   </div>
-
   </div>
- </div>
 </div>
