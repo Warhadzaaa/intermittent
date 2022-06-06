@@ -6,7 +6,6 @@ class TasksController < ApplicationController
     @company = Company.find(params[:company_id])
     @project = Project.find(params[:project_id])
     @candidate = Candidate.find(params[:candidate_id])
-    @task.status = "Awaiting"
     @task.candidate = @candidate
     @task.project = @project
     @task.save!
