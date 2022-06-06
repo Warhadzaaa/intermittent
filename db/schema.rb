@@ -91,7 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_093524) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "Awaiting"
     t.date "start_date"
     t.date "end_date"
     t.bigint "candidate_id", null: false
