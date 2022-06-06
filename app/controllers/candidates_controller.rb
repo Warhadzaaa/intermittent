@@ -14,6 +14,7 @@ class CandidatesController < ApplicationController
       @project = Project.find(params[:project_id]) if params[:project_id]
     end
     @reviews = []
+
     @candidate.tasks.each do |task|
       @reviews << task.review
     end
