@@ -44,7 +44,7 @@
 
     <div class="reviews">
       <h1>Reviews</h1>
-      <% if @reviews.any? && @reviews != nil %>
+      <%# <% if @reviews.any? && @reviews != nil %>
         <% @reviews.first(3).each do|review| %>
           <div class="review">
             <p class="d-flex align-items-start r_content"><strong><%= review.task.project.company.name %></strong>&emsp;<% review.rating.times do %>
@@ -95,7 +95,7 @@
           </div>
         </div>
 
-      <% end %>
+      <%# <% end %>
     </div>
 
 
