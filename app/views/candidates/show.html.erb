@@ -59,22 +59,7 @@
     <% if current_user == @candidate.user %>
       <div class="cards_tasks">
         <% @candidate.tasks.each do |task| %>
-          <div class="card_task">
-            <p><%= "Project : #{task.project.name}" %></p>
-            <p><%= "From #{task.start_date} to #{task.end_date}" %></p>
-            <p><%= "Description : #{task.project.description}" %></p>
-            <p><%= "Status : #{task.status}" %></p>
-            <% if task.status == "Awaiting" %>
-              <div class="status">
-                <%= simple_form_for (task) do |f| %>
-                  <%= f.input :status, collection: ["Accepted", "Declined"] %>
-                  <%= f.button :submit %>
-                <% end %>
-              </div>
-              <%#= link_to "Accept", accept_path('task_id' => task) %>
-            <% end %>
-          </div>
-
+            <%= render partial: "tasks/card_task", locals: {task: task} %>
         <% end %>
       </div>
     <% end %>

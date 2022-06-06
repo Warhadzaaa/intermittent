@@ -31,6 +31,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tasks, only: [] do
+    member do
+      get :accept
+      get :decline
+      get :archive
+    end
+  end
+
+
   # get 'accept', to: 'tasks#accept'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
