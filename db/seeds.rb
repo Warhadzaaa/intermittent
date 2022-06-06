@@ -60,7 +60,6 @@ candidate9 = Candidate.create(first_name: "Julien", last_name: "Sac", sector: "T
 
 candidate10 = Candidate.create(first_name: "Victor", last_name: "Dupont", sector: "TV production", role:"Monteur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user10)
 
-candidate12 = Candidate.create(first_name: "Pedro", last_name: "Almodovar", sector: "Production audiovisuelle", role:"Realisateur", skills: "blasdkckdsvhudjsd", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Barcelone", user: user12)
 
 puts "Candidate created"
 
