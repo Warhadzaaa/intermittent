@@ -48,7 +48,9 @@
               <% @project.tasks.each do |task|  %>
                 <% if task.status == "Accepted" %>
                   <div class="card_profile_candidate">
-                    <h1><%= task.candidate.first_name %> <%= task.candidate.last_name %></h1>
+                    <%= link_to company_project_candidate_path(@company, @project, task.candidate) do %>
+                      <h1><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h1>
+                    <% end %>
                     <p><%= task.status %></p>
                     <h2> <%= task.start_date %> </h2>
                     <h2> <%= task.end_date %> </h2>
@@ -92,7 +94,9 @@
               <% @project.tasks.each do |task|  %>
                 <% if task.status == "Awaiting" %>
                   <div class="card_profile_candidate">
-                    <h1><%= task.candidate.first_name %> <%= task.candidate.last_name %></h1>
+                    <%= link_to company_project_candidate_path(@company, @project, task.candidate) do %>
+                      <h1><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h1>
+                    <% end %>
                     <p><%= task.status %></p>
                     <h2> <%= task.start_date %> </h2>
                     <h2> <%= task.end_date %> </h2>
@@ -107,7 +111,9 @@
               <% @project.tasks.each do |task|  %>
                 <% if task.status == "Archived" %>
                   <div class="card_profile_candidate">
-                    <h1><%= task.candidate.first_name %> <%= task.candidate.last_name %></h1>
+                    <%= link_to company_project_candidate_path(@company, @project, task.candidate) do %>
+                      <h1><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h1>
+                    <% end %>
                     <p><%= task.status %></p>
                     <h2> <%= task.start_date %> </h2>
                     <h2> <%= task.end_date %> </h2>
