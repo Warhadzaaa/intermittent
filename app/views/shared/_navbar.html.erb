@@ -16,19 +16,19 @@
               <%= link_to "Home", root_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Add a project", new_company_project_path(@company), class: "nav-link" %>
+              <%= link_to "Add a project", new_company_project_path(current_user.companies.first), class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to "Messages", "#", class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
-              <% if @company.avatar.attached? %>
-                <%= cl_image_tag(@company.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+              <% if current_user.companies.first.avatar.attached? %>
+                <%= cl_image_tag(current_user.companies.first.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
               <% else %>
                 <%= image_tag("https://picsum.photos/100/100", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
               <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Profile", company_path(@company), class: "dropdown-item" %>
+                <%= link_to "Profile", company_path(current_user.companies.first), class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
               </div>
             </li>
@@ -40,13 +40,13 @@
               <%= link_to "Messages", "#", class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
-            <% if @candidate.avatar.attached? %>
-              <%= cl_image_tag(@candidate.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+            <% if current_user.candidates.first.avatar.attached? %>
+              <%= cl_image_tag(current_user.candidates.first.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
             <% else %>
                 <%= image_tag("https://picsum.photos/100/100", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", candidate_path(@candidate), class: "dropdown-item" %>
+              <%= link_to "Profile", candidate_path(current_user.candidates.first), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
               </div>
             </li>
