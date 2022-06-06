@@ -2,7 +2,32 @@ class CandidatesController < ApplicationController
   before_action :set_candidate, only: %i[show edit update]
 
   def index
-    @candidates = Candidate.all
+    # raise
+    if params[:sector].present? && params[:role].present? && params[:address].present?
+      @candidates = Candidate.where("sector ILIKE ?", "%#{params[:sector]}%")
+      @candidates = @candidates.where("role ILIKE ?", "%#{params[:role]}%")
+      @candidates = @candidates.where("address ILIKE ?", "%#{params[:address]}%")
+    elsif params[:sector].present? && params[:role].present? && !params[:address].present?
+      @candidates = Candidate.where("sector ILIKE ?", "%#{params[:sector]}%")
+      @candidates = @candidates.where("role ILIKE ?", "%#{params[:role]}%")
+    elsif params[:sector].present? && !params[:role].present? && params[:address].present?
+      @candidates = Candidate.where("sector ILIKE ?", "%#{params[:sector]}%")
+      @candidates = @candidates.where("address ILIKE ?", "%#{params[:address]}%")
+    elsif params[:sector].present? && !params[:role].present? && !params[:address].present?
+      @candidates = Candidate.where("sector ILIKE ?", "%#{params[:sector]}%")
+    elsif !params[:sector].present? && params[:role].present? && params[:address].present?
+      @candidates = Candidate.where("role ILIKE ?", "%#{params[:role]}%")
+      @candidates = @candidates.where("address ILIKE ?", "%#{params[:address]}%")
+    elsif !params[:sector].present? && params[:role].present? && !params[:address].present?
+      @candidates = Candidate.where("role ILIKE ?", "%#{params[:role]}%")
+    elsif !params[:sector].present? && !params[:role].present? && params[:address].present?
+      @candidates = Candidate.where("address ILIKE ?", "%#{params[:address]}%")
+    elsif params[:commit] == "Search"
+      @candidates = Candidate.all
+    else
+      @candidates = Candidate.none
+    end
+
     @company = Company.find(params[:company_id])
     @project = Project.find(params[:project_id])
   end
