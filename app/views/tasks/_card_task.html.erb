@@ -2,11 +2,16 @@
   <p><%= "Project : #{task.project.name}" %></p>
   <p><%= "From #{task.start_date} to #{task.end_date}" %></p>
   <p><%= "Description : #{task.project.description}" %></p>
-  <p><%= "Status : #{task.status}" %></p>
-  <% if task.status == "Awaiting" %>
+  <p><%= task.status %></p>
+
+  <% if task.status == "Awaiting" && !current_user.corporate %>
     <div class="status" >
       <%= link_to "Accept", accept_task_path(task), data: {action: "click->update-task-status#accept"}, class: "btn-accept"  %>
       <%= link_to "Decline", decline_task_path(task), data: {action: "click->update-task-status#decline"}, class: "btn-decline"  %>
     </div>
+  <% elsif current_user.corporate && task.status != "Archived" %>
+    <div class="status" >
+      <%= link_to "Archive", archive_task_path(task), data: {action: "click->update-task-status#archive"}, class: "btn-archive"  %>
+       </div>
   <% end %>
 </div>

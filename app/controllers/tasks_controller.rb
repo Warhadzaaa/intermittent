@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[edit update accept decline]
+  before_action :set_task, only: %i[edit update accept decline archive]
 
   def create
     @task = Task.new(task_params)
@@ -8,6 +8,7 @@ class TasksController < ApplicationController
     @candidate = Candidate.find(params[:candidate_id])
     @task.candidate = @candidate
     @task.project = @project
+    @task.status = "Awaiting"
     @task.save!
     redirect_to company_project_path(@company, @project)
 
@@ -31,7 +32,7 @@ class TasksController < ApplicationController
 
   def accept
     @task.status = "accepted"
-    # @task.save
+    @task.save
 
     respond_to do |format|
       format.html { redirect_to candidate_path(current_user) }
@@ -41,7 +42,7 @@ class TasksController < ApplicationController
 
   def decline
     @task.status = "declined"
-    # @task.save
+    @task.save
 
     respond_to do |format|
       format.html { redirect_to candidate_path(current_user) }
@@ -52,7 +53,11 @@ class TasksController < ApplicationController
   def archive
     @task.status = "archived"
     @task.save
-    redirect_to candidate_path(current_user)
+
+    respond_to do |format|
+      format.html { redirect_to candidate_path(current_user) }
+      format.json
+    end
   end
 
   private

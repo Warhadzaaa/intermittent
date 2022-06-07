@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   # get "archived/:id", to: "projects#archived", as: "archived"
 
   resources :candidates, except: %i[index destroy]
-  resources :tasks, only: %i[update]
+  # resources :tasks, only: %i[update]
   resources :projects, only: %i[update edit] do
     member do
       post "archive", to: "projects#archive"
