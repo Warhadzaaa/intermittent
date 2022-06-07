@@ -2,18 +2,19 @@
 
   <div class="d-flex">
     <div class="card_profile_candidate">
-      <div class="avatar">
-        <% if @candidate.avatar.attached? %>
-          <%= cl_image_tag(@candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
-        <% else %>
-          <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
-        <% end %>
-      </div>
+      <% if @candidate.avatar.attached? %>
+        <%= cl_image_tag(@candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
+      <% else %>
+        <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
+      <% end %>
 
       <h1><%= @candidate.first_name %> <%= @candidate.last_name %></h1>
-      <h6><%= @candidate.address %></h6>
-      <h3><%= @candidate.role %></h3>
-      <h4><%= @candidate.sector %></p>
+      <p><%= "Address : #{@candidate.address}" %></p>
+      <p><%= @candidate.role %></p>
+      <p><%= @candidate.sector %></p>
+      <p><%= @candidate.description %></p>
+      <p><%= @candidate.experiences %></p>
+      <p><%= @candidate.skills %></p>
 
       <% if current_user == @candidate.user %>
         <div class = "btn-edit">
