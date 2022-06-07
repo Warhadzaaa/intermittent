@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
+  # ressources pour les chatrooms
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
