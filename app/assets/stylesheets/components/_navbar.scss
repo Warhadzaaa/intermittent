@@ -1,6 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #1E2A51;
+  font-size: 15px;
+  font-family: 'Nunito';
+  font-weight: 300;
+  letter-spacing: 0.04em;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,9 +13,13 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 150px;
 }
 
 .nav-item > .nav-link {
   color: #FFFFFF !important;
+}
+
+.nav-item > .nav-link:hover{
+  color: $pink !important;
 }
