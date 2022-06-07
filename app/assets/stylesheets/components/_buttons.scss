@@ -52,26 +52,34 @@
 
 
 .btn-edit{
-  font-family: 'Nunito', sans-serif;
-  text-decoration: none;
-  color: white;
-  width: 170px;
-  height: 35px;
-  background: $blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $pink;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
   border-radius: 31px;
-  display: inline-block;
-  padding: 7px 32px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 25px;
   text-align: center;
-  font-size: 14px;
-  font-weight: 400;
+  width: 150px;
+  height: 35px;
 
   a{
     color: white;
+    text-decoration: none;
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 25px;
   }
 }
 
 .btn-edit:hover {
-  background: $blue;
+  background: $pink;
   opacity: 0.5;
 }
 

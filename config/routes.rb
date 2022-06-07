@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
+  # ressources pour les chatrooms
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
    get "archived/:id", to: "projects#archived", as: "archived"
 
   resources :candidates, except: %i[index destroy]
-  resources :tasks, only: %i[update]
+  # resources :tasks, only: %i[update]
   resources :projects, only: %i[update edit] do
     member do
       post "archive", to: "projects#archive"
