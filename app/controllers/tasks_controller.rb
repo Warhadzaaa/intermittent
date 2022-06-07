@@ -31,7 +31,7 @@ class TasksController < ApplicationController
   # end
 
   def accept
-    @task.status = "accepted"
+    @task.status = "Accepted"
     @task.save
 
     respond_to do |format|
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
   end
 
   def decline
-    @task.status = "declined"
+    @task.status = "Declined"
     @task.save
 
     respond_to do |format|
@@ -51,11 +51,11 @@ class TasksController < ApplicationController
   end
 
   def archive
-    @task.status = "archived"
+    @task.status = "Archived"
     @task.save
 
     respond_to do |format|
-      format.html { redirect_to project_path(current_user) }
+      format.html { redirect_to project_path(@task.project) }
       format.json
     end
   end

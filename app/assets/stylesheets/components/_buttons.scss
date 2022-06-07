@@ -87,15 +87,17 @@
   font-family: 'Nunito', sans-serif;
   text-decoration: none;
   color: white;
-  width: 170px;
+  width: 150px;
   height: 35px;
-  background: $light-blue;
+  background: $pink;
   border-radius: 31px;
   display: inline-block;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
   padding: 7px 32px;
   text-align: center;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 18;
+  line-height: 25px;
+  font-weight: 800;
   margin-top: 15px;
 
   a{
@@ -104,7 +106,7 @@
 }
 
 .btn-accept:hover{
-background:$light-blue;
+background:$pink;
 opacity: 0.5;
 }
 
@@ -112,16 +114,18 @@ opacity: 0.5;
   font-family: 'Nunito', sans-serif;
   text-decoration: none;
   color: white;
-  width: 170px;
+  width: 150px;
   height: 35px;
-  background: $light-blue;
+  background: $cherry;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
   border-radius: 31px;
   display: inline-block;
   padding: 7px 32px;
   text-align: center;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 18;
+  font-weight: 800;
   margin-top: 15px;
+  line-height: 25px;
 
   a{
     color: white;
@@ -129,7 +133,7 @@ opacity: 0.5;
 }
 
 .btn-decline:hover{
-background:$light-blue;
+background:$cherry;
 opacity: 0.5;
 }
 
