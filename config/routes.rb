@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-  # get "archived/:id", to: "projects#archived", as: "archived"
+   get "archived/:id", to: "projects#archived", as: "archived"
 
   resources :candidates, except: %i[index destroy]
   resources :tasks, only: %i[update]

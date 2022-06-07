@@ -97,19 +97,63 @@
 
       <%# <% end %>
     </div>
+    <div class="container-principal">
+      <nav>
+      <div class ="nav nav-tabs" id="container-onglets" role="tablist">
+        <button class="nav-link active" id="nav-pending-tab" data-bs-toggle="tab"
+        data-bs-target="#nav-pending" type="button" role="tab" arial-controls="nav-pending"
+        aria-selected="true">Pending confirmation</button>
 
+        <button class="nav-link" id="nav-ongoing-tab" data-bs-toggle="tab"
+        data-bs-target="#nav-ongoing" type="button" role="tab" arial-controls="nav-ongoing"
+        aria-selected="true">On-going missions </button>
 
-
-    <% if current_user == @candidate.user %>
-      <div class="cards_tasks">
-        <% @candidate.tasks.each do |task| %>
-          <% if task.status == "Awaiting" || task.status == "Accepted"  %>
-            <%= render partial: "tasks/card_task", locals: {task: task} %>
-          <% end %>
-        <% end %>
+        <button class="nav-link" id="nav-closed-tab" data-bs-toggle="tab"
+        data-bs-target="#nav-closed" type="button" role="tab" arial-controls="nav-closed"
+        aria-selected="true">Closed missions</button>
       </div>
-    <% end %>
+      </nav>
+      <div class="tag-content" id ="nav-tab-content">
+        <div class="tab-pane fade show active p-3" id="nav-pending" role="tabpane1" aria-labelledby="nav-pending-tab">
+          <% if current_user == @candidate.user %>
+            <div class="cards_tasks">
+              <% @candidate.tasks.each do |task| %>
+                <% if task.status == "Awaiting" && task.end_date > Date.today  %>
+                  <%= render partial: "tasks/card_task", locals: {task: task} %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
 
+        <div class="tab-pane fade p-3" id="nav-ongoing" role="tabpane1" aria-labelledby="nav-ongoing-tab">
+          <% if current_user == @candidate.user %>
+                <div class="cards_tasks">
+                  <% @candidate.tasks.each do |task| %>
+                    <% if task.status == "Accepted" && task.end_date > Date.today  %>
+                      <%= render partial: "tasks/card_task", locals: {task: task} %>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade p-3" id="nav-closed" role="tabpane1" aria-labelledby="nav-closed-tab">
+          <% if current_user == @candidate.user %>
+            <div class="cards_tasks">
+              <% @candidate.tasks.each do |task| %>
+                <% if task.status =="Archived" && task.end_date > Date.today  %>
+                  <%= render partial: "tasks/card_task", locals: {task: task} %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+<%# task.status == "Accepted" %>
 
 
 
