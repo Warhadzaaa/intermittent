@@ -257,6 +257,25 @@ opacity: 0.5;
 }
 //
 
+.btn-join{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $pink;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 31px;
+  font-family: 'Nunito';
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  text-align: center;
+  width: 100px;
+  height: 25px;
+  color: white;
+  text-decoration: none;
+
+
+}
 
 // .btn-details{
 
