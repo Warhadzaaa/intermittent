@@ -2,28 +2,26 @@
 
   <div class="d-flex">
     <div class="card_profile_candidate">
-      <% if @candidate.avatar.attached? %>
-        <%= cl_image_tag(@candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
-      <% else %>
-        <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
-      <% end %>
+      <div class="avatar">
+        <% if @candidate.avatar.attached? %>
+          <%= cl_image_tag(@candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
+        <% else %>
+          <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
+        <% end %>
+      </div>
 
       <h1><%= @candidate.first_name %> <%= @candidate.last_name %></h1>
-      <p><%= "Address : #{@candidate.address}" %></p>
-      <p><%= @candidate.role %></p>
-      <p><%= @candidate.sector %></p>
-      <p><%= @candidate.description %></p>
-      <p><%= @candidate.experiences %></p>
-      <p><%= @candidate.skills %></p>
+      <h6><%= @candidate.address %></h6>
+      <h3><%= @candidate.role %></h3>
+      <h4><%= @candidate.sector %></p>
 
       <% if current_user == @candidate.user %>
         <div class = "btn-edit">
           <%= link_to 'Edit profile', edit_candidate_path(@candidate.id)%>
         </div>
-        <p><%= "Availability : #{@candidate.availability}" %></p>
         <%= simple_form_for @candidate do |f| %>
-          <%= f.input :availability %>
-          <%= f.button :submit %>
+          <%= f.input :availability  %>
+          <% f.button :submit %>
         <% end %>
       <% end %>
     </div>
