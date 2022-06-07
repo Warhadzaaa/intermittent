@@ -1,0 +1,70 @@
+.card_profile_candidate-show{
+  padding: 45px;
+  box-shadow: 5px 5px 28px rgba(0, 0, 0, 0.07);
+  border: 2px solid #1E2A51;
+  width: 100%;
+  height: auto;
+  background: #FFFFFF;
+  border: 2px solid;
+  border-color: #1E2A51;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  padding: 27px;
+
+h1{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 28px;
+  text-align: center;
+  color: #809EB0;
+  letter-spacing: 2px;
+}
+
+ h2{
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 16px;
+  text-align: center;
+  color: #1E2A51;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  }
+
+  h3{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 19px;
+    line-height: 11px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $pink;
+  }
+
+  h4{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 21px;
+    line-height: 14px;
+    text-align: center;
+    color: $bright-blue;
+    padding-top: 15px;
+    }
+
+  p{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: $blue;
+  }
+}
