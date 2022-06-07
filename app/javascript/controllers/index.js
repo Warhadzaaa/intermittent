@@ -4,13 +4,14 @@
 
 import { application } from "./application"
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller.js"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
-
-
-import UpdateTaskStatusController from "./update_task_status_controller.js"
-application.register("update-task-status", UpdateTaskStatusController)
 
 import InsertInListController from "./insert_in_list_controller.js"
 application.register("insert-in-list", InsertInListController)
 
+import UpdateTaskStatusController from "./update_task_status_controller.js"
+application.register("update-task-status", UpdateTaskStatusController)

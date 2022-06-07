@@ -19,7 +19,7 @@
               <%= link_to "Add a project", new_company_project_path(current_user.companies.first), class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Messages", "#", class: "nav-link" %>
+              <%= link_to "Messages", chatroom_path(current_user.companies.first), class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
               <% if current_user.companies.first.avatar.attached? %>
@@ -37,7 +37,7 @@
               <%= link_to "Home", root_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Messages", "#", class: "nav-link" %>
+              <%= link_to "Messages", chatroom_path(current_user.candidates.first), class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
             <% if current_user.candidates.first.avatar.attached? %>
