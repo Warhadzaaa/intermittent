@@ -16,7 +16,7 @@ Task.destroy_all
 
 puts "creating users..."
 
-user1 = User.create(email: "user1@gmail.com", password: "toto22", corporate: false)
+user1 = User.create(email: "user1@gmail.com", password: "toto22", corporate: false, nickname: "Jean Pierre")
 user2 = User.create(email: "user2@gmail.com", password: "toto22", corporate: false)
 user3 = User.create(email: "user3@gmail.com", password: "toto22", corporate: false)
 user4 = User.create(email: "user4@gmail.com", password: "toto22", corporate: false)
@@ -26,7 +26,7 @@ user7 = User.create(email: "user7@gmail.com", password: "toto22", corporate: fal
 user8 = User.create(email: "user8@gmail.com", password: "toto22", corporate: false)
 user9 = User.create(email: "user9@gmail.com", password: "toto22", corporate: false)
 user10 = User.create(email: "user10@gmail.com", password: "toto22", corporate: false)
-user11 = User.create(email: "user11@gmail.com", password: "toto22", corporate: true)
+user11 = User.create(email: "user11@gmail.com", password: "toto22", corporate: true, nickname: "ugc")
 user12 = User.create(email: "user12@gmail.com", password: "toto22", corporate: true)
 
 
@@ -60,7 +60,6 @@ candidate9 = Candidate.create(first_name: "Julien", last_name: "Sac", sector: "T
 
 candidate10 = Candidate.create(first_name: "Victor", last_name: "Dupont", sector: "TV production", role:"Monteur", skills: "blablablbalbalba", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Paris", user: user10)
 
-candidate12 = Candidate.create(first_name: "Pedro", last_name: "Almodovar", sector: "Production audiovisuelle", role:"Realisateur", skills: "blasdkckdsvhudjsd", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"Aliscie ndicima gnatur, incia iumquae ptataque acearchil ex et ex eatius nima cus", address: "Barcelone", user: user12)
 
 puts "Candidate created"
 
@@ -79,12 +78,12 @@ project1 = Project.create(name: "Batman", start_date: Date.today, end_date: Date
 
 puts "Creating task..."
 
-task1 = Task.new(status: "Awaiting", start_date: Date.today, end_date: Date.today - 5)
+task1 = Task.new(start_date: Date.today, end_date: Date.today + 6)
 task1.project = Project.first
 task1.candidate = Candidate.first
 task1.save!
 
-task2 = Task.new(status: "Accepted", start_date: Date.today, end_date: Date.today + 6)
+task2 = Task.new(status: "Accepted", start_date: Date.today, end_date: Date.today - 5)
 task2.project = Project.first
 task2.candidate = Candidate.last
 task2.save!

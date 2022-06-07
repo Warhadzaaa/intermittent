@@ -2,7 +2,32 @@ class CandidatesController < ApplicationController
   before_action :set_candidate, only: %i[show edit update]
 
   def index
-    @candidates = Candidate.all
+    # raise
+    if params[:sector].present? && params[:role].present? && params[:address].present?
+      @candidates = Candidate.where("sector ILIKE ?", "%#{params[:sector]}%")
+      @candidates = @candidates.where("role ILIKE ?", "%#{params[:role]}%")
+      @candidates = @candidates.where("address ILIKE ?", "%#{params[:address]}%")
+    elsif params[:sector].present? && params[:role].present? && !params[:address].present?
+      @candidates = Candidate.where("sector ILIKE ?", "%#{params[:sector]}%")
+      @candidates = @candidates.where("role ILIKE ?", "%#{params[:role]}%")
+    elsif params[:sector].present? && !params[:role].present? && params[:address].present?
+      @candidates = Candidate.where("sector ILIKE ?", "%#{params[:sector]}%")
+      @candidates = @candidates.where("address ILIKE ?", "%#{params[:address]}%")
+    elsif params[:sector].present? && !params[:role].present? && !params[:address].present?
+      @candidates = Candidate.where("sector ILIKE ?", "%#{params[:sector]}%")
+    elsif !params[:sector].present? && params[:role].present? && params[:address].present?
+      @candidates = Candidate.where("role ILIKE ?", "%#{params[:role]}%")
+      @candidates = @candidates.where("address ILIKE ?", "%#{params[:address]}%")
+    elsif !params[:sector].present? && params[:role].present? && !params[:address].present?
+      @candidates = Candidate.where("role ILIKE ?", "%#{params[:role]}%")
+    elsif !params[:sector].present? && !params[:role].present? && params[:address].present?
+      @candidates = Candidate.where("address ILIKE ?", "%#{params[:address]}%")
+    elsif params[:commit] == "Search"
+      @candidates = Candidate.all
+    else
+      @candidates = Candidate.none
+    end
+
     @company = Company.find(params[:company_id])
     @project = Project.find(params[:project_id])
   end
@@ -14,8 +39,11 @@ class CandidatesController < ApplicationController
       @project = Project.find(params[:project_id]) if params[:project_id]
     end
     @reviews = []
+
     @candidate.tasks.each do |task|
-      @reviews << task.review
+      if task.review
+        @reviews << task.review
+      end
     end
   end
 

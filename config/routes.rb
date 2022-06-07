@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
   # ressources pour les reviews
   resources :companies, only: :show do
     resources :projects, only: :show do
@@ -21,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-  # get "archived/:id", to: "projects#archived", as: "archived"
+   get "archived/:id", to: "projects#archived", as: "archived"
 
   resources :candidates, except: %i[index destroy]
   resources :tasks, only: %i[update]
@@ -30,6 +34,15 @@ Rails.application.routes.draw do
       post "archive", to: "projects#archive"
     end
   end
+
+  resources :tasks, only: [] do
+    member do
+      get :accept
+      get :decline
+      get :archive
+    end
+  end
+
 
   # get 'accept', to: 'tasks#accept'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

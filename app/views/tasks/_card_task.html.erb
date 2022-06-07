@@ -1,0 +1,11 @@
+<div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
+  <p><%= "Project : #{task.project.name}" %></p>
+  <p><%= "From #{task.start_date} to #{task.end_date}" %></p>
+  <p><%= "Description : #{task.project.description}" %></p>
+  <% if task.status == "Awaiting" %>
+    <div class="status" >
+      <%= link_to "Accept", accept_task_path(task), data: {action: "click->update-task-status#accept"}, class: "btn-accept"  %>
+      <%= link_to "Decline", decline_task_path(task), data: {action: "click->update-task-status#decline"}, class: "btn-decline"  %>
+    </div>
+  <% end %>
+</div>

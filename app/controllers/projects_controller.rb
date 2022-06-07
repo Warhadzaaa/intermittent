@@ -21,20 +21,16 @@ class ProjectsController < ApplicationController
   def edit
   end
 
-  # def archived
-  #   @project = Project.find(params[:id])
-  #   @project.update(archived: !@project.archived)
-  #   redirect_to company_path(@project.company)
-  # end
+  def archived
+    @project = Project.find(params[:id])
+    @project.update(archived: !@project.archived)
+    redirect_to company_path(@project.company)
+  end
 
   def update
     @project.update(project_params)
     redirect_to company_project_path(@project)
   end
-
-  # def archive
-  #   raise
-  # end
 
   private
 
