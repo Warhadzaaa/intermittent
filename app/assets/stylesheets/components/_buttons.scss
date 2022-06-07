@@ -24,8 +24,8 @@
 .btn-new {
   font-family: 'Nunito', sans-serif;
   text-decoration: none;
-  width: 115px;
-  height: 115px;
+  width: 70px;
+  height: 68px;
   background: #FF8A85;
   border-radius: 60px;
   display: inline-block;
@@ -48,8 +48,9 @@
   }
 }
 
-
-
+.add-project {
+  color: pink;
+}
 
 .btn-edit{
   display: flex;

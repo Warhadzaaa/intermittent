@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="d-flex">
+  <div class="d-flex p-5">
     <div class="d-flex flex-column">
       <div class="card_profile_company">
         <% if @company.avatar.attached? %>
@@ -22,10 +22,12 @@
           <% end %>
         </div>
       </div>
-      <div class="card_new_project">
-        <div class= "btn-new">
-          <%= link_to "Add project", new_company_project_path(@company) %>
-        </div>
+      <div class="card_new_project d-flex align-items-center justify-content-start">
+        <%= link_to new_company_project_path(@company) do %>
+          <span style="color: #FF8A85">
+            <i class="fa-solid fa-circle-plus fa-2xl fa-spin" style="--fa-animation-duration: 15s;"></i>
+          </span>
+        <% end %>
       </div>
     </div>
 
