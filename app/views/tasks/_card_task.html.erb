@@ -9,7 +9,8 @@
         <% end %>
       </div>
       <p><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></p>
-      <p><%= "From #{task.start_date} to #{task.end_date}" %></p>
+      <p><%= "From #{task.start_date}" %></p>
+      <p><%= "To #{task.end_date}" %></p>
       <p><%= task.candidate.role %></p>
       <% if task.review.nil? && task.end_date < Date.today %>
         <!-- Pop-up -->
@@ -32,7 +33,8 @@
         <% end %>
       </div>
       <p><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></p>
-      <p><%= "From #{task.start_date} to #{task.end_date}" %></p>
+      <p><%= "From #{task.start_date}" %></p>
+      <p><%= "To #{task.end_date}" %></p>
       <p><%= task.candidate.role %></p>
       <% if task.status != "Archived" %>
         <div class="status" >
@@ -51,7 +53,8 @@
         <% end %>
       </div>
       <p><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></p>
-      <p><%= "From #{task.start_date} to #{task.end_date}" %></p>
+      <p><%= "From #{task.start_date}" %></p>
+      <p><%= "To #{task.end_date}" %></p>
       <p><%= task.candidate.role %></p>
     </div>
   <% end %>
@@ -60,29 +63,56 @@
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <p><%= task.project.name %></p>
       <p><%= task.project.company.name %></p>
-      <p><%= "From #{task.start_date} to #{task.end_date}" %></p>
-      <p><%= "Description : #{task.project.description}" %></p>
+      <p><%= "From #{task.start_date}" %></p>
+      <p><%= "To #{task.end_date}" %></p>
+      <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target=".bd-project_description-lg">
+            See the description
+      </button>
+      <div class="modal fade bd-project_description-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <p><%= task.project.description %></p>
+          </div>
+        </div>
+      </div>
       <div class="status" >
         <%= link_to "Accept", accept_task_path(task), data: {action: "click->update-task-status#accept"}, class: "btn-accept"  %>
         <%= link_to "Decline", decline_task_path(task), data: {action: "click->update-task-status#decline"}, class: "btn-decline"  %>
       </div>
-      en attente
     </div>
   <% elsif task.status == "Accepted" && task.end_date > Date.today  %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <p><%= task.project.name %></p>
       <p><%= task.project.company.name %></p>
-      <p><%= "From #{task.start_date} to #{task.end_date}" %></p>
-      <p><%= "Description : #{task.project.description}" %></p>
-      accpeté
+      <p><%= "From #{task.start_date}" %></p>
+      <p><%= "To #{task.end_date}" %></p>
+      <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target=".bd-project_description-lg">
+            See the description
+      </button>
+      <div class="modal fade bd-project_description-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <p><%= task.project.description %></p>
+          </div>
+        </div>
+      </div>
     </div>
   <% else %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <p><%= task.project.name %></p>
       <p><%= task.project.company.name %></p>
-      <p><%= "From #{task.start_date} to #{task.end_date}" %></p>
-      <p><%= "Description : #{task.project.description}" %></p>
-      tout le reste
+      <p><%= "From #{task.start_date}" %></p>
+      <p><%= "To #{task.end_date}" %></p>
+      <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target=".bd-project_description-lg">
+            See the description
+      </button>
+      <div class="modal fade bd-project_description-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <p><%= task.project.description %></p>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 <% end %>
