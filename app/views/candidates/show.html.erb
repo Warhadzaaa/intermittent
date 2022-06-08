@@ -121,6 +121,9 @@
                 <% @candidate.tasks.each do |task| %>
                     <% if task.status == "Awaiting" %>
                       <%= render partial: "tasks/card_task", locals: {task: task} %>
+                      <% if Date.today < task.start_date %>
+                        <%= link_to "Messages", chatroom_path(task.chatroom) %>
+                      <% end %>
                     <% end %>
                 <% end %>
               </div>
@@ -130,6 +133,9 @@
                 <% @candidate.tasks.each do |task| %>
                     <% if task.status == "Accepted" %>
                       <%= render partial: "tasks/card_task", locals: {task: task} %>
+                      <% if Date.today < task.start_date %>
+                        <%= link_to "Messages", chatroom_path(task.chatroom) %>
+                      <% end %>
                     <% end %>
                 <% end %>
               </div>
