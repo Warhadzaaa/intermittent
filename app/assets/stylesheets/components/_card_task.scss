@@ -1,8 +1,61 @@
 .card_task{
-  margin-top: 20px;
-  text-align: center;
-  background: #FFFFFF;
+  padding: 0px 25px 25px 25px;
   box-shadow: 5px 5px 28px rgba(0, 0, 0, 0.07);
   width: 240px;
-  height: 333px;
+  height: 400px;
+  background: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  align-items: center;
+  flex-direction: column;
+  display:flex;
+  justify-content: center;
+
+
+  h2{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 18px;
+    text-align: center;
+    color: #1E2A51;
+    padding-bottom: 8px;
+
+    }
+
+    h3{
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 10px;
+      text-align: center;
+      color: $pink;
+      text-transform: uppercase;
+      }
+
+      h5{
+        font-family: 'Nunito';
+        color: #809EB0;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+            }
+
+  img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 15px;
+    border: 2px;
+    border-color: $blue;
+  }
+
 }
