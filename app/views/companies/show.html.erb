@@ -1,9 +1,8 @@
 <div class="container">
 
-  <div class="d-flex p-5">
-    <div class="d-flex flex-column ">
-
-      <div class="card_profile_company companie-banner-left">
+  <div class="d-flex">
+    <div class="profile_company">
+      <div class="card_profile_company">
         <% if @company.avatar.attached? %>
           <%= cl_image_tag(@company.avatar.key,
           width: 50, height: 50, crop: :fill) %>
@@ -12,7 +11,7 @@
         <% end %>
         <h1><%= @company.name %></h1>
         <h3>SIRET <%= @company.siret %></h3>
-        <h4>Address</h4>
+        <h4>City</h4>
         <p><%= @company.address %></p>
         <h4>Description</h4>
         <p><%= @company.description %></p>
@@ -21,7 +20,7 @@
         <% end %>
       </div>
 
-      <div class="card_new_project d-flex align-items-center justify-content-start">
+      <div class="card_new_project">
         <%= link_to new_company_project_path(@company) do %>
           <span style="color: #FF8A85">
             <i class="fa-solid fa-circle-plus fa-2xl fa-spin" style="--fa-animation-duration: 15s;"></i>
@@ -32,7 +31,7 @@
     </div>
 
 
-    <div class="d-flex flex-column companie-banner-right">
+    <div class="onglets_company">
       <div class="container-principal">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
@@ -44,38 +43,37 @@
         </ul>
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-            <% @company.projects.each do |project| %>
-              <% if project.archived == false %>
-                <div class="card_project">
-                  <h4><%= "Projet" %></h4>
-                  <h1><%= " #{project.name}" %></h1>
-                  <h2><%= "du #{project.start_date}" %></h2>
-                  <h2><%= "au #{project.end_date}" %></h2>
-                  <p><%= "Description : #{project.description}" %></p>
-                  <h2><%= "Status : #{project.archived == true ? "closed" : "live"}" %></h2>
-                  <div class="btn-details">
-                    <p><%= link_to "More details", company_project_path(@company, project.id) %></p>
+            <div class="cards_projects">
+              <% @company.projects.each do |project| %>
+                <% if project.archived == false %>
+                  <div class="card_project">
+                    <h4><%= "Projet" %></h4>
+                    <h1><%= " #{project.name}" %></h1>
+                    <h2><%= "du #{project.start_date}" %></h2>
+                    <h2><%= "au #{project.end_date}" %></h2>
+                    <p><%= "Description : #{project.description}" %></p>
+                    <h2><%= "Status : #{project.archived == true ? "closed" : "live"}" %></h2>
+                    <%= link_to "More details", company_project_path(@company, project.id), class:"btn-details" %>
                   </div>
-                </div>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            <% @company.projects.each do |project| %>
-              <% if project.archived == true %>
-                <div class="card_project">
-                  <h1><%= "#{project.name}" %></h1>
-                  <h2><%= "du #{project.start_date}" %></h2>
-                  <h2><%= "au #{project.end_date}" %></h2>
-                  <p><%= "Description : #{project.description}" %></p>
-                  <p><%= "Status : #{project.archived == true ? "closed" : "live"}" %></p>
-                  <div class="btn-details">
-                    <p><%= link_to "More details", company_project_path(@company, project.id) %></p>
-                    <%#= link_to "Archive", archived_path(project) %>
+            <div class="cards_projects">
+              <% @company.projects.each do |project| %>
+                <% if project.archived == true %>
+                  <div class="card_project">
+                    <h1><%= "#{project.name}" %></h1>
+                    <h2><%= "du #{project.start_date}" %></h2>
+                    <h2><%= "au #{project.end_date}" %></h2>
+                    <p><%= "Description : #{project.description}" %></p>
+                    <p><%= "Status : #{project.archived == true ? "closed" : "live"}" %></p>
+                    <%= link_to "More details", company_project_path(@company, project.id), class: "btn-details" %>
                   </div>
-                </div>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@
         <% if task.candidate.avatar.attached? %>
           <%= cl_image_tag(task.candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
         <% else %>
-          <%=  image_tag("avatar")%>
+          <%= image_tag("avatar", width: 50, height: 50, crop: :fill)%>
         <% end %>
       </div>
       <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2>
@@ -30,7 +30,7 @@
         <% if task.candidate.avatar.attached? %>
           <%= cl_image_tag(task.candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
         <% else %>
-          <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
+          <%= image_tag("avatar", width: 50, height: 50, crop: :fill)%>
         <% end %>
       </div>
       <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2>
@@ -51,7 +51,7 @@
         <% if task.candidate.avatar.attached? %>
           <%= cl_image_tag(task.candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
         <% else %>
-          <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
+          <%= image_tag("avatar", width: 50, height: 50, crop: :fill)%>
         <% end %>
       </div>
       <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2>

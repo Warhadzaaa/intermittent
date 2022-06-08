@@ -10,39 +10,27 @@
       <% end %>
     </div>
 
-
-
-
     <% if @candidates.empty? && params[:commit] == "Search" %>
       <h2 class="text-center">No candidates matching with your search</h2>
     <% else %>
       <div class="index_candidates">
           <% @candidates.each do |candidate| %>
-
               <div class="card_candidate">
                 <% if candidate.avatar.attached? %>
                   <%= cl_image_tag(candidate.avatar.key,
                   width: 50, height: 50, crop: :fill) %>
                 <% else %>
-                  <%= image_tag("https://picsum.photos/400/300",
+                  <%= image_tag("avatar",
                   width: 50, height: 50, crop: :fill)%>
                 <% end %>
                 <h2><%= candidate.first_name %></h2>
                 <h2><%= candidate.last_name %></h2>
                 <h3><%= candidate.sector %></h3>
                 <h3><%= candidate.role %></h3>
-                <div class="btn-details">
-                  <%= link_to 'more details', company_project_candidate_path(@company, @project, candidate)%>
-                </div>
+                <%= link_to 'more details', company_project_candidate_path(@company, @project, candidate), class: "btn-details" %>
               </div>
-
           <% end %>
       </div>
     <% end %>
   </div>
-
-
-
-
-
 </div>

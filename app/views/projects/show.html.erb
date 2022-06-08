@@ -17,13 +17,10 @@
         <% end %>
       </div>
 
-      <div class="btn-search">
-        <%= link_to "search for candidates", company_project_candidates_path(@company, @project) %> <br>
-      </div>
-
+      <%= link_to "search for candidates", company_project_candidates_path(@company, @project), class: "btn-search" %>
     </div>
 
-    <div class="onglets-projets">
+    <div class="onglets_project">
       <div class="container-principal">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
@@ -75,12 +72,11 @@
 
 </div>
 
-
+<!-- Modal -->
 <% @project.tasks.each do |task| %>
   <% if current_user.corporate %>
     <% if task.status == "Accepted" %>
       <% if task.review.nil? && task.end_date < Date.today %>
-        <!-- Modal -->
         <div class="modal fade" id="staticBackdrop<%= task.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop<%= task.id %>Label" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content custom_modal">
