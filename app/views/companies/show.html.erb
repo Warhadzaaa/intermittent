@@ -57,7 +57,7 @@
                   <p><%= "Description : #{project.description}" %></p>
                   <p><%= "Status : #{project.archived == true ? "closed" : "live"}" %></p>
                   <div class="btn-details">
-                    <p><%= link_to "More details", company_project_path(project.id) %></p>
+                    <p><%= link_to "More details", company_project_path(@company, project.id) %></p>
                     <%= link_to "Archive", archived_path(project) %>
                   </div>
                 </div>
@@ -74,7 +74,7 @@
                   <p><%= "Description : #{project.description}" %></p>
                   <p><%= "Status : #{project.archived == true ? "closed" : "live"}" %></p>
                   <div class="btn-details">
-                    <p><%= link_to "More details", company_project_path(project.id) %></p>
+                    <p><%= link_to "More details", company_project_path(@company, project.id) %></p>
                     <%#= link_to "Archive", archived_path(project) %>
                   </div>
                 </div>
