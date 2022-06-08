@@ -8,11 +8,11 @@
 
 require "open-uri"
 
+Task.destroy_all
+Project.destroy_all
 Candidate.destroy_all
 Company.destroy_all
 User.destroy_all
-Project.destroy_all
-Task.destroy_all
 
 puts "creating users..."
 
@@ -67,13 +67,18 @@ puts "Candidate created"
 
 puts "Creating company..."
 
-company1 = Company.create(name: "UGC", description: "blablabla", siret: "948957834793857", address: "Paris", user: user11)
-company2 = Company.create(name: "PATHE", description: "blablabla", siret: "948957834793857", address: "Paris", user: user12)
+company1 = Company.create!(name: "UGC", description: "blablabla", siret: "948957834793857", address: "Paris", user: user11)
+company2 = Company.create!(name: "PATHE", description: "blablabla", siret: "948957834793857", address: "Paris", user: user12)
 puts "Company created"
 
 
 puts "Creating projet..."
-project1 = Project.create(name: "Batman", start_date: Date.today, end_date: Date.today + 5, description: "blablablablaba", company_id: company1.id)
+project1 = Project.create!(name: "Batman",
+                           start_date: Date.today,
+                           end_date: Date.today + 5,
+                           description: "blablablablaba",
+                           company_id: company1.id,
+                           archived: false)
 # puts "Company created"
 
 puts "Creating task..."
