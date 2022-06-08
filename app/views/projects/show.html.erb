@@ -8,11 +8,11 @@
         <h2>start date</h2> <p><%= @project.start_date %></p>
         <h2>end date</h2> <p><%=  @project.end_date %></p>
         <div class="btn-edit">
-          <%=link_to "edit", edit_project_path(@project) %> <br>
+          <%=link_to "edit", edit_company_project_path(@project) %> <br>
         </div>
-        <div class="btn-archive">
-          <%= link_to "archive", company_projects_path(@project) %> <br>
-        </div>
+
+          <%= button_to "Archive", archive_project_path(@project, archived: true), method: :patch, class: "btn-archive" %> <br>
+
       </div>
 
       <%# <div class="candidates"> %>
