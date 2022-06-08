@@ -22,6 +22,7 @@
       <div class="status" >
         <%= link_to "archive", archive_task_path(task), data: {action: "click->update-task-status#archive"}, class: "btn-archive"  %>
       </div>
+      <%= link_to "More details", company_project_candidate_path(@company, @project, task.candidate), class: "btn-details" %>
     </div>
   <% elsif task.status == "Awaiting" %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
