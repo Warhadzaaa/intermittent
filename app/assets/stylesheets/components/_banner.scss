@@ -20,22 +20,27 @@
 }
 
 .custom-banner-top {
-  height: 80vh;
+  height: 55vh;
   .banner-left {
     width: 30%;
+    span{
+      color: $pink;
+    }
   }
   .banner-right {
     width: 50%;
   }
 
   h1{
-    font-size: 36px;
+    font-size: 45px;
     font-family: 'Roboto';
+    line-height: 45px;
   }
 
   h2{
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Nunito';
+    font-weight: 300;
   }
 
 
@@ -52,7 +57,7 @@
 
 .custom-banner-bottom{
 
-  height: 50vh;
+  height: 63vh;
 
   .card_info_home {
     box-shadow: -20px -20px 0px #abbfcb;
