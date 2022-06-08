@@ -1,23 +1,23 @@
-.banner {
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
-}
+// .banner {
+//   background-size: cover;
+//   background-position: center;
+//   padding: 150px 0;
+// }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
-}
+// .banner h1 {
+//   margin: 0;
+//   color: white;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//   font-size: 32px;
+//   font-weight: bold;
+// }
 
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
+// .banner p {
+//   font-size: 20px;
+//   color: white;
+//   opacity: .7;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+// }
 
 .custom-banner-top {
   height: 55vh;
@@ -32,17 +32,19 @@
   }
 
   h1{
-    font-size: 45px;
+    font-size: 50px;
     font-family: 'Roboto';
-    line-height: 45px;
+    line-height: 52px;
+    font-weight: 600;
+    color: $blue;
   }
 
   h2{
     font-size: 18px;
     font-family: 'Nunito';
-    font-weight: 300;
+    font-weight: 500;
+    color: $blue
   }
-
 
 
   .card_image_home {
@@ -57,30 +59,32 @@
 
 .custom-banner-bottom{
 
-  height: 63vh;
+  height: 55vh;
 
   .card_info_home {
     box-shadow: -20px -20px 0px #abbfcb;
     border-radius: 50px 0px;
     max-width: 25%;
-    height: 35vh;
+    height: flex;
     object-fit: cover;
     background-color: $pink;
-    padding: 30px;
+    padding: 40px;
   }
   h3{
-    font-size: 20px;
+    font-size: 24px;
     font-family: 'Roboto';
     color: $blue;
     text-align: center;
+    font-weight: 600;
   }
   p{
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     font-family: 'Nunito';
     color: white;
     text-align: center;
-    line-height: 15px;
+    line-height: 18px;
+    font-weight: 400;
   }
 }
 
@@ -96,5 +100,6 @@
   align-items: center;
   width: 1200px;
   background-color: white;
+  margin: 30px;
 
 }

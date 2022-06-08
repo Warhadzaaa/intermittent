@@ -8,15 +8,16 @@
           <%= cl_image_tag(@company.avatar.key,
           width: 50, height: 50, crop: :fill) %>
         <% else %>
-          <%= image_tag("https://picsum.photos/400/300")%>
+          <%= image_tag("avatarcompany")%>
         <% end %>
         <h1><%= @company.name %></h1>
-        <p>SIRET <%= @company.siret %></p>
+        <h3>SIRET <%= @company.siret %></h3>
         <h4>Address</h4>
         <p><%= @company.address %></p>
         <h4>Description</h4>
         <p><%= @company.description %></p>
         <div class="btn-edit">
+       <%= link_to 'Edit profile', edit_company_path(@company.id)%>
           <% if current_user == @company.user %>
             <%= link_to 'Edit profile',  edit_company_path(@company.id) %>
           <% end %>
@@ -25,10 +26,10 @@
 
       <div class="card_new_project d-flex align-items-center justify-content-start">
         <%= link_to new_company_project_path(@company) do %>
-        <p> add a new project</p>
           <span style="color: #FF8A85">
             <i class="fa-solid fa-circle-plus fa-2xl fa-spin" style="--fa-animation-duration: 15s;"></i>
           </span>
+          <p> add a new project</p>
         <% end %>
       </div>
     </div>
@@ -38,10 +39,10 @@
       <div class="container-principal">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">On-going Projects</button>
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">On-going PROJECTS</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">ARCHIVED PROJECTS</button>
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Archived PROJECTS</button>
           </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -49,7 +50,8 @@
             <% @company.projects.each do |project| %>
               <% if project.archived == false %>
                 <div class="card_project">
-                  <h1><%= "Projet #{project.name}" %></h1>
+                  <h4><%= "Projet" %></h4>
+                  <h1><%= " #{project.name}" %></h1>
                   <h2><%= "du #{project.start_date}" %></h2>
                   <h2><%= "au #{project.end_date}" %></h2>
                   <p><%= "Description : #{project.description}" %></p>
@@ -58,7 +60,7 @@
                     <p><%= link_to "More details", company_project_path(@company, project.id) %></p>
                   </div>
                 </div>
-              <% end %>s
+              <% end %>
             <% end %>
           </div>
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
