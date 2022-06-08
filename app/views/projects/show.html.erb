@@ -10,9 +10,9 @@
         <h2>start date</h2> <p><%= @project.start_date %></p>
         <h2>end date</h2> <p><%=  @project.end_date %></p>
         <% if current_user == @project.company.user %>
-          <%=link_to "edit", edit_company_project_path(@project), class: "btn-edit" %> <br>
+          <%=link_to "edit", edit_company_project_path(@project), class: "btn-edit" %>
           <% if @project.archived == false %>
-            <%= button_to "archive", archive_project_path(@project, archived: true), method: :patch, class: "btn-archive" %> <br>
+            <%= button_to "archive", archive_project_path(@project, archived: true), method: :patch, class: "btn-archive" %>
           <% end %>
         <% end %>
       </div>
