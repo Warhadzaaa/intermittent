@@ -1,14 +1,14 @@
 <div class="container">
 
   <div class="d-flex p-5">
-    <div class="d-flex flex-column">
-      <div class="card_profile_company">
+    <div class="d-flex flex-column ">
+
+      <div class="card_profile_company companie-banner-left">
         <% if @company.avatar.attached? %>
           <%= cl_image_tag(@company.avatar.key,
           width: 50, height: 50, crop: :fill) %>
         <% else %>
-          <%= image_tag("https://picsum.photos/400/300",
-          width: 70, height: 70, crop: :fill)%>
+          <%= image_tag("https://picsum.photos/400/300")%>
         <% end %>
         <h1><%= @company.name %></h1>
         <p>SIRET <%= @company.siret %></p>
@@ -22,8 +22,10 @@
           <% end %>
         </div>
       </div>
+
       <div class="card_new_project d-flex align-items-center justify-content-start">
         <%= link_to new_company_project_path(@company) do %>
+        <p> add a new project</p>
           <span style="color: #FF8A85">
             <i class="fa-solid fa-circle-plus fa-2xl fa-spin" style="--fa-animation-duration: 15s;"></i>
           </span>
@@ -32,7 +34,7 @@
     </div>
 
 
-    <div class="projects">
+    <div class="d-flex flex-column companie-banner-right">
       <div class="container-principal">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
@@ -51,7 +53,7 @@
                   <h2><%= "du #{project.start_date}" %></h2>
                   <h2><%= "au #{project.end_date}" %></h2>
                   <p><%= "Description : #{project.description}" %></p>
-                  <p><%= "Status : #{project.archived == true ? "closed" : "live"}" %></p>
+                  <h2><%= "Status : #{project.archived == true ? "closed" : "live"}" %></h2>
                   <div class="btn-details">
                     <p><%= link_to "More details", company_project_path(@company, project.id) %></p>
                   </div>
@@ -63,7 +65,7 @@
             <% @company.projects.each do |project| %>
               <% if project.archived == true %>
                 <div class="card_project">
-                  <h1><%= "Projet #{project.name}" %></h1>
+                  <h1><%= "#{project.name}" %></h1>
                   <h2><%= "du #{project.start_date}" %></h2>
                   <h2><%= "au #{project.end_date}" %></h2>
                   <p><%= "Description : #{project.description}" %></p>
