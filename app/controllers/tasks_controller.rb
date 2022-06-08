@@ -10,6 +10,7 @@ class TasksController < ApplicationController
     @task.project = @project
     @task.status = "Awaiting"
     @task.save!
+    @chatroom = Chatroom.create(name: @project.name, task: @task)
     redirect_to company_project_path(@company, @project)
 
   end
