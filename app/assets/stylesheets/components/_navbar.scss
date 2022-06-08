@@ -16,10 +16,22 @@
   width: 150px;
 }
 
-.nav-item > .nav-link {
+.navbar-link {
   color: #FFFFFF !important;
 }
 
-.nav-item > .nav-link:hover{
+.navbar-link:hover{
   color: $pink !important;
+}
+
+button#messageDropdown {
+  background-color: #1E2A51;
+  border: none;
+  color: #FFFFFF;
+  margin-top: 7px;
+  margin-right: 8px;
+}
+
+.dropdown-toggle::after {
+  display: none;
 }

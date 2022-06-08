@@ -5,3 +5,49 @@
 .tab-pane.active {
   display:block;
 }
+
+#myTab {
+  width: 100%;
+}
+
+
+.nav-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 6px !important;
+  border: none !important;
+}
+
+.container-principal .nav .nav-item .active{
+    font-family: "nunito";
+    background-color: $pink;
+    color: white;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.container-principal .nav .nav-item{
+  font-size: 15px;
+  line-height: 20px;
+  background-color: $light-pink;
+  color: rgba(41, 56, 101, 0.5);
+  font-family: "nunito";
+
+
+}
+
+
+
+.container-principal {
+  .nav-item {
+    width: 100%;
+    border: none !important;
+  }
+  .nav-link:hover {
+    border: none !important;
+  }
+  .nav-link {
+    width: 100%;
+    border: none !important;
+  }
+}

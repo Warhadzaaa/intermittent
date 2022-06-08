@@ -1,12 +1,12 @@
 <div class="container">
 
-
+  <div class="container-2">
     <div class="search-bar">
       <%= form_tag company_project_candidates_path, method: :get, class: "d-flex" do %>
         <%= select_tag :sector, options_for_select(Candidate::SECTOR, params[:sector]), include_blank: 'Sector' %>
         <%= text_field_tag :role, params[:role], class: "form-control", placeholder: "Role" %>
         <%= text_field_tag :address, params[:address], class: "form-control", placeholder: "City" %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "Search", class: "btn" %>
       <% end %>
     </div>
 
@@ -38,7 +38,10 @@
 
           <% end %>
       </div>
-      <% end %>
+    <% end %>
+  </div>
+
+
 
 
 

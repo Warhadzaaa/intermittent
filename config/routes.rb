@@ -36,6 +36,12 @@ Rails.application.routes.draw do
     end
   end
 
+  # resources :projects do
+  #   member do
+  #     patch :archive
+  #   end
+  # end
+
   resources :tasks, only: [] do
     member do
       get :accept

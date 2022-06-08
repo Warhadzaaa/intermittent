@@ -38,10 +38,10 @@
       <div class="container-principal">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Live Projects</button>
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">On-going Projects</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Archived projects</button>
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">ARCHIVED PROJECTS</button>
           </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -55,11 +55,10 @@
                   <p><%= "Description : #{project.description}" %></p>
                   <h2><%= "Status : #{project.archived == true ? "closed" : "live"}" %></h2>
                   <div class="btn-details">
-                    <p><%= link_to "More details", company_project_path(project.id) %></p>
-                    <%= link_to "Archive", archived_path(project) %>
+                    <p><%= link_to "More details", company_project_path(@company, project.id) %></p>
                   </div>
                 </div>
-              <% end %>
+              <% end %>s
             <% end %>
           </div>
           <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
@@ -72,7 +71,7 @@
                   <p><%= "Description : #{project.description}" %></p>
                   <p><%= "Status : #{project.archived == true ? "closed" : "live"}" %></p>
                   <div class="btn-details">
-                    <p><%= link_to "More details", company_project_path(project.id) %></p>
+                    <p><%= link_to "More details", company_project_path(@company, project.id) %></p>
                     <%#= link_to "Archive", archived_path(project) %>
                   </div>
                 </div>
