@@ -16,12 +16,9 @@
         <p><%= @company.address %></p>
         <h4>Description</h4>
         <p><%= @company.description %></p>
-        <div class="btn-edit">
-       <%= link_to 'Edit profile', edit_company_path(@company.id)%>
-          <% if current_user == @company.user %>
-            <%= link_to 'Edit profile',  edit_company_path(@company.id) %>
-          <% end %>
-        </div>
+        <% if current_user == @company.user %>
+          <%= link_to 'Edit profile',  edit_company_path(@company.id), class: "btn-edit" %>
+        <% end %>
       </div>
 
       <div class="card_new_project d-flex align-items-center justify-content-start">
