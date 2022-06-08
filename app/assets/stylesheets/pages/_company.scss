@@ -1,0 +1,20 @@
+.cards_projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  width: 40vw;
+}
+
+.onglets_company {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background-color: white;
+  width: 100%;
+  box-shadow: 5px 5px 28px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.card_new_project {
+  margin-bottom: 60px;
+
+}
