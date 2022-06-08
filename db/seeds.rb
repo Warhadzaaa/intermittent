@@ -8,11 +8,12 @@
 
 require "open-uri"
 
+Task.destroy_all
 Candidate.destroy_all
 Company.destroy_all
 User.destroy_all
 Project.destroy_all
-Task.destroy_all
+
 
 puts "creating users..."
 
@@ -78,15 +79,17 @@ project1 = Project.create(name: "Batman", start_date: Date.today, end_date: Date
 
 puts "Creating task..."
 
-task1 = Task.new(start_date: Date.today, end_date: Date.today + 6)
+task1 = Task.new(start_date: Date.today + 3, end_date: Date.today + 6)
 task1.project = Project.first
 task1.candidate = Candidate.first
 task1.save!
+chatroom1 = Chatroom.create(name: Project.first.name, task: task1)
 
-task2 = Task.new(status: "Accepted", start_date: Date.today, end_date: Date.today - 5)
+task2 = Task.new(status: "Accepted", start_date: Date.today + 3, end_date: Date.today - 5)
 task2.project = Project.first
 task2.candidate = Candidate.last
 task2.save!
+chatroom1 = Chatroom.create(name: Project.first.name, task: task2)
 puts "Task created"
 
 review1= Review.new(content: "Il a été parfait durant ce projet", rating: 4, task_id: task1)

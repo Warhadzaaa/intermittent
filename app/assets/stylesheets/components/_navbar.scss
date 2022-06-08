@@ -23,3 +23,19 @@
 .nav-item > .nav-link:hover{
   color: $pink !important;
 }
+
+button#messageDropdown {
+  background-color: #1E2A51;
+  border: none;
+  color: #FFFFFF;
+  margin-top: 7px;
+  margin-right: 8px;
+}
+
+button#messageDropdown:hover{
+  color: $pink !important;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
