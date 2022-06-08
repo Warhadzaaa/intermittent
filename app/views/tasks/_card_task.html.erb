@@ -41,6 +41,7 @@
         <div class="status" >
           <%= link_to "Archive", archive_task_path(task), data: {action: "click->update-task-status#archive"}, class: "btn-archive"  %>
         </div>
+        <%= link_to "More details", company_project_candidate_path(@company, @project, task.candidate), class: "btn-details" %>
       <% end %>
     </div>
 
@@ -57,6 +58,7 @@
       <h3><%= "From #{task.start_date}" %></h3>
       <h3><%= "To #{task.end_date}" %></h3>
       <h5><%= task.candidate.role %></h5>
+      <%= link_to "More details", company_project_candidate_path(@company, @project, task.candidate), class: "btn-details" %>
     </div>
   <% end %>
 <% else %> <!-- else user candidate -->
