@@ -5,13 +5,11 @@
     <div class="profile">
 
       <div class="card_profile_candidate">
-        <div class="avatar">
           <% if @candidate.avatar.attached? %>
             <%= cl_image_tag(@candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
           <% else %>
             <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
           <% end %>
-        </div>
 
         <h1><%= @candidate.first_name %> <%= @candidate.last_name %></h1>
         <h6><%= @candidate.address %></h6>
@@ -22,10 +20,12 @@
           <div class = "btn-edit">
             <%= link_to 'Edit profile', edit_candidate_path(@candidate.id)%>
           </div>
-          <%= simple_form_for @candidate do |f| %>
-            <%= f.input :availability  %>
-            <% f.button :submit %>
-          <% end %>
+          <div class="availability">
+            <%= simple_form_for @candidate do |f| %>
+              <%= f.input :availability, as: :boolean, input_html: { class: "toggle" } %>
+              <% f.button :submit %>
+            <% end %>
+          </div>
         <% end %>
       </div>
 
@@ -85,62 +85,69 @@
     </div>
 
 
+
+
     <% if current_user.corporate && @company && @project && @candidate %>
-      <div class="card_new_task">
-        <%= simple_form_for [@company, @project, @candidate, @task] do |f| %>
-          <%= f.input :start_date, as: :date, html5: true %>
-          <%= f.input :end_date, as: :date, html5: true %>
-          <%= f.button :submit %>
-        <% end %>
+      <div class="new_candidate">
+        <div class="card_new_task">
+          <%= simple_form_for [@company, @project, @candidate, @task], html: { class: "form-new-task"}  do |f| %>
+            <%= f.input :start_date,  as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true %>
+            <%= f.button :submit, "Validate", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+
       </div>
-      <div class="description">
-      </div>
+
     <% end %>
 
     <% if current_user == @candidate.user %>
-      <div class="container-principal">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending-tab-pane" type="button" role="tab" aria-controls="pending-tab-pane" aria-selected="true">Pending confirmation</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="ongoing-tab" data-bs-toggle="tab" data-bs-target="#ongoing-tab-pane" type="button" role="tab" aria-controls="ongoing-tab-pane" aria-selected="false">On going</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="closed-tab" data-bs-toggle="tab" data-bs-target="#closed-tab-pane" type="button" role="tab" aria-controls="closed-tab-pane" aria-selected="false">Closed missions</button>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="pending-tab-pane" role="tabpanel" aria-labelledby="pending-tab" tabindex="0">
-            <div class="cards_tasks">
-              <% @candidate.tasks.each do |task| %>
-                  <% if task.status == "Awaiting" %>
-                    <%= render partial: "tasks/card_task", locals: {task: task} %>
-                  <% end %>
-              <% end %>
+      <div class="onglets_candidate">
+        <div class="container-principal">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending-tab-pane" type="button" role="tab" aria-controls="pending-tab-pane" aria-selected="true">Pending confirmation</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="ongoing-tab" data-bs-toggle="tab" data-bs-target="#ongoing-tab-pane" type="button" role="tab" aria-controls="ongoing-tab-pane" aria-selected="false">On going</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="closed-tab" data-bs-toggle="tab" data-bs-target="#closed-tab-pane" type="button" role="tab" aria-controls="closed-tab-pane" aria-selected="false">Closed missions</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="pending-tab-pane" role="tabpanel" aria-labelledby="pending-tab" tabindex="0">
+              <div class="cards_tasks">
+                <% @candidate.tasks.each do |task| %>
+                    <% if task.status == "Awaiting" %>
+                      <%= render partial: "tasks/card_task", locals: {task: task} %>
+                    <% end %>
+                <% end %>
+              </div>
             </div>
-          </div>
-          <div class="tab-pane fade" id="ongoing-tab-pane" role="tabpanel" aria-labelledby="ongoing-tab" tabindex="0">
-            <div class="cards_tasks">
-              <% @candidate.tasks.each do |task| %>
-                  <% if task.status == "Accepted" %>
-                    <%= render partial: "tasks/card_task", locals: {task: task} %>
-                  <% end %>
-              <% end %>
+            <div class="tab-pane fade" id="ongoing-tab-pane" role="tabpanel" aria-labelledby="ongoing-tab" tabindex="0">
+              <div class="cards_tasks">
+                <% @candidate.tasks.each do |task| %>
+                    <% if task.status == "Accepted" %>
+                      <%= render partial: "tasks/card_task", locals: {task: task} %>
+                    <% end %>
+                <% end %>
+              </div>
             </div>
-          </div>
-          <div class="tab-pane fade" id="closed-tab-pane" role="tabpanel" aria-labelledby="closed-tab" tabindex="0">
-            <div class="cards_tasks">
-              <% @candidate.tasks.each do |task| %>
-                  <% if task.status == "Archived" %>
-                    <%= render partial: "tasks/card_task", locals: {task: task} %>
-                  <% end %>
-              <% end %>
+            <div class="tab-pane fade" id="closed-tab-pane" role="tabpanel" aria-labelledby="closed-tab" tabindex="0">
+              <div class="cards_tasks">
+                <% @candidate.tasks.each do |task| %>
+                    <% if task.status == "Archived" %>
+                      <%= render partial: "tasks/card_task", locals: {task: task} %>
+                    <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
       </div>
     <% end %>
+
 
   </div>
 

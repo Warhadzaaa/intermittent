@@ -1,39 +1,45 @@
 <div class="container">
 
-  <div class="search-bar">
-     <%= form_tag company_project_candidates_path, method: :get, class: "d-flex" do %>
-      <%= select_tag :sector, options_for_select(Candidate::SECTOR, params[:sector]), include_blank: 'Sector' %>
-      <%= text_field_tag :role, params[:role], class: "form-control", placeholder: "Role" %>
-      <%= text_field_tag :address, params[:address], class: "form-control", placeholder: "City" %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-  </div>
 
-
-
-
-  <% if @candidates.empty? && params[:commit] == "Search" %>
-    <h2 class="text-center">Pas de candidats correspondant à votre recherche</h2>
-  <% else %>
-    <div class="index_candidates">
-        <% @candidates.each do |candidate| %>
-          <%= link_to company_project_candidate_path(@company, @project, candidate) do %>
-            <div class="card_candidate">
-              <% if candidate.avatar.attached? %>
-                <%= cl_image_tag(candidate.avatar.key,
-                width: 50, height: 50, crop: :fill) %>
-              <% else %>
-                <%= image_tag("https://picsum.photos/400/300",
-                width: 50, height: 50, crop: :fill)%>
-              <% end %>
-              <p><%= candidate.first_name %></p>
-              <p><%= candidate.last_name %></p>
-              <p><%= candidate.sector %></p>
-              <p><%= candidate.role %></p>
-            </div>
-          <% end %>
-        <% end %>
+    <div class="search-bar">
+      <%= form_tag company_project_candidates_path, method: :get, class: "d-flex" do %>
+        <%= select_tag :sector, options_for_select(Candidate::SECTOR, params[:sector]), include_blank: 'Sector' %>
+        <%= text_field_tag :role, params[:role], class: "form-control", placeholder: "Role" %>
+        <%= text_field_tag :address, params[:address], class: "form-control", placeholder: "City" %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
     </div>
-    <% end %>
+
+
+
+
+    <% if @candidates.empty? && params[:commit] == "Search" %>
+      <h2 class="text-center">No candidates matching with your search</h2>
+    <% else %>
+      <div class="index_candidates">
+          <% @candidates.each do |candidate| %>
+
+              <div class="card_candidate">
+                <% if candidate.avatar.attached? %>
+                  <%= cl_image_tag(candidate.avatar.key,
+                  width: 50, height: 50, crop: :fill) %>
+                <% else %>
+                  <%= image_tag("https://picsum.photos/400/300",
+                  width: 50, height: 50, crop: :fill)%>
+                <% end %>
+                <h2><%= candidate.first_name %></h2>
+                <h2><%= candidate.last_name %></h2>
+                <h3><%= candidate.sector %></h3>
+                <h3><%= candidate.role %></h3>
+                <div class="btn-details">
+                  <%= link_to 'more details', company_project_candidate_path(@company, @project, candidate)%>
+                </div>
+              </div>
+
+          <% end %>
+      </div>
+      <% end %>
+
+
 
 </div>
