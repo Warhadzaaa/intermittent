@@ -12,7 +12,9 @@
         <div class="btn-edit">
           <%=link_to "edit", edit_company_project_path(@project) %> <br>
         </div>
+        <% if @project.archived == false %>
           <%= button_to "archive", archive_project_path(@project, archived: true), method: :patch, class: "btn-archive" %> <br>
+        <% end %>
       </div>
 
       <div class="btn-search">
