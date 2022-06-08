@@ -1,8 +1,39 @@
   .card_candidate{
-    padding: 40px;
+    padding: 20px;
     background: #FFFFFF;
     box-shadow: 5px 5px 28px rgba(0, 0, 0, 0.07);
-    border-radius: 25px;
-    border: 2px solid $blue;
+    width: 240px;
+    height: 333px;
+    text-align: center;
+
+
+
+
+    img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-style: Bold;
+      font-size: 20px;
+      line-height: 19px;
+      font-weight: 800;
+      font-family: "Roboto";
+    }
+
+    h3 {
+      font-family: "Nunito";
+      font-weight: 900;
+      font-size: 16px;
+      line-height: 5px;
+      color: $pink;
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+
+    }
 
   }
