@@ -22,10 +22,6 @@
       <div class="status" >
         <%= link_to "Archive", archive_task_path(task), data: {action: "click->update-task-status#archive"}, class: "btn-archive"  %>
       </div>
-      <br>
-      <% if Date.today < task.start_date %>
-        <%= link_to "Chat", chatroom_path(task.chatroom), class: "btn btn-success btn-sm" %>
-      <% end %>
     </div>
   <% elsif task.status == "Awaiting" %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
@@ -44,10 +40,6 @@
         <div class="status" >
           <%= link_to "Archive", archive_task_path(task), data: {action: "click->update-task-status#archive"}, class: "btn-archive"  %>
         </div>
-      <% end %>
-      <br>
-      <% if Date.today < task.start_date %>
-        <%= link_to "Chat", chatroom_path(task.chatroom), class: "btn btn-success btn-sm" %>
       <% end %>
     </div>
 
@@ -87,8 +79,6 @@
         <%= link_to "Accept", accept_task_path(task), data: {action: "click->update-task-status#accept"}, class: "btn-accept"  %>
         <%= link_to "Decline", decline_task_path(task), data: {action: "click->update-task-status#decline"}, class: "btn-decline"  %>
       </div>
-      <br>
-      <%= link_to "Chat", chatroom_path(task.chatroom), class: "btn btn-success btn-sm" %>
     </div>
   <% elsif task.status == "Accepted" && task.start_date > Date.today  %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
@@ -106,8 +96,6 @@
           </div>
         </div>
       </div>
-      <br>
-      <%= link_to "Chat", chatroom_path(task.chatroom), class: "btn btn-success btn-sm" %>
     </div>
   <% else %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
