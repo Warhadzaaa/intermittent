@@ -56,7 +56,7 @@ class TasksController < ApplicationController
     @task.save
 
     respond_to do |format|
-      format.html { redirect_to project_path(@task.project) }
+      format.html { redirect_to company_project_path(@task.project.company, @task.project) }
       format.json
     end
   end
