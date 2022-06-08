@@ -10,6 +10,7 @@
     margin-right: 70px;
     margin-top: 60px;
     border-radius: 40px;
+    padding: 20px;
 
 
 
@@ -62,13 +63,20 @@
     text-align: center;
   }
 
+  p {
+    color: $pink;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 50px;
+    margin-top: 10px;;
+
+  }
+
   .btn-edit {
-    margin-bottom: 20px;
+    margin: 40px;
   }
 
 
-}
-
-.r_content{
-  margin-bottom: 0px !important;
 }

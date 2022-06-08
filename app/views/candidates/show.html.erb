@@ -14,18 +14,19 @@
         <h1><%= @candidate.first_name %> <%= @candidate.last_name %></h1>
         <h6><%= @candidate.address %></h6>
         <h3><%= @candidate.role %></h3>
-        <h4><%= @candidate.sector %></p>
+        <h4><%= @candidate.sector %></h4>
+        <p><%= @candidate.description %></p>
 
         <% if current_user == @candidate.user %>
           <div class = "btn-edit">
             <%= link_to 'Edit profile', edit_candidate_path(@candidate.id)%>
           </div>
-          <div class="availability">
-            <%= simple_form_for @candidate do |f| %>
-              <%= f.input :availability, as: :boolean, input_html: { class: "toggle" } %>
-              <% f.button :submit %>
-            <% end %>
-          </div>
+          <%# <div class="availability"> %>
+            <%# <%=# simple_form_for @candidate do |f| %>
+              <%# <%=# f.input :availability, as: :boolean, input_html: { class: "toggle" } %>
+              <%# f.button :submit %>
+            <%# end %>
+              <%# </div> %>
         <% end %>
       </div>
 
