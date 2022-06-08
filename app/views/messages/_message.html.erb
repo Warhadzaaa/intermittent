@@ -1,9 +1,9 @@
 <div id="message-<%= message.id %>">
   <small>
     <% if message.user.corporate %>
-      <strong><%= message.user.companies.first.name %></strong>
+      <strong id="mcomp"><%= message.user.companies.first.name %></strong>
     <% else %>
-      <strong><%= message.user.candidates.first.first_name %></strong>
+      <strong id="mcand"><%= message.user.candidates.first.first_name %></strong>
     <% end %>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>

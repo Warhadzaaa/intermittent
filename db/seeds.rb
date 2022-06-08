@@ -9,6 +9,7 @@
 require "open-uri"
 
 Task.destroy_all
+Chatroom.destroy_all
 
 Candidate.destroy_all
 Company.destroy_all
