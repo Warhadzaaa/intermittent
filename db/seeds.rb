@@ -100,30 +100,7 @@ puts "Companies created"
 
 puts "Creating projects..."
 
-project1 = Project.create(name: "Black Panther 2", start_date: Date.today - 14, end_date: Date.today + 65, description: "FICHE DE POSTE CAMÉRAMAN - Black Panther 2
-Qui sommes nous ?
-UGC est un acteur majeur du paysage cinématographique français et l’une des principales entreprises de cinéma européennes.
-Présent en France (49 cinémas, 510 salles) et en Belgique (7 cinémas, 74 salles), UGC compte 584 salles.
-Le Groupe créé le concept UGC Ciné Cité en 1993 dont le premier a été l’UGC Ciné Cité Les Halles, ouvert en 1995, devenu en 2017 le premier cinéma au monde en termes de fréquentation* et la première salle Art & essai de France.Erigés en véritables centres de vie, de culture et de divertissement, les cinémas UGC Ciné Cité sont situés au cœur de l’environnement urbain. Le Groupe joue ainsi un rôle déterminant dans le développement et la vie des quartiers. Avec ses salles disposées en gradins et bénéficiant des équipements techniques les plus performants, les UGC Ciné Cité permettent de proposer une large diversité de films. L’une des caractéristiques fondamentales de ce concept est la politique de programmation dont le spectre, très large, propose des films grand public mais aussi des films d’Art et Essai, tous présentés en V.O.
-
-Intitulé de Poste
-Cameraman / Woman nouveaux médias
-Domaine Fonctionnel
-Développement de contenu web
-
-Localisation géographique
-Région ile de france
-Activités Principales
-Le ou la caméraman de UGC a pour mission d’assurer le développement du contenu en image pour un media culturel.Selon les indications du réalisateur, il fera les prises de vue lors du tournageLe ou la Caméraman sera autonome et en capacité de raconter une histoire d’un événement, d’un territoire ou d’une entreprise, en images.
-Savoir-faire
-Production : installation matériel pour tournage. Cadrage , réglage lumières / sonpost production selon respect de la charte graphique de l’entrepriseSavoir Raconter un histoire dans la finalité du reportagele ou la caméraman devra être équipé des moyens de tournage et post production. (peut être aussi fourni par l’entreprise)
-Savoir être
-Passionné /Avoir le sens des relations humaines Diplomate / respectueuxDiscrétion (selon les lieux de tournage (par ex spectacles) Dynamique /Disponible /Autonome
-Adaptabilité / réactivitéCuriosité / ouverture d’esprit / intérêt créatif.Centre d’intérêts pour les arts est le spectacles bienvenus
-Expérience dans ce domaine appréciéeStatut du poste : FreelanceRémunération au reportage + Commission si apporteur d’affaires.
-
-Cameraman / Woman nouveaux médias
-", company_id: company1.id, archived: false)
+project1 = Project.create(name: "Black Panther 2", start_date: Date.today - 14, end_date: Date.today + 65, description: "This is the sequel of the Disney saga. The shooting will take place in Paris. We need technical and artistic staff. Here is the synopsis of the movie. After the events of Avengers: Endgame, the people of Wakanda will have to fight new forces to save their kingdom. Nakia, Shuri, Okoye, M'Baku, Ramonda and Agent Ross will have to show solidarity and team spirit to face a new people, the Atlanteans, who have a technology much more advanced than theirs as well as Doctor Doom, who is ready to do anything to be able to seize technology from Wakanda...", company_id: company1.id, archived: false)
 project2 = Project.create(name: "Fary engagé", start_date: Date.today - 13, end_date: Date.today + 10, description: "Tournée internationale du stand-upper Fary avec son nouveau spectacle", company_id: company3.id, archived: true)
 project3 = Project.create(name: "HPI Saison 2", start_date: Date.today - 30, end_date: Date.today + 76, description: "160 de QI et une bonne dose d’insoumission, va voir son destin de femme de ménage chamboulé lorsque ses capacités hors norme sont repérées par la police qui lui propose un poste de consultante. Problème : Morgane déteste les flics !", company_id: company2.id, archived: true)
 project4 = Project.create(name: "Indiania Jones 5", start_date: Date.today, end_date: Date.today + 365, description: "Suite de la saga créé par Steven Spielberg", company_id: company1.id, archived: true)
