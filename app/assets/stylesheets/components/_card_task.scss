@@ -6,7 +6,6 @@
   background: #FFFFFF;
   align-items: center;
   justify-content: center;
-  margin: 20px;
   align-items: center;
   flex-direction: column;
   display:flex;
@@ -58,6 +57,7 @@
     margin: 15px;
     border: 2px;
     border-color: $blue;
+    object-fit: cover;
     }
     a{
     align-items: center;
