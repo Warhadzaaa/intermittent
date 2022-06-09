@@ -29,6 +29,10 @@ user10 = User.create(email: "user10@gmail.com", password: "toto22", corporate: f
 user11 = User.create(email: "user11@gmail.com", password: "toto22", corporate: true)
 user12 = User.create(email: "user12@gmail.com", password: "toto22", corporate: true)
 user13 = User.create(email: "user13@gmail.com", password: "toto22", corporate: true)
+user14 = User.create(email: "user14@gmail.com", password: "toto22", corporate: false)
+user15 = User.create(email: "user15@gmail.com", password: "toto22", corporate: false)
+user16 = User.create(email: "user16@gmail.com", password: "toto22", corporate: false)
+
 
 
 puts "Users created"
@@ -65,6 +69,16 @@ candidate9.avatar.attach(io: File.open(Rails.root.join('app/assets/images/myriam
 candidate10 = Candidate.create(first_name: "Dominique", last_name: "Besnehard", sector: "TV production", role:"Executive producer", skills: "Casting, Management ", experiences: "Five seasons of 10 pour cent", description:"After a life as a casting director, I've decided to jump behind the scene", address: "Paris", user: user10)
 candidate10.avatar.attach(io: File.open(Rails.root.join('app/assets/images/dominique.png')), filename: "avatar.png", content_type: "image/png")
 
+candidate11 = Candidate.create(first_name: "Maxime", last_name: "Delayat", sector: "Movie production", role:"Cameraman", skills: "Prise de vue, grue", experiences: "I've been cameraman for Canal+ for more than five years", description:"Easy to work with and to direct", address: "Paris", user: user14)
+candidate11.avatar.attach(io: File.open(Rails.root.join('app/assets/images/maximedelayat.png')), filename: "avatar.png", content_type: "image/png")
+
+candidate12 = Candidate.create(first_name: "William", last_name: "Eneau", sector: "Movie production", role:"Cameraman", skills: "Prise de vue, grue", experiences: "I've been one of the cameramen for M6 cine", description:"I can move everywhere in France", address: "Paris", user: user15)
+candidate12.avatar.attach(io: File.open(Rails.root.join('app/assets/images/williameneau.png')), filename: "avatar.png", content_type: "image/png")
+
+candidate13 = Candidate.create(first_name: "Nastasia", last_name: "Moreira", sector: "Movie production", role:"Cameraman", skills: "Prise de vue, grue", experiences: "Elephant and cie", description:"young with experience", address: "Paris", user: user16)
+candidate13.avatar.attach(io: File.open(Rails.root.join('app/assets/images/nastasiamoreira.png')), filename: "avatar.png", content_type: "image/png")
+
+
 puts "Candidates created"
 
 
@@ -73,7 +87,7 @@ puts "Creating companies..."
 
 
 company1 = Company.create(name: "UGC CINE CITE", description: "le premier cinéma au monde en termes de fréquentation et la première salle Art & essai de France", siret: "34780600200023", address: "Neuilly-sur-seine", user: user11)
-company1.avatar.attach(io: File.open(Rails.root.join('app/assets/images/logo_ugc_2001-2018.svg.png')), filename: "avatar.png", content_type: "image/png")
+company1.avatar.attach(io: File.open(Rails.root.join('app/assets/images/ugc.png')), filename: "avatar.png", content_type: "image/png")
 
 company2 = Company.create(name: "PATHE", description: "Acteur historique du cinéma, Pathé est aujourd’hui premier studio de cinéma français et leader de l’exploitation de salles en Europe continentale", siret: "30758286600041", address: "Neuilly-sur-seine", user: user12)
 company2.avatar.attach(io: File.open(Rails.root.join('app/assets/images/pathe_logo.svg.png')), filename: "avatar.png", content_type: "image/png")
@@ -83,12 +97,48 @@ company3.avatar.attach(io: File.open(Rails.root.join('app/assets/images/logo_jmd
 
 puts "Companies created"
 
-
 puts "Creating projects..."
 
 project1 = Project.create(name: "Black Panther 2", start_date: Date.today - 10, end_date: Date.today + 65, description: "Suite de la saga de Disney", company_id: company1.id, archived: false)
 project2 = Project.create(name: "Fary engagé", start_date: Date.today - 1, end_date: Date.today + 10, description: "Tournée internationale du stand-upper Fary avec son nouveau spectacle", company_id: company3.id, archived: true)
-project4 = Project.create(name: "Indinia Jones 5", start_date: Date.today, end_date: Date.today + 365, description: "Suite de la saga créé par Steven Spielberg", company_id: company2.id, archived: false)
-project3 = Project.create(name: "HPI Saison 2", start_date: Date.today - 30, end_date: Date.today + 76, description: "160 de QI et une bonne dose d’insoumission, va voir son destin de femme de ménage chamboulé lorsque ses capacités hors norme sont repérées par la police qui lui propose un poste de consultante. Problème : Morgane déteste les flics !", company_id: company1.id, archived: false)
+project3 = Project.create(name: "HPI Saison 2", start_date: Date.today - 30, end_date: Date.today + 76, description: "160 de QI et une bonne dose d’insoumission, va voir son destin de femme de ménage chamboulé lorsque ses capacités hors norme sont repérées par la police qui lui propose un poste de consultante. Problème : Morgane déteste les flics !", company_id: company2.id, archived: true)
+project4 = Project.create(name: "Indinia Jones 5", start_date: Date.today, end_date: Date.today + 365, description: "Suite de la saga créé par Steven Spielberg", company_id: company1.id, archived: true)
 
 puts "Projects created"
+
+puts "Creating tasks..."
+
+candidates = Candidate.all
+companies = Company.all
+projects = Project.all
+
+task1 = Task.new(status: "Archived", start_date: Date.today - 10, end_date: Date.today - 5)
+task1.project = projects[1]
+task1.candidate = candidates[4]
+task1.save!
+
+task2 = Task.new(status: "Archived", start_date: Date.today - 4, end_date: Date.today - 2)
+task2.project = projects[2]
+task2.candidate = candidates[4]
+task2.save!
+
+task3 = Task.new(status: "Accepted", start_date: Date.today - 12, end_date: Date.today - 11)
+task3.project = projects[3]
+task3.candidate = candidates[2]
+task3.save!
+
+puts "Tasks created"
+
+puts "Creating reviews..."
+
+review1 = Review.new
+review1.content = "Super efficace! Nous avons adoré travaillé avec Fred."
+review1.rating = 5
+review1.task = task1
+
+review2 = Review.new
+review2.content = "Très professionnel, je recommande."
+review2.rating = 5
+review2.task = task2
+
+puts "Reviews created"
