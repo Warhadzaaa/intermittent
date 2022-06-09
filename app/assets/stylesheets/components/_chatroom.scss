@@ -14,7 +14,6 @@
   padding: 40px 80px 80px 80px;
 
   h1 {
-    // border-bottom: 1px solid $pink;
     margin-bottom: 20px;
     padding: 1rem;
     font-size: 50px;
@@ -33,11 +32,9 @@
 
   }
 
-  .messages-content {
-    background-color: #EBEAEA;
-    border-radius: 40px;
-    // width: 300px;
-  }
+  // .mess-border {
+  //   border-bottom: 1px solid #EBEAEA;
+  // }
 
   #new_message {
     border-top: 1px solid $gray-200;
