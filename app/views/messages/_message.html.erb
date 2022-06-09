@@ -1,5 +1,5 @@
 <div id="message-<%= message.id %>">
-  <small>
+  <small class="d-flex align-items-center justify-content-between">
     <% if message.user.corporate %>
       <strong id="mcomp"><%= message.user.companies.first.name %></strong>
     <% else %>
