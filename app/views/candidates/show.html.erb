@@ -86,13 +86,15 @@
 
     <% if current_user.corporate && @company && @project && @candidate %>
       <div class="new_candidate">
-        <div class="card_new_task">
+
           <%= simple_form_for [@company, @project, @candidate, @task], html: { class: "form-new-task"}  do |f| %>
-            <%= f.input :start_date,  as: :date, html5: true %>
-            <%= f.input :end_date, as: :date, html5: true %>
-            <%= f.button :submit, "Validate", class: "btn btn-primary" %>
+            <div class="card_new_task">
+              <%= f.input :start_date,  as: :date, html5: true %>
+              <%= f.input :end_date, as: :date, html5: true %>
+              <%= f.button :submit, "Validate", class: "btn-new-task" %>
+            </div>
           <% end %>
-        </div>
+
       </div>
     <% end %>
 
@@ -144,3 +146,19 @@
     <% end %>
   </div>
 </div>
+
+<% @candidate.tasks.each do |task| %>
+      <div class="modal fade" id="staticBackdrop<%= task.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop<%= task.id %>Label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdrop<%= task.id %>Label">Project details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p><%= task.project.description %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+<% end %>

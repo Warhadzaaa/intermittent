@@ -1,14 +1,14 @@
-<div class="container-formulaire">
-  <h2>Edit project</h2>
+<div class="container">
   <div class="formulaire">
-    <div>
-      <%= simple_form_for [@project.company, @project] do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.button :submit, class: "button" %>
-      <% end %>
-    </div>
+    <h2>Edit project</h2>
+    <%= simple_form_for [@project.company, @project] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <div class="d-flex">
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
+      </div>
+      <%= f.button :submit, class: "button" %>
+    <% end %>
   </div>
 </div>

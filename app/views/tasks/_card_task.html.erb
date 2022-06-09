@@ -68,8 +68,8 @@
       <h5><%= task.project.company.name %></h5>
       <h3><%= "From #{task.start_date}" %></h3>
       <h3><%= "To #{task.end_date}" %></h3>
-      <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target=".bd-project_description-lg">
-            See the description
+      <button type="button" class="btn btn-view-details" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= task.id %>">
+        See the description
       </button>
       <div class="modal fade bd-project_description-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -89,15 +89,9 @@
       <h5><%= task.project.company.name %></h5>
       <h3><%= "From #{task.start_date}" %></h3>
       <h3><%= "To #{task.end_date}" %></h3>
-      <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target=".bd-project_description-lg">
-            See the description
+      <button type="button" class="btn btn-view-details" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= task.id %>">
+        See the description
       </button>
-      <div class="modal fade bd-project_description-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <p><%= task.project.description %></p>
-          </div>
-        </div>
       </div>
     </div>
   <% else %>
@@ -106,16 +100,12 @@
       <h5><%= task.project.company.name %></h5>
       <h3><%= "From #{task.start_date}" %></h3>
       <h3><%= "To #{task.end_date}" %></h3>
-      <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target=".bd-project_description-lg">
-            See the description
+      <button type="button" class="btn-view-details" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= task.id %>">
+        See the description
       </button>
-      <div class="modal fade bd-project_description-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <p><%= task.project.description %></p>
-          </div>
-        </div>
-      </div>
+
+
+
     </div>
   <% end %>
 <% end %>

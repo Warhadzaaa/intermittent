@@ -1,7 +1,6 @@
 <div class="container">
-<h2>Edit profile</h2>
-  <div>
-    <div>
+  <div class="formulaire">
+    <h2>Edit profile</h2>
       <%= simple_form_for @candidate do |f| %>
         <%= f.input :first_name %>
         <%= f.input :last_name %>
@@ -12,9 +11,8 @@
         <%= f.input :experiences %>
         <%= f.input :skills %>
         <%= f.input :avatar, as: :file, input_html: { autocomplete: "avatar" } %>
-        <%= f.button :submit %>
+        <%= f.button :submit, "Update" %>
       <% end %>
-    </div>
   </div>
 
 </div>
