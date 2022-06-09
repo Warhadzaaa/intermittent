@@ -54,36 +54,39 @@
     height: 45vh;
     object-fit: cover;
     background-color: $pink;
+
   }
 }
 
 .custom-banner-bottom{
 
-  height: 75vh;
+  height: 67vh;
 
   .card_info_home {
     box-shadow: -20px -20px 0px #abbfcb;
     border-radius: 50px 0px;
     max-width: 23%;
-    height: flex;
+    height: fit-content;
     object-fit: cover;
-    background-color: $pink;
-    padding: 40px;
+    background-color: #FF8A85;
+    padding: 40px 20px 35px 20px;
+    min-height: 250px;
+    // min-height: 20em;
   }
   h3{
     font-size: 24px;
     font-family: 'Roboto';
     color: $blue;
     text-align: center;
-    font-weight: 600;
+    font-weight: 800;
   }
   p{
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     font-family: 'Nunito';
     color: white;
     text-align: center;
-    line-height: 18px;
+    line-height: 16px;
     font-weight: 400;
   }
 }
