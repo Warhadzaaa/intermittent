@@ -36,19 +36,22 @@
   h4{
     font-family: 'Nunito';
     font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 13px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
     text-align: center;
-    color:$blue;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
   p{
     font-family: 'Nunito';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 14px;
-    line-height: 22px;
+    line-height: 12px;
     text-align: center;
+    color: $blue;
   }
 
   img{
