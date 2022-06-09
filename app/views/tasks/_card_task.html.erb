@@ -3,9 +3,9 @@
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <div>
         <% if task.candidate.avatar.attached? %>
-          <%= cl_image_tag(task.candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
+          <%= cl_image_tag(task.candidate.avatar.key) %>
         <% else %>
-          <%= image_tag("avatar", width: 50, height: 50, crop: :fill)%>
+          <%= image_tag("avatar")%>
         <% end %>
       </div>
       <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2> <br>
@@ -28,9 +28,9 @@
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <div>
         <% if task.candidate.avatar.attached? %>
-          <%= cl_image_tag(task.candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
+          <%= cl_image_tag(task.candidate.avatar.key) %>
         <% else %>
-          <%= image_tag("avatar", width: 50, height: 50, crop: :fill)%>
+          <%= image_tag("avatar")%>
         <% end %>
       </div>
       <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2> <br>
@@ -49,9 +49,9 @@
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <div>
         <% if task.candidate.avatar.attached? %>
-          <%= cl_image_tag(task.candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
+          <%= cl_image_tag(task.candidate.avatar.key) %>
         <% else %>
-          <%= image_tag("avatar", width: 50, height: 50, crop: :fill)%>
+          <%= image_tag("avatar")%>
         <% end %>
       </div>
       <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2>

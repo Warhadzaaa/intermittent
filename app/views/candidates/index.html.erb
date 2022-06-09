@@ -17,11 +17,9 @@
           <% @candidates.each do |candidate| %>
               <div class="card_candidate">
                 <% if candidate.avatar.attached? %>
-                  <%= cl_image_tag(candidate.avatar.key,
-                  width: 50, height: 50, crop: :fill) %>
+                  <%= cl_image_tag(candidate.avatar.key) %>
                 <% else %>
-                  <%= image_tag("avatar",
-                  width: 50, height: 50, crop: :fill)%>
+                  <%= image_tag("avatar")%>
                 <% end %>
                 <h2><%= candidate.first_name %></h2>
                 <h2><%= candidate.last_name %></h2>
