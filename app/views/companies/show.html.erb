@@ -51,7 +51,6 @@
                     <h1><%= " #{project.name}" %></h1>
                     <h2><%= "du #{project.start_date}" %></h2>
                     <h2><%= "au #{project.end_date}" %></h2>
-                    <p><%= "Description : #{project.description}" %></p>
                     <h2><%= "Status : #{project.archived == true ? "closed" : "live"}" %></h2>
                     <%= link_to "More details", company_project_path(@company, project.id), class:"btn-details" %>
                   </div>
@@ -67,7 +66,6 @@
                     <h1><%= "#{project.name}" %></h1>
                     <h2><%= "du #{project.start_date}" %></h2>
                     <h2><%= "au #{project.end_date}" %></h2>
-                    <p><%= "Description : #{project.description}" %></p>
                     <p><%= "Status : #{project.archived == true ? "closed" : "live"}" %></p>
                     <%= link_to "More details", company_project_path(@company, project.id), class: "btn-details" %>
                   </div>
