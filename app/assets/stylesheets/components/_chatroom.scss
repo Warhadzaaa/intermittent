@@ -1,7 +1,7 @@
 .chatroom {
-  background: white;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  background:#809EB0;
+  margin-top: 50px;
+  margin-bottom: 50px;
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
@@ -12,34 +12,58 @@
   border-radius: 40px;
   box-shadow: 5px 5px 28px rgba(0, 0, 0, 0.2);
   padding: 40px 80px 80px 80px;
+  border-radius: 20px;
+      width: 70%;
+
 
   h1 {
     margin-bottom: 20px;
     padding: 1rem;
-    font-size: 30px;
+    font-size: 36px;
     font-family: 'Roboto';
     line-height: 52px;
-    font-weight: 400;
-    color: #1E2A51;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 1px;
+    line-height: 36px;
   }
 
   .messages {
     height: 100%;
     overflow: scroll;
-    padding: 1rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 25px;
+
   }
+
+  .btn-closeee {
+    color: #1E2A51;
+    text-decoration: none;
+}
+.btn-closeee:hover {
+  color: white ;
+  text-decoration: none;
+}
 
   // .mess-border {
   //   border-bottom: 1px solid #EBEAEA;
   // }
 
   #new_message {
-    border-top: 1px solid $gray-200;
-    padding: 1rem;
+    // border-top: 1px solid $bright;
+    padding-top: 1rem;
 
     .form-group {
       margin-bottom: 0;
     }
+  }
+
+  p{
+    font-size: 15px;
+    font-family:'nunito';
+    color: $blue;
+    font-weight: 400;
   }
 }
 
@@ -49,17 +73,31 @@ input.btn.btn-primary.mb-3{
   height: 60px;
   width: 60px;
   border-radius: 30px;
+  font-family: 'nunito';
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+
 }
 
 textarea#message_content{
   border: 1px solid !important;
-  border-color: $pink !important;
+  border-color: white !important;
+  border-radius: 20px;
+  font-family: 'nunito';
+  font-size: 16px;
 }
 
 #mcand {
   color: $pink;
+  font-family: "roboto";
+  font-weight: 900;
+  font-size: 12px;
 }
 
 #mcomp {
-  color: #1E2A51;
+  color: $light-blue;
+  font-family: "roboto";
+  font-weight: 900;
+  font-size: 12px;
 }
