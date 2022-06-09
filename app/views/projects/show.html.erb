@@ -58,7 +58,7 @@
           <div class="tab-pane fade" id="archived-tab-pane" role="tabpanel" aria-labelledby="archived-tab" tabindex="0">
             <div class="cards_tasks">
               <% @project.tasks.each do |task|  %>
-                <% if task.status == "Archived" %>
+                <% if task.status != "Awaiting" && task.status != "Accepted" %>
                   <%= render partial: "tasks/card_task", locals: {task: task} %>
                 <% end %>
               <% end %>
