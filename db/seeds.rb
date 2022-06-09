@@ -126,7 +126,7 @@ Cameraman / Woman nouveaux médias
 ", company_id: company1.id, archived: false)
 project2 = Project.create(name: "Fary engagé", start_date: Date.today - 13, end_date: Date.today + 10, description: "Tournée internationale du stand-upper Fary avec son nouveau spectacle", company_id: company3.id, archived: true)
 project3 = Project.create(name: "HPI Saison 2", start_date: Date.today - 30, end_date: Date.today + 76, description: "160 de QI et une bonne dose d’insoumission, va voir son destin de femme de ménage chamboulé lorsque ses capacités hors norme sont repérées par la police qui lui propose un poste de consultante. Problème : Morgane déteste les flics !", company_id: company2.id, archived: true)
-project4 = Project.create(name: "Indinia Jones 5", start_date: Date.today, end_date: Date.today + 365, description: "Suite de la saga créé par Steven Spielberg", company_id: company1.id, archived: true)
+project4 = Project.create(name: "Indiania Jones 5", start_date: Date.today, end_date: Date.today + 365, description: "Suite de la saga créé par Steven Spielberg", company_id: company1.id, archived: true)
 
 puts "Projects created"
 
@@ -151,7 +151,11 @@ task3.project = projects[0]
 task3.candidate = candidates[2]
 task3.save!
 
-puts "Tasks created"
+Chatroom.create(name: projects[2].name, task: task1)
+Chatroom.create(name: projects[1].name, task: task2)
+Chatroom.create(name: projects[0].name, task: task3)
+
+puts "Tasks & chatrooms created"
 
 puts "Creating reviews..."
 
@@ -159,10 +163,12 @@ review1 = Review.new
 review1.content = "Super efficace! Nous avons adoré travaillé avec Denis."
 review1.rating = 5
 review1.task = task1
+review1.save!
 
 review2 = Review.new
 review2.content = "Très professionnel, je recommande."
 review2.rating = 5
 review2.task = task2
+review2.save!
 
 puts "Reviews created"
