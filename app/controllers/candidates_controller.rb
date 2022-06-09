@@ -21,10 +21,8 @@ class CandidatesController < ApplicationController
       @candidates = Candidate.where("role ILIKE ?", "%#{params[:role]}%")
     elsif !params[:sector].present? && !params[:role].present? && params[:address].present?
       @candidates = Candidate.where("address ILIKE ?", "%#{params[:address]}%")
-    elsif params[:commit] == "Search"
-      @candidates = Candidate.all
     else
-      @candidates = Candidate.none
+      @candidates = Candidate.all
     end
 
     @company = Company.find(params[:company_id])
