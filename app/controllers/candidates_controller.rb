@@ -21,10 +21,8 @@ class CandidatesController < ApplicationController
       @candidates = Candidate.where("role ILIKE ?", "%#{params[:role]}%")
     elsif !params[:sector].present? && !params[:role].present? && params[:address].present?
       @candidates = Candidate.where("address ILIKE ?", "%#{params[:address]}%")
-    elsif params[:commit] == "Search"
-      @candidates = Candidate.all
     else
-      @candidates = Candidate.none
+      @candidates = Candidate.all
     end
 
     @company = Company.find(params[:company_id])
@@ -51,7 +49,7 @@ class CandidatesController < ApplicationController
 
   def update
     @candidate.update(candidate_params)
-    redirect_to candidate_path(current_user)
+    redirect_to candidate_path(@candidate)
   end
 
   private
@@ -61,6 +59,6 @@ class CandidatesController < ApplicationController
   end
 
   def candidate_params
-    params.require(:candidate).permit(:first_name, :last_name, :skills, :description, :experiences, :address, :role, :availability, :sector)
+    params.require(:candidate).permit(:first_name, :last_name, :skills, :description, :address, :role, :availability, :sector, :avatar, :cv)
   end
 end

@@ -3,9 +3,9 @@
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <div>
         <% if task.candidate.avatar.attached? %>
-          <%= cl_image_tag(task.candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
+          <%= cl_image_tag(task.candidate.avatar.key) %>
         <% else %>
-          <%= image_tag("avatar", width: 50, height: 50, crop: :fill)%>
+          <%= image_tag("avatar")%>
         <% end %>
       </div>
       <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2> <br>
@@ -28,9 +28,9 @@
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <div>
         <% if task.candidate.avatar.attached? %>
-          <%= cl_image_tag(task.candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
+          <%= cl_image_tag(task.candidate.avatar.key) %>
         <% else %>
-          <%= image_tag("avatar", width: 50, height: 50, crop: :fill)%>
+          <%= image_tag("avatar")%>
         <% end %>
       </div>
       <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2> <br>
@@ -49,9 +49,9 @@
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <div>
         <% if task.candidate.avatar.attached? %>
-          <%= cl_image_tag(task.candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
+          <%= cl_image_tag(task.candidate.avatar.key) %>
         <% else %>
-          <%= image_tag("avatar", width: 50, height: 50, crop: :fill)%>
+          <%= image_tag("avatar")%>
         <% end %>
       </div>
       <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2>
@@ -83,7 +83,7 @@
         <%= link_to "Decline", decline_task_path(task), data: {action: "click->update-task-status#decline"}, class: "btn-decline"  %>
       </div>
     </div>
-  <% elsif task.status == "Accepted" && task.start_date > Date.today  %>
+  <% elsif task.status == "Accepted" && task.end_date > Date.today  %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <h2><%= task.project.name %></h2>
       <h5><%= task.project.company.name %></h5>
@@ -94,7 +94,7 @@
       </button>
       </div>
     </div>
-  <% else %>
+  <% elsif task.status == "Archived" || task.end_date < Date.today %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <h2><%= task.project.name %></h2>
       <h5><%= task.project.company.name %></h5>
