@@ -18,12 +18,14 @@
  a{
     color: white;
     text-transform: lowercase;
+    text-decoration: none;
   }
 }
 
 .btn-details:hover {
   background:$light-pink;
   opacity: 0.5;
+  text-decoration: none;
 }
 
 .btn-new {
@@ -43,20 +45,24 @@
   a{
     color: white;
     font-weight: 600;
+    text-decoration: none;
   }
 
 }
 
 .btn-new:hover {
-  background:white;;
+  background:white;
+  text-decoration: none;
   a{
     color:$pink;
+    text-decoration: none;
   }
 }
 
 .add-project {
   color: pink;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
 }
 
 .btn-edit{
@@ -76,21 +82,23 @@
   padding: 5px 20px;
   text-transform: lowercase;
   color: white;
+  text-decoration: none;
 
   a{
     color: white;
-    text-decoration: none;
     font-family: 'Nunito';
     font-style: normal;
     font-size: 13px;
     font-weight: 700;
     padding: 5px 20px;
+    text-decoration: none;
   }
 }
 
 .btn-edit:hover {
   background: $pink;
   opacity: 0.5;
+  text-decoration: none;
 }
 
 .btn-accept{
@@ -111,12 +119,14 @@
 
   a{
     color: white;
+    text-decoration: none;
   }
 }
 
 .btn-accept:hover{
 background:$pink;
 opacity: 0.5;
+text-decoration: none;
 }
 
 .btn-decline{
@@ -137,12 +147,14 @@ opacity: 0.5;
 
   a{
     color: white;
+    text-decoration: none;
   }
 }
 
 .btn-decline:hover{
 background:$cherry;
 opacity: 0.5;
+text-decoration: none;
 }
 
 
@@ -176,6 +188,7 @@ opacity: 0.5;
 .btn-archive:hover{
   background:$light-blue;
   opacity: 0.5;
+  text-decoration: none;
 }
 
 .btn-search{
@@ -200,12 +213,14 @@ opacity: 0.5;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 1px;
+    text-decoration: none;
   }
 }
 
 .btn-search:hover {
   background: $pink;
   opacity: 0.5;
+  text-decoration: none;
 }
 .btn-update{
   font-family: 'Nunito', sans-serif;
@@ -228,6 +243,7 @@ opacity: 0.5;
 .btn-update:hover {
   background: $light-blue;
   opacity: 0.5;
+  text-decoration: none;
 }
 
 
@@ -240,6 +256,7 @@ opacity: 0.5;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-ghost:hover {
@@ -252,11 +269,13 @@ opacity: 0.5;
   border-radius: 4px;
   background: #1EDD88;
   transition: background 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-flat:hover {
   background: #1BCB7F;
   color: white;
+  text-decoration: none;
 }
 
 .btn-gradient {
@@ -267,11 +286,13 @@ opacity: 0.5;
   background: linear-gradient(#167FFB, #0F60C4);
   transition: background 0.3s ease;
   border: 1px solid #0F60C4;
+  text-decoration: none;
 }
 
 .btn-gradient:hover {
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
+  text-decoration: none;
 }
 //
 
@@ -297,12 +318,19 @@ opacity: 0.5;
 
 .btn-closeee {
   color: $pink;
+  text-decoration: none;
 }
 
 .btn-closeee:hover {
   color: #1E2A51;
+  text-decoration: none;
 }
 
+.btn-see{
+  width: 130px;
+  height: 30px;
+  text-decoration: none;
+    }
 // .btn-details{
 
 // }

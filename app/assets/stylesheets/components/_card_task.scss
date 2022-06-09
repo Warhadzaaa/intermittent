@@ -18,7 +18,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
-    line-height: 18px;
+    line-height: 26px;
     text-align: center;
     color: #1E2A51;
     // padding-bottom: 8px;
@@ -66,7 +66,38 @@
     align-items: center;
     }
     .btn-archive{
-      margin-bottom: 15px;
+    margin-bottom: 15px;
     }
+    .btn{
+      font-family: 'Nunito', sans-serif;
+      text-decoration: none;
+      color: white;
+      background: $bright-blue;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+      border-radius: 31px;
+      display: inline-block;
+      text-align: center;
+      margin-top: 15px;
+      width: 130px;
+      height: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 5px 10px;
+
+    .btn:hover{
+    background:$cherry;
+    opacity: 0.5;
+    }
+
+    .btn-decline{
+      display: inline-block;
+      text-align: center;
+    }
+    .btn-accept{
+    display: inline-block;
+    text-align: center;
+    }
+   }
+
 
 }
