@@ -121,7 +121,7 @@
             <div class="tab-pane fade show active" id="pending-tab-pane" role="tabpanel" aria-labelledby="pending-tab" tabindex="0">
               <div class="cards_tasks">
                 <% @candidate.tasks.each do |task| %>
-                    <% if task.status == "Awaiting" %>
+                    <% if task.status == "Awaiting" && task.start_date > Date.today %>
                       <%= render partial: "tasks/card_task", locals: {task: task} %>
                     <% end %>
                 <% end %>
@@ -130,7 +130,7 @@
             <div class="tab-pane fade" id="ongoing-tab-pane" role="tabpanel" aria-labelledby="ongoing-tab" tabindex="0">
               <div class="cards_tasks">
                 <% @candidate.tasks.each do |task| %>
-                    <% if task.status == "Accepted" %>
+                    <% if task.status == "Accepted" && task.end_date > Date.today %>
                       <%= render partial: "tasks/card_task", locals: {task: task} %>
                     <% end %>
                 <% end %>
@@ -139,7 +139,7 @@
             <div class="tab-pane fade" id="closed-tab-pane" role="tabpanel" aria-labelledby="closed-tab" tabindex="0">
               <div class="cards_tasks">
                 <% @candidate.tasks.each do |task| %>
-                    <% if task.status == "Archived" %>
+                    <% if task.status == "Archived" || (task.status == "Accepted" && task.end_date < Date.today) %>
                       <%= render partial: "tasks/card_task", locals: {task: task} %>
                     <% end %>
                 <% end %>
