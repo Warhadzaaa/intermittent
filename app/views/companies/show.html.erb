@@ -10,9 +10,7 @@
         <% end %>
         <h1><%= @company.name %></h1>
         <h3>SIRET <%= @company.siret %></h3>
-        <h4>City</h4>
-        <p><%= @company.address %></p>
-        <h4>Description</h4>
+        <h4><%= @company.address %></h4>
         <p><%= @company.description %></p>
         <% if current_user == @company.user %>
           <%= link_to 'Edit profile',  edit_company_path(@company.id), class: "btn-edit" %>
