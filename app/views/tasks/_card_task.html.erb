@@ -83,7 +83,7 @@
         <%= link_to "Decline", decline_task_path(task), data: {action: "click->update-task-status#decline"}, class: "btn-decline"  %>
       </div>
     </div>
-  <% elsif task.status == "Accepted" && task.start_date > Date.today  %>
+  <% elsif task.status == "Accepted" && task.end_date > Date.today  %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <h2><%= task.project.name %></h2>
       <h5><%= task.project.company.name %></h5>
@@ -94,7 +94,7 @@
       </button>
       </div>
     </div>
-  <% else %>
+  <% elsif task.status == "Archived" || task.end_date < Date.today %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
       <h2><%= task.project.name %></h2>
       <h5><%= task.project.company.name %></h5>
