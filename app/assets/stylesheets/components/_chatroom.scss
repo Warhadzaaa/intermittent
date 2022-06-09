@@ -30,6 +30,13 @@
     padding: 1rem;
     border-top: 1px solid $pink;
     border-left: 1px solid $pink;;
+
+  }
+
+  .messages-content {
+    background-color: #EBEAEA;
+    border-radius: 40px;
+    // width: 300px;
   }
 
   #new_message {
