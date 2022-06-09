@@ -53,7 +53,7 @@
               </button>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="messageDropdown">
                 <% current_user.candidates.first.tasks.each do |task| %>
-                  <%= link_to task.project.name, chatroom_path(task.chatroom), class: "dropdown-item" %>
+                  <%= link_to "#{task.project.company.name} (#{task.project.name})", chatroom_path(task.chatroom), class: "dropdown-item" %>
                 <% end %>
               </div>
             </li>
