@@ -35,34 +35,35 @@ puts "Users created"
 
 puts "Creating candidates..."
 
-candidate1 = Candidate.create(first_name: "Jean-Jacques", last_name: "Albert", sector: "TV production", role:"Production Manager", skills: "Management, organisation", experiences: "Production Manager for La Famille Belier", description: " Production manager on several tv productions in France like La famille Bélier, Les femmes du 6ème étage", address: "Paris", user: user1)
+candidate1 = Candidate.create(first_name: "Denis", last_name: "Brassard", sector: "TV production", role:"Cameraman", skills: "Management, organisation", description: " Camaraman on several tv productions in France like La famille Bélier, Les femmes du 6ème étage", address: "Paris", user: user1)
 candidate1.avatar.attach(io: File.open(Rails.root.join('app/assets/images/albert_jean-jacques.png')), filename: "avatar.png", content_type: "image/png")
+candidate1.cv.attach(io: File.open(Rails.root.join('app/assets/images/cvdenis.png')), filename: "cv.png", content_type: "image/png")
 
-candidate2 = Candidate.create(first_name: "Nadine", last_name: "Chaussonnière", sector: "TV production", role:"Production Manager", skills: " Gestion, Management", experiences: " TV-Show: Bad Banks, Poison sur LM", description:"Looking for my next interesting project", address: "Paris", user: user2)
+candidate2 = Candidate.create(first_name: "Nadine", last_name: "Chaussonnière", sector: "TV production", role:"Production Manager", skills: " Gestion, Management", description:"Looking for my next interesting project", address: "Paris", user: user2)
 candidate2.avatar.attach(io: File.open(Rails.root.join('app/assets/images/nadine.png')), filename: "avatar.png", content_type: "image/png")
 
-candidate3 = Candidate.create(first_name: "Christophe", last_name: "Lechat", sector: "TV production", role:"Chief Editor", skills: "Final cut Pro, Adobe premiere, Avid", experiences: "Video journalist / Editor at Mediawan", description:" I am really proud of my reviews. Let's have a look", address: "Paris", user: user3)
+candidate3 = Candidate.create(first_name: "Christophe", last_name: "Lechat", sector: "TV production", role:"Chief Editor", skills: "Final cut Pro, Adobe premiere, Avid", description:" I am really proud of my reviews. Let's have a look", address: "Paris", user: user3)
 candidate3.avatar.attach(io: File.open(Rails.root.join('app/assets/images/christophe_lechat.png')), filename: "avatar.png", content_type: "image/png")
 
-candidate4 = Candidate.create(first_name: "Cassandre", last_name: "Picot", sector: "Movie production", role:"Make-up artist", skills: "TV and cinema make-up ", experiences: "Make", description:" I'm doing the make-up for almost every tv-program on M6", address: "Paris", user: user4)
+candidate4 = Candidate.create(first_name: "Cassandre", last_name: "Picot", sector: "Movie production", role:"Make-up artist", skills: "TV and cinema make-up ", description:" I'm doing the make-up for almost every tv-program on M6", address: "Paris", user: user4)
 candidate4.avatar.attach(io: File.open(Rails.root.join('app/assets/images/cassandre_picot.png')), filename: "avatar.png", content_type: "image/png")
 
-candidate5 = Candidate.create(first_name: "Frederic", last_name: "Claude", sector: "TV production", role:"Cameraman", skills: "live recording", experiences: "Iqui cus minient, officid ebiscid quiandemolor", description:"I've spent more than a decade at the AB Group in France", address: "Paris", user: user5)
+candidate5 = Candidate.create(first_name: "Frederic", last_name: "Claude", sector: "TV production", role:"Cameraman", skills: "live recording", description:"I've spent more than a decade at the AB Group in France", address: "Paris", user: user5)
 candidate5.avatar.attach(io: File.open(Rails.root.join('app/assets/images/fred_claude.png')), filename: "avatar.png", content_type: "image/png")
 
-candidate6 = Candidate.create(first_name: "Laura", last_name: "Jaud", sector: "Live performance", role:"Live coordinator", skills: "Management", experiences: "10 years working for Live Nation France", description:" I was in charge of the Lollapolooza Festival in Paris", address: "Paris", user: user6)
+candidate6 = Candidate.create(first_name: "Laura", last_name: "Jaud", sector: "Live performance", role:"Live coordinator", skills: "Management", description:" I was in charge of the Lollapolooza Festival in Paris", address: "Paris", user: user6)
 candidate6.avatar.attach(io: File.open(Rails.root.join('app/assets/images/laura_jaud.png')), filename: "avatar.png", content_type: "image/png")
 
-candidate7 = Candidate.create(first_name: "Julien", last_name: "Keita", sector: "Cultural center", role:"Campus Manager", skills: "Management, gestion, Excel", experiences: "Campus Manager at le Cube", description:" After managing several centers in Paris, I relocated in Orleans ", address: "Orleans", user: user7)
+candidate7 = Candidate.create(first_name: "Julien", last_name: "Keita", sector: "Cultural center", role:"Campus Manager", skills: "Management, gestion, Excel", description:" After managing several centers in Paris, I relocated in Orleans ", address: "Orleans", user: user7)
 candidate7.avatar.attach(io: File.open(Rails.root.join('app/assets/images/julien.png')), filename: "avatar.png", content_type: "image/png")
 
-candidate8 = Candidate.create(first_name: "Philippe", last_name: "Diop", sector: "Animation movie", role:"Set designer", skills: "After Effects, Photoshop, Visual effects", experiences: "4 years as set designer at Illumination Mac Guff", description:"I worked on Sing 2", address: "Paris", user: user8)
+candidate8 = Candidate.create(first_name: "Philippe", last_name: "Diop", sector: "Animation movie", role:"Set designer", skills: "After Effects, Photoshop, Visual effects", description:"I worked on Sing 2", address: "Paris", user: user8)
 candidate8.avatar.attach(io: File.open(Rails.root.join('app/assets/images/philippe_diop.png')), filename: "avatar.png", content_type: "image/png")
 
-candidate9 = Candidate.create(first_name: "Myriam", last_name: "Gilles", sector: "Audio-book publishing", role:"Audio production Manager", skills: "Management, Marketing strategy", experiences: "12 years working at Audible studios", description:"I'm used to work on big budget audio production", address: "Paris", user: user9)
+candidate9 = Candidate.create(first_name: "Myriam", last_name: "Gilles", sector: "Audio-book publishing", role:"Audio production Manager", skills: "Management, Marketing strategy", description:"I'm used to work on big budget audio production", address: "Paris", user: user9)
 candidate9.avatar.attach(io: File.open(Rails.root.join('app/assets/images/myriam_gilles.png')), filename: "avatar.png", content_type: "image/png")
 
-candidate10 = Candidate.create(first_name: "Dominique", last_name: "Besnehard", sector: "TV production", role:"Executive producer", skills: "Casting, Management ", experiences: "Five seasons of 10 pour cent", description:"After a life as a casting director, I've decided to jump behind the scene", address: "Paris", user: user10)
+candidate10 = Candidate.create(first_name: "Dominique", last_name: "Besnehard", sector: "TV production", role:"Executive producer", skills: "Casting, Management ", description:"After a life as a casting director, I've decided to jump behind the scene", address: "Paris", user: user10)
 candidate10.avatar.attach(io: File.open(Rails.root.join('app/assets/images/dominique.png')), filename: "avatar.png", content_type: "image/png")
 
 puts "Candidates created"

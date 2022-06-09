@@ -8,7 +8,7 @@
         <%= f.input :sector, collection: Candidate::SECTOR %>
         <%= f.input :role %>
         <%= f.input :description %>
-        <%= f.input :experiences %>
+        <%= f.input :cv, as: :file %>
         <%= f.input :skills %>
         <%= f.input :avatar, as: :file, input_html: { autocomplete: "avatar" } %>
         <%= f.button :submit, "Update" %>

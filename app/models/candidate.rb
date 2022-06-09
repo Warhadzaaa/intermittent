@@ -5,5 +5,5 @@ class Candidate < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_one :review, through: :tasks
   has_one_attached :avatar
-
+  has_one_attached :cv
 end
