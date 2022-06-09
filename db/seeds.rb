@@ -8,8 +8,6 @@
 
 require "open-uri"
 
-Task.destroy_all
-Chatroom.destroy_all
 Candidate.destroy_all
 Company.destroy_all
 User.destroy_all
@@ -89,70 +87,8 @@ puts "Companies created"
 puts "Creating projects..."
 
 project1 = Project.create(name: "Black Panther 2", start_date: Date.today - 10, end_date: Date.today + 65, description: "Suite de la saga de Disney", company_id: company1.id, archived: false)
+project2 = Project.create(name: "Fary engagé", start_date: Date.today - 1, end_date: Date.today + 10, description: "Tournée internationale du stand-upper Fary avec son nouveau spectacle", company_id: company3.id, archived: true)
 project4 = Project.create(name: "Indinia Jones 5", start_date: Date.today, end_date: Date.today + 365, description: "Suite de la saga créé par Steven Spielberg", company_id: company2.id, archived: false)
 project3 = Project.create(name: "HPI Saison 2", start_date: Date.today - 30, end_date: Date.today + 76, description: "160 de QI et une bonne dose d’insoumission, va voir son destin de femme de ménage chamboulé lorsque ses capacités hors norme sont repérées par la police qui lui propose un poste de consultante. Problème : Morgane déteste les flics !", company_id: company1.id, archived: false)
-project2 = Project.create(name: "Fary engagé", start_date: Date.today - 1, end_date: Date.today + 10, description: "Tournée internationale du stand-upper Fary avec son nouveau spectacle", company_id: company3.id, archived: true)
 
 puts "Projects created"
-
-puts "Creating tasks..."
-
-
-task1 = Task.new(status: "Accepted", start_date: Date.today - 5, end_date: Date.today + 6)
-task1.project = Project.first
-task1.candidate = Candidate.first
-task1.save!
-chatroom1 = Chatroom.create(name: Project.first.name, task: task1)
-
-task2 = Task.new(status: "Awaiting", start_date: Date.today + 3, end_date: Date.today + 15)
-task2.project = Project.first
-task2.candidate = Candidate.last
-task2.save!
-chatroom2 = Chatroom.create(name: Project.first.name, task: task2)
-
-task3 = Task.new(status: "Archived", start_date: Date.today - 18, end_date: Date.today - 5)
-task3.project = Project.first
-task3.candidate = Candidate.last
-task3.save!
-chatroom3 = Chatroom.create(name: Project.first.name, task: task3)
-
-task4 = Task.new(status: "Accepted", start_date: Date.today + 23, end_date: Date.today + 45)
-task4.project = Project.last
-task4.candidate = Candidate.last
-task4.save!
-chatroom4 = Chatroom.create(name: Project.first.name, task: task4)
-
-task5 = Task.new(status: "Archived", start_date: Date.today - 10, end_date: Date.today - 6)
-task5.project = Project.last
-task5.candidate = Candidate.last
-task5.save!
-chatroom5 = Chatroom.create(name: Project.first.name, task: task5)
-
-task6 = Task.new(status: "Accepted", start_date: Date.today + 3, end_date: Date.today + 23)
-task6.project = Project.last
-task6.candidate = Candidate.first
-task6.save!
-chatroom6 = Chatroom.create(name: Project.first.name, task: task6)
-
-task7 = Task.new(status: "Awaiting", start_date: Date.today + 28, end_date: Date.today + 35)
-task7.project = Project.last
-task7.candidate = Candidate.first
-task7.save!
-chatroom7 = Chatroom.create(name: Project.first.name, task: task7)
-
-task8 = Task.new(status: "Awaiting", start_date: Date.today - 7, end_date: Date.today )
-task8.project = Project.last
-task8.candidate = Candidate.first
-task8.save!
-chatroom8 = Chatroom.create(name: Project.first.name, task: task8)
-
-puts "Tasks and chatrooms created"
-
-puts "Creating reviews..."
-
-review1= Review.new(content: "Il a été parfait durant ce projet", rating: 4, task_id: task1)
-review2= Review.new(content: "Pafait pour le job. Très content de l'avoir rencontré. Le contacterai pour un prochain projet", rating: 5, task_id: task5)
-review3= Review.new(content: "Je remercie Dominique d'avoir accepté de participer au film. Sans lui, le tournage n'aurait pas pu se faire.", rating: 5, task_id: task3)
-
-
-puts "Reviews created"
