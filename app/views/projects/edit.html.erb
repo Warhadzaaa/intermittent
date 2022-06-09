@@ -2,7 +2,7 @@
   <h2>Edit project</h2>
   <div class="formulaire">
     <div>
-      <%= simple_form_for [@company, @project] do |f| %>
+      <%= simple_form_for [@project.company, @project] do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.input :start_date %>

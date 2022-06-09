@@ -15,21 +15,21 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.company = Company.find(params[:company_id])
     @project.save
-    redirect_to company_projects_path(@project)
+    redirect_to company_project_path(@project.company, @project)
   end
 
   def edit
   end
 
-  def archived
+  def archive
     @project = Project.find(params[:id])
-    @project.update(archived: !@project.archived)
+    @project.update(archived: true)
     redirect_to company_path(@project.company)
   end
 
   def update
     @project.update(project_params)
-    redirect_to company_project_path(@project)
+    redirect_to company_project_path(@project.company, @project)
   end
 
   private

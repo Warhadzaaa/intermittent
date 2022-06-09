@@ -2,7 +2,6 @@ class CandidatesController < ApplicationController
   before_action :set_candidate, only: %i[show edit update]
 
   def index
-    # raise
     if params[:sector].present? && params[:role].present? && params[:address].present?
       @candidates = Candidate.where("sector ILIKE ?", "%#{params[:sector]}%")
       @candidates = @candidates.where("role ILIKE ?", "%#{params[:role]}%")

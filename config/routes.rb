@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :companies, only: %i[show edit update] do
-    resources :projects, except: %i[index destroy update edit] do
+    resources :projects, except: %i[index destroy] do
       resources :candidates, only: %i[index show] do
         resources :tasks, only: :create do
           resources :reviews, only: :create
@@ -26,13 +26,18 @@ Rails.application.routes.draw do
     end
   end
 
-   get "archived/:id", to: "projects#archived", as: "archived"
-
   resources :candidates, except: %i[index destroy]
+  #  get "archived/:id", to: "projects#archived", as: "archived"
   # resources :tasks, only: %i[update]
-  resources :projects, only: %i[update edit] do
+  # resources :projects, only: %i[update edit] do
+  #   member do
+  #     post "archive", to: "projects#archive"
+  #   end
+  # end
+
+  resources :projects, only: [] do
     member do
-      post "archive", to: "projects#archive"
+      patch :archive
     end
   end
 
@@ -43,7 +48,6 @@ Rails.application.routes.draw do
       get :archive
     end
   end
-
 
   # get 'accept', to: 'tasks#accept'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

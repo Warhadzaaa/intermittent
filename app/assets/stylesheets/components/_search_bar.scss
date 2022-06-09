@@ -1,20 +1,48 @@
 .search-bar {
   margin-top: 30px;
   background-color: $pink;
-
-
-
+  border-radius: 20px;
+  width: 800px;
 
   select {
+    text-align: center;
     background-color: $pink;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    opacity: 50%;
-    color: #212529;
+    border-radius: 20px 0px 0px 20px;
+    border-style: none;
+    color: $blue;
   }
 
-  input {
+  .form-control {
     background-color: $pink;
+    border-style: none;
+    text-align: center;
   }
+
+
+  .form-control::placeholder {
+    color: $blue;
+  }
+
+
+
+
+
+  .btn {
+    background-color: $blue;
+    border-style: none;
+    border-radius: 0px 20px 20px 0px;
+    text-align: center;
+    color: white;
+
+
+  }
+
+  .btn:hover {
+    background-color: $light-blue;
+
+
+  }
+
+
+
 }

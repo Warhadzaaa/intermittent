@@ -1,36 +1,67 @@
 .card_profile_company{
   background: #ABBFCB;
-  box-shadow: 5px 5px 28px rgba(0, 0, 0, 0.07);
-  width: 400px;
-  height: 650px;
+  box-shadow: 5px 5px 28px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  height: fit-content;
   align-items: center;
+  flex-direction: column;
+  display:flex;
   justify-content: center;
+  border-radius: 40px;
+  padding: 30px;
+  margin-right: 70px;
+  margin-top: 60px;
+
 
   h1{
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 800;
   font-size: 36px;
-  line-height: 40px;
+  line-height: 25px;
   text-align: center;
   color: $blue
   }
-  p{
+
+  h3{
     font-family: 'Nunito';
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 800;
+    font-size: 13px;
     line-height: 22px;
     text-align: center;
+    color: $blue
   }
 
   h4{
     font-family: 'Nunito';
     font-style: normal;
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 0px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
     text-align: center;
-    color: white
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
+  p{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 12px;
+    text-align: center;
+    color: $blue;
+  }
+
+  img{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 30px;
+
+  }
+
+
 }

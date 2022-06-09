@@ -5,13 +5,13 @@
         <% if task.candidate.avatar.attached? %>
           <%= cl_image_tag(task.candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
         <% else %>
-          <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
+          <%= image_tag("avatar", width: 50, height: 50, crop: :fill)%>
         <% end %>
       </div>
-      <p><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></p>
-      <p><%= "From #{task.start_date}" %></p>
-      <p><%= "To #{task.end_date}" %></p>
-      <p><%= task.candidate.role %></p>
+      <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2> <br>
+      <h3><%= "From #{task.start_date}" %></h3>
+      <h3><%= "To #{task.end_date}" %></h3>
+      <h5><%= task.candidate.role %></h5>
       <% if task.review.nil? && task.end_date < Date.today %>
         <!-- Pop-up -->
         <!-- Button trigger modal -->
@@ -19,9 +19,10 @@
           Write a review
         </button>
       <% end %>
-        <div class="status" >
-          <%= link_to "Archive", archive_task_path(task), data: {action: "click->update-task-status#archive"}, class: "btn-archive"  %>
-        </div>
+      <div class="status" >
+        <%= link_to "archive", archive_task_path(task), data: {action: "click->update-task-status#archive"}, class: "btn-archive"  %>
+      </div>
+      <%= link_to "More details", company_project_candidate_path(@company, @project, task.candidate), class: "btn-details" %>
     </div>
   <% elsif task.status == "Awaiting" %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
@@ -29,17 +30,18 @@
         <% if task.candidate.avatar.attached? %>
           <%= cl_image_tag(task.candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
         <% else %>
-          <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
+          <%= image_tag("avatar", width: 50, height: 50, crop: :fill)%>
         <% end %>
       </div>
-      <p><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></p>
-      <p><%= "From #{task.start_date}" %></p>
-      <p><%= "To #{task.end_date}" %></p>
-      <p><%= task.candidate.role %></p>
+      <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2> <br>
+      <h3><%= "From #{task.start_date}" %></h3>
+      <h3><%= "To #{task.end_date}" %></h3>
+      <h5><%= task.candidate.role %></h5>
       <% if task.status != "Archived" %>
         <div class="status" >
           <%= link_to "Archive", archive_task_path(task), data: {action: "click->update-task-status#archive"}, class: "btn-archive"  %>
         </div>
+        <%= link_to "More details", company_project_candidate_path(@company, @project, task.candidate), class: "btn-details" %>
       <% end %>
     </div>
 
@@ -49,24 +51,25 @@
         <% if task.candidate.avatar.attached? %>
           <%= cl_image_tag(task.candidate.avatar.key, width: 50, height: 50, crop: :fill) %>
         <% else %>
-          <%= image_tag("https://picsum.photos/400/300", width: 50, height: 50, crop: :fill)%>
+          <%= image_tag("avatar", width: 50, height: 50, crop: :fill)%>
         <% end %>
       </div>
-      <p><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></p>
-      <p><%= "From #{task.start_date}" %></p>
-      <p><%= "To #{task.end_date}" %></p>
-      <p><%= task.candidate.role %></p>
+      <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2>
+      <h3><%= "From #{task.start_date}" %></h3>
+      <h3><%= "To #{task.end_date}" %></h3>
+      <h5><%= task.candidate.role %></h5>
+      <%= link_to "More details", company_project_candidate_path(@company, @project, task.candidate), class: "btn-details" %>
     </div>
   <% end %>
 <% else %> <!-- else user candidate -->
-  <% if task.status == "Awaiting" && task.end_date > Date.today %>
+  <% if task.status == "Awaiting" && task.start_date > Date.today %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
-      <p><%= task.project.name %></p>
-      <p><%= task.project.company.name %></p>
-      <p><%= "From #{task.start_date}" %></p>
-      <p><%= "To #{task.end_date}" %></p>
+      <h2><%= task.project.name %></h2>
+      <h5><%= task.project.company.name %></h5>
+      <h3><%= "From #{task.start_date}" %></h3>
+      <h3><%= "To #{task.end_date}" %></h3>
       <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target=".bd-project_description-lg">
-            See the description
+           See the description
       </button>
       <div class="modal fade bd-project_description-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -80,12 +83,12 @@
         <%= link_to "Decline", decline_task_path(task), data: {action: "click->update-task-status#decline"}, class: "btn-decline"  %>
       </div>
     </div>
-  <% elsif task.status == "Accepted" && task.end_date > Date.today  %>
+  <% elsif task.status == "Accepted" && task.start_date > Date.today  %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
-      <p><%= task.project.name %></p>
-      <p><%= task.project.company.name %></p>
-      <p><%= "From #{task.start_date}" %></p>
-      <p><%= "To #{task.end_date}" %></p>
+      <h2><%= task.project.name %></h2>
+      <h5><%= task.project.company.name %></h5>
+      <h3><%= "From #{task.start_date}" %></h3>
+      <h3><%= "To #{task.end_date}" %></h3>
       <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target=".bd-project_description-lg">
             See the description
       </button>
@@ -99,10 +102,10 @@
     </div>
   <% else %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
-      <p><%= task.project.name %></p>
-      <p><%= task.project.company.name %></p>
-      <p><%= "From #{task.start_date}" %></p>
-      <p><%= "To #{task.end_date}" %></p>
+      <h2><%= task.project.name %></h2>
+      <h5><%= task.project.company.name %></h5>
+      <h3><%= "From #{task.start_date}" %></h3>
+      <h3><%= "To #{task.end_date}" %></h3>
       <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target=".bd-project_description-lg">
             See the description
       </button>
