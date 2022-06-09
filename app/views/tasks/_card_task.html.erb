@@ -8,7 +8,7 @@
           <%= image_tag("avatar")%>
         <% end %>
       </div>
-      <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2> <br>
+      <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2>
       <h3><%= "From #{task.start_date}" %></h3>
       <h3><%= "To #{task.end_date}" %></h3>
       <h5><%= task.candidate.role %></h5>
@@ -33,7 +33,7 @@
           <%= image_tag("avatar")%>
         <% end %>
       </div>
-      <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2> <br>
+      <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2>
       <h3><%= "From #{task.start_date}" %></h3>
       <h3><%= "To #{task.end_date}" %></h3>
       <h5><%= task.candidate.role %></h5>
@@ -69,7 +69,7 @@
       <h3><%= "From #{task.start_date}" %></h3>
       <h3><%= "To #{task.end_date}" %></h3>
       <button type="button" class="btn btn-view-details" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= task.id %>">
-        See the description
+        see description
       </button>
       <div class="modal fade bd-project_description-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -78,10 +78,9 @@
           </div>
         </div>
       </div>
-      <div class="status" >
-        <%= link_to "Accept", accept_task_path(task), data: {action: "click->update-task-status#accept"}, class: "btn-accept"  %>
-        <%= link_to "Decline", decline_task_path(task), data: {action: "click->update-task-status#decline"}, class: "btn-decline"  %>
-      </div>
+      <%= link_to "Accept", accept_task_path(task), data: {action: "click->update-task-status#accept"}, class: "btn-accept"  %>
+      <%= link_to "Decline", decline_task_path(task), data: {action: "click->update-task-status#decline"}, class: "btn-decline"  %>
+
     </div>
   <% elsif task.status == "Accepted" && task.end_date > Date.today  %>
     <div class="card_task" data-controller="update-task-status" data-update-task-status-target="task">
@@ -90,7 +89,7 @@
       <h3><%= "From #{task.start_date}" %></h3>
       <h3><%= "To #{task.end_date}" %></h3>
       <button type="button" class="btn btn-view-details" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= task.id %>">
-        See the description
+        see description
       </button>
       </div>
     </div>
@@ -100,8 +99,8 @@
       <h5><%= task.project.company.name %></h5>
       <h3><%= "From #{task.start_date}" %></h3>
       <h3><%= "To #{task.end_date}" %></h3>
-      <button type="button" class="btn-view-details" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= task.id %>">
-        See the description
+      <button type="button" class="btn btn-view-details" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= task.id %>">
+        see description
       </button>
 
 
