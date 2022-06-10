@@ -8,7 +8,7 @@
         <% if @candidate.avatar.attached? %>
           <%= cl_image_tag(@candidate.avatar.key) %>
         <% else %>
-          <%= image_tag("avatar")%>
+          <%= image_tag("avatar.png")%>
         <% end %>
 
         <h1><%= @candidate.first_name %> <%= @candidate.last_name %></h1>

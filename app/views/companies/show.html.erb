@@ -6,7 +6,7 @@
         <% if @company.avatar.attached? %>
           <%= cl_image_tag(@company.avatar.key) %>
         <% else %>
-          <%= image_tag("avatarcompany")%>
+          <%= image_tag("avatarcompany.png")%>
         <% end %>
         <h1><%= @company.name %></h1>
         <h3>SIRET <%= @company.siret %></h3>
