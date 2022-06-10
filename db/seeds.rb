@@ -39,7 +39,7 @@ puts "Users created"
 
 puts "Creating candidates..."
 
-candidate1 = Candidate.create(first_name: "Denis", last_name: "Brassard", sector: "TV production", role: "Cameraman", skills: "Management, organisation", description: " Camaraman on several tv productions in France like La famille Bélier, Les femmes du 6ème étage", address: "Paris", user: user1)
+candidate1 = Candidate.create(first_name: "Denis", last_name: "Brassard", sector: "Movie production", role: "Cameraman", skills: "Management, organisation", description: " Camaraman on several tv productions in France like La famille Bélier, Les femmes du 6ème étage", address: "Paris", user: user1)
 candidate1.avatar.attach(io: File.open(Rails.root.join('app/assets/images/albert_jean-jacques.png')), filename: "avatar.png", content_type: "image/png")
 candidate1.cv.attach(io: File.open(Rails.root.join('app/assets/images/cvdenis.png')), filename: "cv.png", content_type: "image/png")
 
@@ -52,7 +52,7 @@ candidate3.avatar.attach(io: File.open(Rails.root.join('app/assets/images/christ
 candidate4 = Candidate.create(first_name: "Cassandre", last_name: "Picot", sector: "Movie production", role:"Make-up artist", skills: "TV and cinema make-up ", description:" I'm doing the make-up for almost every tv-program on M6", address: "Paris", user: user4)
 candidate4.avatar.attach(io: File.open(Rails.root.join('app/assets/images/cassandre_picot.png')), filename: "avatar.png", content_type: "image/png")
 
-candidate5 = Candidate.create(first_name: "Frederic", last_name: "Claude", sector: "TV production", role:"Cameraman", skills: "live recording", description:"I've spent more than a decade at the AB Group in France", address: "Paris", user: user5)
+candidate5 = Candidate.create(first_name: "Frederic", last_name: "Claude", sector: "Movie production", role:"Cameraman", skills: "live recording", description:"I've spent more than a decade at the AB Group in France", address: "Paris", user: user5)
 candidate5.avatar.attach(io: File.open(Rails.root.join('app/assets/images/fred_claude.png')), filename: "avatar.png", content_type: "image/png")
 
 candidate6 = Candidate.create(first_name: "Laura", last_name: "Jaud", sector: "Live performance", role:"Live coordinator", skills: "Management", description:" I was in charge of the Lollapolooza Festival in Paris", address: "Paris", user: user6)
