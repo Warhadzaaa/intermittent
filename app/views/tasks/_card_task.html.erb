@@ -5,7 +5,7 @@
         <% if task.candidate.avatar.attached? %>
           <%= cl_image_tag(task.candidate.avatar.key) %>
         <% else %>
-          <%= image_tag("avatar")%>
+          <%= image_tag("avatar.png")%>
         <% end %>
       </div>
       <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2> <br>
@@ -30,7 +30,7 @@
         <% if task.candidate.avatar.attached? %>
           <%= cl_image_tag(task.candidate.avatar.key) %>
         <% else %>
-          <%= image_tag("avatar")%>
+          <%= image_tag("avatar.png")%>
         <% end %>
       </div>
       <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2> <br>
@@ -51,7 +51,7 @@
         <% if task.candidate.avatar.attached? %>
           <%= cl_image_tag(task.candidate.avatar.key) %>
         <% else %>
-          <%= image_tag("avatar")%>
+          <%= image_tag("avatar.png")%>
         <% end %>
       </div>
       <h2><%= "#{task.candidate.first_name} #{task.candidate.last_name}" %></h2>
