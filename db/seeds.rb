@@ -32,6 +32,8 @@ user13 = User.create(email: "user13@gmail.com", password: "toto22", corporate: t
 user14 = User.create(email: "user14@gmail.com", password: "toto22", corporate: false)
 user15 = User.create(email: "user15@gmail.com", password: "toto22", corporate: false)
 user16 = User.create(email: "user16@gmail.com", password: "toto22", corporate: false)
+user17 = User.create(email: "user17@gmail.com", password: "toto22", corporate: false)
+user18 = User.create(email: "user18@gmail.com", password: "toto22", corporate: false)
 
 
 
@@ -40,7 +42,7 @@ puts "Users created"
 puts "Creating candidates..."
 
 candidate1 = Candidate.create(first_name: "Denis", last_name: "Brassard", sector: "Movie production", role: "Cameraman", skills: "Management, organisation", description: " Camaraman on several tv productions in France like La famille Bélier, Les femmes du 6ème étage", address: "Paris", user: user1)
-candidate1.avatar.attach(io: File.open(Rails.root.join('app/assets/images/albert_jean-jacques.png')), filename: "avatar.png", content_type: "image/png")
+candidate1.avatar.attach(io: File.open(Rails.root.join('app/assets/images/denis.png')), filename: "avatar.png", content_type: "image/png")
 candidate1.cv.attach(io: File.open(Rails.root.join('app/assets/images/cvdenis.png')), filename: "cv.png", content_type: "image/png")
 
 candidate2 = Candidate.create(first_name: "Nadine", last_name: "Chaussonnière", sector: "TV production", role:"Production Manager", skills: " Gestion, Management", description:"Looking for my next interesting project", address: "Paris", user: user2)
@@ -55,6 +57,9 @@ candidate4.avatar.attach(io: File.open(Rails.root.join('app/assets/images/cassan
 candidate5 = Candidate.create(first_name: "Frederic", last_name: "Claude", sector: "Movie production", role:"Cameraman", skills: "live recording", description:"I've spent more than a decade at the AB Group in France", address: "Paris", user: user5)
 candidate5.avatar.attach(io: File.open(Rails.root.join('app/assets/images/fred_claude.png')), filename: "avatar.png", content_type: "image/png")
 
+Candidate.create(first_name: "Pierre", last_name: "Dupuis", sector: "Movie production", role:"Cameraman", skills: "Prise de vue, grue", description:"young with experience", address: "Paris", user: user18)
+puts "Candidates created"
+
 candidate6 = Candidate.create(first_name: "Laura", last_name: "Jaud", sector: "Live performance", role:"Live coordinator", skills: "Management", description:" I was in charge of the Lollapolooza Festival in Paris", address: "Paris", user: user6)
 candidate6.avatar.attach(io: File.open(Rails.root.join('app/assets/images/laura_jaud.png')), filename: "avatar.png", content_type: "image/png")
 
@@ -67,8 +72,7 @@ candidate8.avatar.attach(io: File.open(Rails.root.join('app/assets/images/philip
 candidate9 = Candidate.create(first_name: "Myriam", last_name: "Gilles", sector: "Audio-book publishing", role:"Audio production Manager", skills: "Management, Marketing strategy", description:"I'm used to work on big budget audio production", address: "Paris", user: user9)
 candidate9.avatar.attach(io: File.open(Rails.root.join('app/assets/images/myriam_gilles.png')), filename: "avatar.png", content_type: "image/png")
 
-candidate10 = Candidate.create(first_name: "Dominique", last_name: "Besnehard", sector: "TV production", role:"Executive producer", skills: "Casting, Management ", description:"After a life as a casting director, I've decided to jump behind the scene", address: "Paris", user: user10)
-candidate10.avatar.attach(io: File.open(Rails.root.join('app/assets/images/dominique.png')), filename: "avatar.png", content_type: "image/png")
+Candidate.create(first_name: "Dominique", last_name: "Besnehard", sector: "TV production", role:"Executive producer", skills: "Casting, Management ", description:"After a life as a casting director, I've decided to jump behind the scene", address: "Paris", user: user10)
 
 candidate11 = Candidate.create(first_name: "Maxime", last_name: "Delayat", sector: "Movie production", role:"Cameraman", skills: "Prise de vue, grue", description:"Easy to work with and to direct", address: "Paris", user: user14)
 candidate11.avatar.attach(io: File.open(Rails.root.join('app/assets/images/maximedelayat.png')), filename: "avatar.png", content_type: "image/png")
@@ -79,10 +83,9 @@ candidate12.avatar.attach(io: File.open(Rails.root.join('app/assets/images/willi
 candidate13 = Candidate.create(first_name: "Nastasia", last_name: "Moreira", sector: "Movie production", role:"Cameraman", skills: "Prise de vue, grue", description:"young with experience", address: "Paris", user: user16)
 candidate13.avatar.attach(io: File.open(Rails.root.join('app/assets/images/nastasiamoreira.png')), filename: "avatar.png", content_type: "image/png")
 
+Candidate.create(first_name: "Sophie", last_name: "Leblanc", sector: "Movie production", role:"Cameraman", skills: "Prise de vue, grue", description:"young with experience", address: "Paris", user: user17)
 
 puts "Candidates created"
-
-
 
 puts "Creating companies..."
 
