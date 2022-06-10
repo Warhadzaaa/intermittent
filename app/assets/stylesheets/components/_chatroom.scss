@@ -1,5 +1,5 @@
 .chatroom {
-  background:#809EB0;
+  background: #D1ACA7;
   margin-top: 50px;
   margin-bottom: 50px;
   height: calc(100vh - 75px);
@@ -11,19 +11,17 @@
   // border-color: #1E2A51 !important;
   border-radius: 40px;
   box-shadow: 5px 5px 28px rgba(0, 0, 0, 0.2);
-  padding: 40px 80px 80px 80px;
+  padding: 10px 50px 40px 50px;
   border-radius: 20px;
       width: 70%;
 
 
   h1 {
-    margin-bottom: 20px;
     padding: 1rem;
     font-size: 36px;
     font-family: 'Roboto';
-    line-height: 52px;
     font-weight: 900;
-    color: white;
+    color: #1E2A51;
     letter-spacing: 1px;
     line-height: 36px;
   }
@@ -33,13 +31,17 @@
     overflow: scroll;
     padding: 1.5rem;
     background-color: white;
-    border-radius: 25px;
+    border-radius: 20px;
 
   }
 
   .btn-closeee {
     color: #1E2A51;
     text-decoration: none;
+    height: 22px;
+    width: 22px;
+    margin-top: 10px;
+
 }
 .btn-closeee:hover {
   color: white ;
@@ -68,16 +70,22 @@
 }
 
 input.btn.btn-primary.mb-3{
-  background-color: #1E2A51 !important;
-  margin-left: 20px;
-  height: 60px;
-  width: 60px;
-  border-radius: 30px;
+  background-color: #1E2A51;
+  margin-left: 15px;
+  height: 62px;
+  width: 66px;
+  border-radius: 20px;
   font-family: 'nunito';
   font-size: 15px;
   font-weight: 700;
-  color: white;
+  color: #D1ACA7;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
 
+.input.btn.btn-primary.mb-3:hover{
+  color: white !important;
+  background-color: #D1ACA7;
+  text-decoration: none;
 }
 
 textarea#message_content{
