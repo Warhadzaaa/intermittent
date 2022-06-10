@@ -5,3 +5,17 @@
 abbr {
   display: none;
 }
+
+
+.modal-content {
+  border-radius: 20px !important;
+  padding: 20px;
+  font-family: "nunito";
+  box-shadow: 3px 3px 6px 2px rgba(0, 0, 0, 0.3);
+
+}
+
+.modal-header {
+  border-bottom: 1px solid #FF8A85 !important;
+  color: #2C5E7C;
+}
